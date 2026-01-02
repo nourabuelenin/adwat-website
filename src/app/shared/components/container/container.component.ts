@@ -4,12 +4,8 @@ import { Component, Input } from '@angular/core';
   selector: 'app-container',
   standalone: true,
   imports: [],
-  template: `
-    <div [class]="containerClasses">
-      <ng-content></ng-content>
-    </div>
-  `,
-  styleUrl: './container.css',
+  templateUrl: './container.component.html',
+  styleUrls: ['./container.component.css']
 })
 export class ContainerComponent {
   @Input() size: 'default' | 'content' = 'default';
