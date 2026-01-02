@@ -1,4 +1,4 @@
-<section class="relative bg-black text-white overflow-hidden min-h-screen flex items-center">
+<section class="relative bg-black text-white overflow-hidden min-h-screen flex items-center justify-center">
   <!-- Animated Gradient Background -->
   <div class="absolute inset-0 overflow-hidden">
     <div class="gradient-orb gradient-orb-1"></div>
@@ -59,46 +59,9 @@
         </div>
       </div>
 
-      <!-- Right: Animated Logo Cube - 1/3 width -->
-      <div class="z-10 lg:w-1/3 flex justify-center items-center">
-        <div class="logo-scene">
-          <div class="logo-cube-container">
-            <!-- Light Green Layer (Back-Right) -->
-            <div class="logo-layer layer-1">
-              <div class="layer-content"></div>
-            </div>
-            
-            <!-- Medium Green Layer (Middle-Right) -->
-            <div class="logo-layer layer-2">
-              <div class="layer-content"></div>
-            </div>
-            
-            <!-- Dark Green Layer (Front-Right) -->
-            <div class="logo-layer layer-3">
-              <div class="layer-content"></div>
-            </div>
-            
-            <!-- Light Purple Layer (Back-Left) -->
-            <div class="logo-layer layer-4">
-              <div class="layer-content"></div>
-            </div>
-            
-            <!-- Medium Purple Layer (Middle-Left) -->
-            <div class="logo-layer layer-5">
-              <div class="layer-content"></div>
-            </div>
-            
-            <!-- Dark Purple/Blue Layer (Front-Left) -->
-            <div class="logo-layer layer-6">
-              <div class="layer-content"></div>
-            </div>
-            
-            <!-- Pink/Purple Cube (Center) -->
-            <div class="logo-layer layer-7">
-              <div class="layer-content"></div>
-            </div>
-          </div>
-        </div>
+      <!-- Right: 3D Animated Logo Cube - 1/3 width -->
+      <div class="z-10 lg:w-1/3 h-[400px] lg:h-[500px] flex justify-center items-center">
+        <app-hero3d class="w-full h-full"></app-hero3d>
       </div>
 
     </div>

@@ -5,48 +5,42 @@
   position: absolute;
   border-radius: 50%;
   filter: blur(80px);
-  opacity: 0.6;
-  animation: float 20s ease-in-out infinite;
+  opacity: 0.3;
+  animation: float 8s ease-in-out infinite;
 }
 
 .gradient-orb-1 {
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, #025B44 0%, transparent 70%);
-  top: -200px;
-  right: -100px;
+  background: rgba(122, 184, 122, 0.3);
+  top: -10%;
+  left: -10%;
   animation-delay: 0s;
 }
 
 .gradient-orb-2 {
   width: 400px;
   height: 400px;
-  background: radial-gradient(circle, #176DB5 0%, transparent 70%);
-  bottom: -150px;
-  left: -100px;
-  animation-delay: 3s;
+  background: rgba(136, 136, 187, 0.3);
+  bottom: -10%;
+  right: -5%;
+  animation-delay: 2s;
 }
 
 .gradient-orb-3 {
-  width: 350px;
-  height: 350px;
-  background: radial-gradient(circle, #0D3B62 0%, transparent 70%);
+  width: 450px;
+  height: 450px;
+  background: rgba(199, 126, 179, 0.3);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  animation-delay: 6s;
+  animation-delay: 4s;
 }
 
 @keyframes float {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  33% {
-    transform: translate(50px, -50px) scale(1.1);
-  }
-  66% {
-    transform: translate(-50px, 50px) scale(0.9);
-  }
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -30px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
 }
 
 /* Grid Pattern */
@@ -54,270 +48,19 @@
   width: 100%;
   height: 100%;
   background-image: 
-    linear-gradient(rgba(2, 91, 68, 0.3) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(2, 91, 68, 0.3) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
   background-size: 50px 50px;
-  animation: grid-move 20s linear infinite;
+  animation: gridMove 20s linear infinite;
 }
 
-@keyframes grid-move {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 50px 50px;
-  }
-}
-
-/* 3D Logo Cube Animation */
-.logo-scene {
-  width: 100%;
-  max-width: 400px;
-  height: 400px;
-  perspective: 1200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.logo-cube-container {
-  width: 280px;
-  height: 280px;
-  position: relative;
-  transform-style: preserve-3d;
-  animation: converge-and-rotate 8s ease-in-out infinite;
-}
-
-.logo-layer {
-  position: absolute;
-  width: 180px;
-  height: 180px;
-  transform-style: preserve-3d;
-  opacity: 0.85;
-  transition: all 0.3s ease;
-}
-
-.layer-content {
-  width: 100%;
-  height: 100%;
-  background: inherit;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-}
-
-/* Light Green Layers (Right side) */
-.layer-1 {
-  background: linear-gradient(135deg, rgba(195, 214, 208, 0.9), rgba(165, 194, 188, 0.9));
-  left: 50%;
-  top: 50%;
-}
-
-.layer-2 {
-  background: linear-gradient(135deg, rgba(134, 174, 161, 0.9), rgba(104, 154, 141, 0.9));
-  left: 50%;
-  top: 50%;
-}
-
-.layer-3 {
-  background: linear-gradient(135deg, rgba(2, 91, 68, 0.9), rgba(1, 71, 53, 0.9));
-  left: 50%;
-  top: 50%;
-}
-
-/* Purple/Blue Layers (Left side) */
-.layer-4 {
-  background: linear-gradient(135deg, rgba(207, 201, 217, 0.9), rgba(187, 181, 207, 0.9));
-  left: 50%;
-  top: 50%;
-}
-
-.layer-5 {
-  background: linear-gradient(135deg, rgba(139, 134, 168, 0.9), rgba(109, 104, 148, 0.9));
-  left: 50%;
-  top: 50%;
-}
-
-.layer-6 {
-  background: linear-gradient(135deg, rgba(52, 67, 135, 0.9), rgba(32, 47, 115, 0.9));
-  left: 50%;
-  top: 50%;
-}
-
-/* Center Purple Cube */
-.layer-7 {
-  background: linear-gradient(135deg, rgba(175, 140, 178, 0.95), rgba(155, 120, 158, 0.95));
-  left: 50%;
-  top: 50%;
-  width: 140px;
-  height: 140px;
-}
-
-/* Convergence and Rotation Animation */
-@keyframes converge-and-rotate {
-  /* Exploded state */
-  0% {
-    transform: rotateX(0deg) rotateY(0deg);
-  }
-  
-  0% {
-    /* Light green back */
-  }
-  
-  /* Converging phase */
-  20% {
-    transform: rotateX(0deg) rotateY(0deg);
-  }
-  
-  /* Fully converged */
-  35% {
-    transform: rotateX(0deg) rotateY(0deg);
-  }
-  
-  /* Slow rotation */
-  65% {
-    transform: rotateX(20deg) rotateY(360deg);
-  }
-  
-  /* Return to exploded */
-  85% {
-    transform: rotateX(0deg) rotateY(360deg);
-  }
-  
-  100% {
-    transform: rotateX(0deg) rotateY(360deg);
-  }
-}
-
-/* Layer positions - Exploded state (keyframe 0%) */
-@keyframes layer1-anim {
-  0%, 100% {
-    transform: translate3d(120px, -80px, 100px) rotateY(25deg) rotateX(-15deg);
-  }
-  20%, 85% {
-    transform: translate3d(40px, -30px, 30px) rotateY(0deg) rotateX(0deg);
-  }
-}
-
-@keyframes layer2-anim {
-  0%, 100% {
-    transform: translate3d(90px, -50px, 60px) rotateY(20deg) rotateX(-10deg);
-  }
-  20%, 85% {
-    transform: translate3d(20px, -15px, 15px) rotateY(0deg) rotateX(0deg);
-  }
-}
-
-@keyframes layer3-anim {
-  0%, 100% {
-    transform: translate3d(60px, -20px, 30px) rotateY(15deg) rotateX(-5deg);
-  }
-  20%, 85% {
-    transform: translate3d(10px, -5px, 5px) rotateY(0deg) rotateX(0deg);
-  }
-}
-
-@keyframes layer4-anim {
-  0%, 100% {
-    transform: translate3d(-120px, -80px, 80px) rotateY(-25deg) rotateX(-15deg);
-  }
-  20%, 85% {
-    transform: translate3d(-40px, -30px, 25px) rotateY(0deg) rotateX(0deg);
-  }
-}
-
-@keyframes layer5-anim {
-  0%, 100% {
-    transform: translate3d(-90px, -50px, 50px) rotateY(-20deg) rotateX(-10deg);
-  }
-  20%, 85% {
-    transform: translate3d(-20px, -15px, 12px) rotateY(0deg) rotateX(0deg);
-  }
-}
-
-@keyframes layer6-anim {
-  0%, 100% {
-    transform: translate3d(-60px, -20px, 20px) rotateY(-15deg) rotateX(-5deg);
-  }
-  20%, 85% {
-    transform: translate3d(-10px, -5px, 3px) rotateY(0deg) rotateX(0deg);
-  }
-}
-
-@keyframes layer7-anim {
-  0%, 100% {
-    transform: translate3d(0, 40px, -20px) rotateY(0deg);
-  }
-  20%, 85% {
-    transform: translate3d(0, 0, 0) rotateY(0deg);
-  }
-}
-
-.layer-1 { animation: layer1-anim 8s ease-in-out infinite; }
-.layer-2 { animation: layer2-anim 8s ease-in-out infinite; }
-.layer-3 { animation: layer3-anim 8s ease-in-out infinite; }
-.layer-4 { animation: layer4-anim 8s ease-in-out infinite; }
-.layer-5 { animation: layer5-anim 8s ease-in-out infinite; }
-.layer-6 { animation: layer6-anim 8s ease-in-out infinite; }
-.layer-7 { animation: layer7-anim 8s ease-in-out infinite; }
-
-/* Hover effect - pause animation */
-.logo-cube-container:hover {
-  animation-play-state: paused;
-}
-
-.logo-cube-container:hover .logo-layer {
-  animation-play-state: paused;
-}
-
-/* Scroll Indicator */
-.scroll-indicator {
-  width: 30px;
-  height: 50px;
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  padding-top: 8px;
-  animation: bounce 2s infinite;
-}
-
-.scroll-arrow {
-  width: 6px;
-  height: 10px;
-  background: white;
-  border-radius: 3px;
-  animation: scroll-down 2s infinite;
-}
-
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(10px);
-  }
-}
-
-@keyframes scroll-down {
-  0% {
-    opacity: 0;
-    transform: translateY(0);
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
+@keyframes gridMove {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 50px); }
 }
 
 /* Fade in animation */
-.animate-fade-in {
-  animation: fadeIn 1s ease-in;
-}
-
-@keyframes fadeIn {
+@keyframes fade-in {
   from {
     opacity: 0;
     transform: translateY(20px);
@@ -326,6 +69,37 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out forwards;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  width: 30px;
+  height: 50px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 25px;
+  position: relative;
+}
+
+.scroll-arrow {
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scroll 2s ease-in-out infinite;
+}
+
+@keyframes scroll {
+  0% { top: 10px; opacity: 1; }
+  50% { top: 25px; opacity: 0.5; }
+  100% { top: 10px; opacity: 1; }
 }
 
 /* Responsive adjustments */

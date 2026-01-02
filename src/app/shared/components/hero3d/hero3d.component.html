@@ -1,0 +1,16 @@
+<div class="relative w-full h-full">
+  <!-- This is where you use the imported component -->
+  <app-animated-cube 
+    [assemblyProgress]="assemblyProgress"
+    class="w-full h-full block">
+  </app-animated-cube>
+
+  <!-- Optional: Progress indicator during assembly -->
+  @if (assemblyProgress < 1) {
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 opacity-70">
+      <div class="text-white text-sm font-light">
+        Assembling... {{ (assemblyProgress * 100).toFixed(0) }}%
+      </div>
+    </div>
+  }
+</div>

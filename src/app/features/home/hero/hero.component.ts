@@ -3,46 +3,46 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { ContainerComponent } from '../../../shared/components/container/container.component';
+import { Hero3dComponent } from '../../../shared/components/hero3d/hero3d.component';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [CommonModule, RouterModule, ButtonComponent, ContainerComponent],
+  imports: [
+    CommonModule, 
+    RouterModule, 
+    ButtonComponent, 
+    ContainerComponent,
+    Hero3dComponent
+  ],
   templateUrl: './hero.component.html',
-  styleUrls: ['./hero.component.css']
+  styleUrl: './hero.component.css'
 })
 export class HeroComponent {
   currentLang: 'en' | 'ar' = 'en';
 
   heroContent = {
     headline: {
-      en: 'Architecting Digital Futures for Saudi Arabia',
-      ar: 'بناء المستقبل الرقمي للمملكة العربية السعودية'
+      en: 'Building Tomorrow\'s Digital Solutions',
+      ar: 'بناء الحلول الرقمية للغد'
     },
     subheadline: {
-      en: 'Enterprise-grade software solutions empowering government and business transformation since 2000',
-      ar: 'حلول برمجية على مستوى المؤسسات تمكّن التحول الحكومي والتجاري منذ عام 2000'
+      en: 'Transforming ideas into powerful, scalable technology',
+      ar: 'تحويل الأفكار إلى تكنولوجيا قوية وقابلة للتطوير'
     },
     primaryCTA: {
-      en: 'Contact Us',
-      ar: 'اتصل بنا'
+      en: 'Start Your Project',
+      ar: 'ابدأ مشروعك'
     },
     secondaryCTA: {
-      en: 'View Our Services',
-      ar: 'اطلع على خدماتنا'
+      en: 'Explore Services',
+      ar: 'استكشف الخدمات'
     },
     trustSignals: [
-      { value: '20+', label: { en: 'Years of Excellence', ar: 'عامًا من التميز' } },
-      { value: '500+', label: { en: 'Enterprise Projects', ar: 'مشروع مؤسسي' } },
-      { value: '100+', label: { en: 'Government Clients', ar: 'عميل حكومي' } },
-      { value: '5M+', label: { en: 'Users Served', ar: 'مستخدم نخدمهم' } }
+      { value: '50+', label: { en: 'Projects', ar: 'مشروع' } },
+      { value: '30+', label: { en: 'Clients', ar: 'عميل' } },
+      { value: '5+', label: { en: 'Years', ar: 'سنوات' } },
+      { value: '99%', label: { en: 'Satisfaction', ar: 'رضا' } }
     ]
   };
-
-  ngOnInit(): void {
-    const storedLang = localStorage.getItem('preferredLang');
-    if (storedLang === 'ar' || storedLang === 'en') {
-      this.currentLang = storedLang;
-    }
-  }
 }
