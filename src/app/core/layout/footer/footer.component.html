@@ -1,0 +1,106 @@
+<footer class="bg-adwat-dark-green text-white">
+  <!-- Main Footer Content -->
+  <div class="container-wrapper py-12 lg:py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-12">
+      
+      <!-- Company Info & Logo -->
+      <div class="lg:col-span-2">
+        <img 
+          src="/assets/images/logo/adwat-logo.png" 
+          alt="Adwat Information Technology" 
+          class="h-12 w-auto mb-6 brightness-0 invert">
+        <p class="text-white/80 text-sm leading-relaxed mb-6">
+          {{ currentLang === 'en' 
+            ? 'Leading Saudi software development company delivering enterprise solutions for government and private sectors since 2000.' 
+            : 'شركة سعودية رائدة في تطوير البرمجيات تقدم حلول المؤسسات للقطاعين الحكومي والخاص منذ عام 2000.' }}
+        </p>
+        
+        <!-- Social Links -->
+        <div class="flex space-x-4">
+          <a 
+            *ngFor="let social of socialLinks"
+            [href]="social.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            [attr.aria-label]="social.name"
+            class="w-10 h-10 rounded-full bg-white/10 hover:bg-primary transition-colors duration-300 flex items-center justify-center">
+            <span class="sr-only">{{ social.name }}</span>
+            <!-- Icon placeholder - can be replaced with actual SVG icons -->
+            <span class="text-sm font-bold">{{ social.icon.charAt(0).toUpperCase() }}</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Footer Links -->
+      <div *ngFor="let section of footerSections" class="lg:col-span-1">
+        <h4 class="text-white font-semibold text-lg mb-4">
+          {{ getSectionTitle(section) }}
+        </h4>
+        <ul class="space-y-3">
+          <li *ngFor="let link of section.links">
+            <a 
+              [routerLink]="link.route"
+              class="text-white/70 hover:text-white transition-colors duration-200 text-sm">
+              {{ getLinkLabel(link) }}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Contact Information -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 pt-12 border-t border-white/10">
+      <!-- KSA Office -->
+      <div>
+        <h4 class="text-white font-semibold mb-3">
+          {{ contactInfo.ksa.label[currentLang] }}
+        </h4>
+        <div class="space-y-2 text-white/70 text-sm">
+          <p>{{ contactInfo.ksa.address[currentLang] }}</p>
+          <p>{{ currentLang === 'en' ? 'Phone:' : 'هاتف:' }} {{ contactInfo.ksa.phone }}</p>
+          <p>{{ currentLang === 'en' ? 'Email:' : 'بريد إلكتروني:' }} 
+            <a href="mailto:{{ contactInfo.ksa.email }}" class="hover:text-white transition-colors">
+              {{ contactInfo.ksa.email }}
+            </a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Egypt Office -->
+      <div>
+        <h4 class="text-white font-semibold mb-3">
+          {{ contactInfo.egypt.label[currentLang] }}
+        </h4>
+        <div class="space-y-2 text-white/70 text-sm">
+          <p>{{ contactInfo.egypt.address[currentLang] }}</p>
+          <p>{{ currentLang === 'en' ? 'Phone:' : 'هاتف:' }} {{ contactInfo.egypt.phone }}</p>
+          <p>{{ currentLang === 'en' ? 'Email:' : 'بريد إلكتروني:' }} 
+            <a href="mailto:{{ contactInfo.egypt.email }}" class="hover:text-white transition-colors">
+              {{ contactInfo.egypt.email }}
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="border-t border-white/10">
+    <div class="container-wrapper py-6">
+      <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        <p class="text-white/60 text-sm">
+          {{ currentLang === 'en' 
+            ? '© ' + currentYear + ' Adwat Information Technology. All rights reserved.' 
+            : '© ' + currentYear + ' أدوات لتقنية المعلومات. جميع الحقوق محفوظة.' }}
+        </p>
+        <div class="flex items-center space-x-6 text-sm">
+          <span class="text-white/60">
+            {{ currentLang === 'en' ? 'Made with' : 'صنع بـ' }}
+            <span class="text-red-400">♥</span>
+            {{ currentLang === 'en' ? 'in Saudi Arabia' : 'في المملكة العربية السعودية' }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

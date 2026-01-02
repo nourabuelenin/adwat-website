@@ -1,0 +1,62 @@
+<app-section id="services">
+  <app-container>
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <p class="text-primary font-semibold text-sm uppercase tracking-wide mb-3">
+        {{ content.heading[currentLang] }}
+      </p>
+      
+      <h2 class="text-3xl lg:text-4xl font-bold text-adwat-dark-green mb-4">
+        {{ content.title[currentLang] }}
+      </h2>
+
+      <p class="text-lg text-adwat-dark-green/70">
+        {{ content.description[currentLang] }}
+      </p>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+      <div 
+        *ngFor="let service of services"
+        class="card p-8 group cursor-pointer"
+        [routerLink]="service.link || '/services'">
+        
+        <!-- Icon Placeholder -->
+        <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+          <div class="text-3xl group-hover:text-white transition-colors">💻</div>
+        </div>
+
+        <!-- Service Title -->
+        <h3 class="text-xl font-semibold text-adwat-dark-green mb-3 group-hover:text-primary transition-colors">
+          {{ getServiceTitle(service) }}
+        </h3>
+
+        <!-- Service Description -->
+        <p class="text-adwat-dark-green/70 leading-relaxed mb-4">
+          {{ getServiceDescription(service) }}
+        </p>
+
+        <!-- Learn More Link -->
+        <div class="flex items-center text-primary font-medium group-hover:translate-x-2 transition-transform">
+          <span class="text-sm">
+            {{ currentLang === 'en' ? 'Learn More' : 'اقرأ المزيد' }}
+          </span>
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- View All CTA -->
+    <div class="text-center">
+      <app-button 
+        [variant]="'secondary'"
+        [size]="'large'"
+        routerLink="/services">
+        {{ content.cta[currentLang] }}
+      </app-button>
+    </div>
+  </app-container>
+</app-section>
