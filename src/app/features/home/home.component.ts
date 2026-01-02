@@ -35,6 +35,18 @@ import { FinalCtaComponent } from './final-cta/final-cta.component';
       <app-final-cta></app-final-cta>
     </div>
   `,
-  styles: []
+  styles: [`
+    :host ::ng-deep app-hero,
+    :host ::ng-deep app-about-overview,
+    :host ::ng-deep app-services-overview,
+    :host ::ng-deep app-projects-showcase,
+    :host ::ng-deep app-why-choose-us,
+    :host ::ng-deep app-testimonials,
+    :host ::ng-deep app-faq,
+    :host ::ng-deep app-final-cta {
+      display: block;
+      min-height: 100vh;
+    }
+  `]
 })
 export class HomeComponent {}

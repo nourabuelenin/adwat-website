@@ -4,12 +4,8 @@ import { Component, Input } from '@angular/core';
   selector: 'app-section',
   standalone: true,
   imports: [],
-  template: `
-    <section [class]="sectionClasses">
-      <ng-content></ng-content>
-    </section>
-  `,
-  styleUrl: './section.css',
+  templateUrl: './section.component.html',
+  styleUrls: ['./section.component.css']
 })
 export class SectionComponent {
   @Input() variant: 'default' | 'light' | 'dark' = 'default';
