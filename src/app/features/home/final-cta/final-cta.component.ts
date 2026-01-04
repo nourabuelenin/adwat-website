@@ -2,14 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { ContainerComponent } from '../../../shared/components/container/container.component';
-import { SectionComponent } from '../../../shared/components/section/section.component';
 
 @Component({
   selector: 'app-final-cta',
   standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule, ButtonComponent, ContainerComponent, SectionComponent],
+  imports: [CommonModule, RouterModule, FormsModule, ContainerComponent],
   templateUrl: './final-cta.component.html',
   styleUrls: ['./final-cta.component.css']
 })
