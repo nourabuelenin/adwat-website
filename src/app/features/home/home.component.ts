@@ -42,10 +42,13 @@ import { FinalCtaComponent } from './final-cta/final-cta.component';
     :host ::ng-deep app-projects-showcase,
     :host ::ng-deep app-why-choose-us,
     :host ::ng-deep app-testimonials,
-    :host ::ng-deep app-faq,
-    :host ::ng-deep app-final-cta {
+    :host ::ng-deep app-faq {
       display: block;
       min-height: 100vh;
+    }
+    
+    :host ::ng-deep app-final-cta {
+      display: block;
     }
   `]
 })

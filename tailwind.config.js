@@ -54,8 +54,8 @@ module.exports = {
         // Consistent spacing system
         'section': '5rem',      // 80px - Standard section padding
         'section-sm': '3rem',   // 48px - Smaller section padding (mobile)
-        'container': '7rem',    // 112px - Container side padding
-        'container-sm': '1.5rem', // 24px - Container side padding (mobile)
+        'container': '3rem',    // 48px - Container side padding
+        'container-sm': '1rem', // 16px - Container side padding (mobile)
       },
       maxWidth: {
         // Container widths
