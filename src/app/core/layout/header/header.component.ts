@@ -34,11 +34,14 @@ export class HeaderComponent implements OnInit {
     if (storedLang === 'ar' || storedLang === 'en') {
       this.currentLang = storedLang;
     }
+    // Check initial scroll position
+    this.onWindowScroll();
   }
 
   @HostListener('window:scroll', [])
   onWindowScroll(): void {
-    this.isScrolled = window.pageYOffset > 50;
+    // Check if scrolled past hero section (approximately 600-700px)
+    this.isScrolled = window.pageYOffset > 600;
   }
 
   toggleMobileMenu(): void {

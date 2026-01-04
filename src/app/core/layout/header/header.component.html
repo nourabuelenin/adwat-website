@@ -2,8 +2,7 @@
   class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
   [class.bg-white]="isScrolled"
   [class.shadow-lg]="isScrolled"
-  [class.bg-white/95]="!isScrolled"
-  [class.backdrop-blur-sm]="!isScrolled">
+  [class.bg-transparent]="!isScrolled">
   
   <nav class="container-wrapper">
     <div class="flex items-center justify-between h-20">
@@ -14,7 +13,9 @@
           src="/assets/images/logo/adwat-logo.png" 
           alt="Adwat Information Technology" 
           class="h-10 w-auto">
-        <span class="text-xl font-bold text-adwat-dark-green hidden md:block">
+        <span class="text-xl font-bold hidden md:block transition-colors duration-300"
+          [class.text-white]="!isScrolled"
+          [class.text-adwat-dark-green]="isScrolled">
           Adwat
         </span>
       </a>
@@ -26,7 +27,9 @@
           [routerLink]="item.route"
           routerLinkActive="text-primary font-semibold"
           [routerLinkActiveOptions]="{exact: true}"
-          class="text-adwat-dark-green hover:text-primary transition-colors duration-200 font-medium">
+          class="hover:text-primary transition-colors duration-200 font-medium"
+          [class.text-white]="!isScrolled"
+          [class.text-adwat-dark-green]="isScrolled">
           {{ getNavLabel(item) }}
         </a>
       </div>
@@ -35,7 +38,9 @@
       <div class="hidden lg:flex items-center space-x-4">
         <button 
           (click)="toggleLanguage()"
-          class="px-3 py-2 text-sm font-medium text-adwat-dark-green hover:text-primary transition-colors">
+          class="px-3 py-2 text-sm font-medium hover:text-primary transition-colors"
+          [class.text-white]="!isScrolled"
+          [class.text-adwat-dark-green]="isScrolled">
           {{ currentLang === 'en' ? 'العربية' : 'English' }}
         </button>
         <app-button 
@@ -49,7 +54,9 @@
       <!-- Mobile Menu Button -->
       <button 
         (click)="toggleMobileMenu()"
-        class="lg:hidden p-2 text-adwat-dark-green hover:text-primary transition-colors"
+        class="lg:hidden p-2 hover:text-primary transition-colors"
+        [class.text-white]="!isScrolled"
+        [class.text-adwat-dark-green]="isScrolled"
         [attr.aria-expanded]="isMobileMenuOpen"
         aria-label="Toggle menu">
         <svg 
@@ -111,6 +118,3 @@
     </div>
   </nav>
 </header>
-
-<!-- Spacer to prevent content from going under fixed header -->
-<div class="h-20"></div>
