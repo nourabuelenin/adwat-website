@@ -8,7 +8,7 @@ import { SectionComponent } from '../../../shared/components/section/section.com
 @Component({
   selector: 'app-about-overview',
   standalone: true,
-  imports: [CommonModule, RouterModule, ButtonComponent, ContainerComponent, SectionComponent],
+  imports: [CommonModule, RouterModule, ContainerComponent, SectionComponent],
   templateUrl: './about-overview.component.html',
   styleUrls: ['./about-overview.component.css']
 })
@@ -20,23 +20,41 @@ export class AboutOverviewComponent {
       en: 'About Adwat',
       ar: 'عن أدوات'
     },
-    title: {
-      en: 'Trusted Technology Partner for Saudi Arabia\'s Digital Future',
-      ar: 'شريك تقني موثوق لمستقبل المملكة الرقمي'
-    },
-    description: {
-      en: 'Adwat IT is a leading Saudi software development company established in 2000. With over two decades of experience, we deliver smart, scalable digital solutions for both government and private sectors. We specialize in building integrated systems that support digital transformation and align with Saudi Arabia\'s Vision 2030.',
-      ar: 'أدوات لتقنية المعلومات هي شركة سعودية رائدة في تطوير البرمجيات تأسست عام 2000. مع أكثر من عقدين من الخبرة، نقدم حلولًا رقمية ذكية وقابلة للتطوير لكل من القطاعين الحكومي والخاص. نحن متخصصون في بناء أنظمة متكاملة تدعم التحول الرقمي وتتماشى مع رؤية المملكة 2030.'
-    },
-    mission: {
-      en: 'We don\'t just build software. We create meaningful digital experiences that turn business challenges into opportunities and ideas into success stories.',
-      ar: 'نحن لا نبني البرمجيات فقط. نخلق تجارب رقمية ذات مغزى تحول تحديات الأعمال إلى فرص والأفكار إلى قصص نجاح.'
-    },
-    cta: {
-      en: 'Learn More About Us',
-      ar: 'تعرف أكثر عنا'
-    }
+    paragraphs: [
+      {
+        en: 'Adwat is a company specialized in building digital solutions for organizations seeking technical transformation, going beyond mere system development to improving work methods and supporting decision-making.',
+        ar: 'أدوات شركة متخصصة في بناء الحلول الرقمية للمؤسسات التي تسعى إلى تحوّل تقني، يتجاوز مجرد تطوير الأنظمة إلى تحسين طريقة العمل ودعم اتخاذ القرار.'
+      },
+      {
+        en: 'We work with our clients as a technical partner, starting by understanding operational challenges and workflows, then designing and implementing reliable, scalable digital systems that support institutional performance and keep pace with business growth.',
+        ar: 'نعمل مع عملائنا كشريك تقني، نبدأ بفهم التحديات التشغيلية وسير العمليات، ثم نُصمم وننفذ أنظمة رقمية موثوقة وقابلة للتوسع، تدعم الأداء المؤسسي وتواكب نمو الأعمال.'
+      },
+      {
+        en: 'Our work focuses on delivering practical solutions built on a realistic understanding of organizational needs, measured by the impact they achieve on performance, decisions, and outcomes.',
+        ar: 'يركز عملنا على تقديم حلول عملية تُبنى على فهم واقعي لاحتياجات المؤسسات، وتقاس قيمتها بالأثر الذي تحققه على الأداء والقرارات والنتائج.'
+      }
+    ]
   };
+
+  trustSignals = [
+    {
+      value: '+70',
+      label: { en: 'IT Infrastructure Projects', ar: 'مشروع بنية تحتية تقنية' }
+    },
+    {
+      value: '+10',
+      label: { en: 'Custom Software Solutions', ar: 'حلول وبرامج تقنية مخصصة' }
+    },
+    {
+      value: '+20,000',
+      label: { en: 'Users Served', ar: 'مستخدم ومستفيد من حلولنا' }
+    },
+    {
+      value: '+25',
+      label: { en: 'Years of Experience', ar: 'عامًا من الخبرة التقنية' },
+      // sublabel: { en: 'Since 2000', ar: 'منذ 2000' }
+    }
+  ];
 
   ngOnInit(): void {
     const storedLang = localStorage.getItem('preferredLang');
