@@ -23,12 +23,12 @@ export class HeroComponent {
 
   heroContent = {
     headline: {
-      en: 'Building Tomorrow\'s Digital Solutions',
-      ar: 'بناء الحلول الرقمية للغد'
+      en: 'Integrated Software for Strategic Transformation',
+      ar: 'برمجيات متكاملة لتحوّل استراتيجي'
     },
     subheadline: {
-      en: 'Transforming ideas into powerful, scalable technology',
-      ar: 'تحويل الأفكار إلى تكنولوجيا قوية وقابلة للتطوير'
+      en: 'Your technical partner to build reliable systems that support your organization\'s growth',
+      ar: 'شريكك التقني لبناء أنظمة موثوقة تدعم نمو مؤسستك'
     },
     primaryCTA: {
       en: 'Start Your Project',
@@ -38,11 +38,17 @@ export class HeroComponent {
       en: 'Explore Services',
       ar: 'استكشف الخدمات'
     },
-    trustSignals: [
-      { value: '50+', label: { en: 'Projects', ar: 'مشروع' } },
-      { value: '30+', label: { en: 'Clients', ar: 'عميل' } },
-      { value: '5+', label: { en: 'Years', ar: 'سنوات' } },
-      { value: '99%', label: { en: 'Satisfaction', ar: 'رضا' } }
+    partnersTitle: {
+      en: 'Trusted by Leading Organizations',
+      ar: 'موثوق به من قبل المؤسسات الرائدة'
+    },
+    partners: [
+      { name: 'Microsoft' },
+      { name: 'AWS' },
+      { name: 'Oracle' },
+      { name: 'SAP' },
+      { name: 'Gov Entity' },
+      { name: 'Enterprise' }
     ]
   };
 }
