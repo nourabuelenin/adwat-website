@@ -5,15 +5,15 @@
   [class.bg-transparent]="!isScrolled">
   
   <nav class="container-wrapper">
-    <div class="flex items-center justify-between h-20">
+    <div class="flex items-center justify-between h-16">
       
       <!-- Logo -->
       <a routerLink="/" class="flex items-center space-x-3">
         <img 
           src="/assets/images/logo/adwat-logo.png" 
           alt="Adwat Information Technology" 
-          class="h-10 w-auto">
-        <span class="text-xl font-bold hidden md:block transition-colors duration-300"
+          class="h-8 w-auto">
+        <span class="text-lg font-bold hidden md:block transition-colors duration-300"
           [class.text-adwat-dark-green]="!isScrolled"
           [class.text-adwat-dark-green]="isScrolled">
           Adwat
@@ -45,6 +45,7 @@
         </button>
         <app-button 
           [variant]="'primary'"
+          class="btn-small"
           (click)="$event.preventDefault()"
           routerLink="/contact">
           {{ currentLang === 'en' ? 'Contact Us' : 'اتصل بنا' }}
