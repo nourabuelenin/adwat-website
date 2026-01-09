@@ -17,3 +17,52 @@
 .animate-gradient {
   animation: gradient 20s ease-in-out infinite;
 }
+
+/* Adjust gradient orbs for light background */
+.gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(48px);
+  opacity: 0.18;
+}
+
+.gradient-orb-1 { width: 420px; height: 420px; left: -80px; top: -40px; background: linear-gradient(135deg, #10b981, #06b6d4); }
+.gradient-orb-2 { width: 320px; height: 320px; right: -60px; top: 20%; background: linear-gradient(135deg, #a78bfa, #06b6d4); }
+.gradient-orb-3 { width: 240px; height: 240px; right: 10%; bottom: -60px; background: linear-gradient(135deg, #60a5fa, #10b981); }
+
+.grid-pattern {
+  background-image: linear-gradient(transparent 1px, rgba(2,6,23,0.03) 1px), linear-gradient(90deg, transparent 1px, rgba(2,6,23,0.03) 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+}
+
+/* Card shadow to match site */
+.shadow-card {
+  box-shadow: 0 12px 30px rgba(2,6,23,0.06);
+}
+
+/* CTA active card style — match active project card */
+.cta-active {
+  background: linear-gradient(135deg, rgba(16,185,129,0.12), rgba(16,185,129,0.06));
+  border: 1px solid rgba(16,185,129,0.18);
+  box-shadow: 0 24px 60px rgba(16,185,129,0.07);
+  color: #042f2a;
+}
+
+.cta-active h2,
+.cta-active h3,
+.cta-active p {
+  color: #042f2a;
+}
+
+.cta-active [class*="text-adwat-dark-green/60"] {
+  color: rgba(4,47,42,0.6) !important;
+}
+
+.cta-active input {
+  background: rgba(255,255,255,0.9);
+  color: #042f2a;
+  border-color: rgba(15,23,42,0.06);
+}
+
+
