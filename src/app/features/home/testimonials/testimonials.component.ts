@@ -43,7 +43,7 @@ import { Testimonial, Partner } from '../../../core/models/content.models';
           </div>
         </div>
 
-        <div class="border-t border-adwat-dark-green/10 pt-12">
+        <!-- <div class="border-t border-adwat-dark-green/10 pt-12">
           <p class="text-center text-adwat-dark-green/60 font-semibold mb-8">
             {{ content.partnersTitle[currentLang] }}
           </p>
@@ -54,7 +54,7 @@ import { Testimonial, Partner } from '../../../core/models/content.models';
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </app-container>
     </app-section>
   `
