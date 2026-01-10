@@ -4,6 +4,8 @@ import { RouterModule } from '@angular/router';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { ContainerComponent } from '../../../shared/components/container/container.component';
 import { Hero3dComponent } from '../../../shared/components/hero3d/hero3d.component';
+import { PARTNERS_DATA } from '../../../core/data/content.data';
+import { Partner } from '../../../core/models/content.models';
 
 @Component({
   selector: 'app-hero',
@@ -20,6 +22,7 @@ import { Hero3dComponent } from '../../../shared/components/hero3d/hero3d.compon
 })
 export class HeroComponent {
   currentLang: 'en' | 'ar' = 'en';
+  partners: Partner[] = PARTNERS_DATA;
 
   heroContent = {
     headline: {
@@ -41,14 +44,6 @@ export class HeroComponent {
     partnersTitle: {
       en: 'Trusted by Leading Organizations',
       ar: 'موثوق به من قبل المؤسسات الرائدة'
-    },
-    partners: [
-      { name: 'Microsoft' },
-      { name: 'AWS' },
-      { name: 'Oracle' },
-      { name: 'SAP' },
-      { name: 'Gov Entity' },
-      { name: 'Enterprise' }
-    ]
+    }
   };
 }

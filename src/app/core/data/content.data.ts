@@ -149,76 +149,40 @@ export const FAQ_DATA: FAQ[] = [
 
 export const FEATURES_DATA: Feature[] = [
   {
-    id: 'feature-1',
+    id: 'feature-vision',
     title: {
-      en: '20+ Years of Excellence',
-      ar: 'أكثر من 20 عامًا من التميز'
+      en: 'Vision',
+      ar: 'الرؤية'
     },
     description: {
-      en: 'Two decades of proven expertise delivering mission-critical solutions for government and enterprise clients across Saudi Arabia.',
-      ar: 'عقدان من الخبرة المثبتة في تقديم حلول حيوية للعملاء الحكوميين والمؤسسات في جميع أنحاء المملكة العربية السعودية.'
-    },
-    icon: 'experience'
-  },
-  {
-    id: 'feature-2',
-    title: {
-      en: 'Government-Ready Solutions',
-      ar: 'حلول جاهزة للقطاع الحكومي'
-    },
-    description: {
-      en: 'Fully compliant with government regulations and security standards, trusted by major Saudi government entities.',
-      ar: 'متوافقة تمامًا مع اللوائح الحكومية ومعايير الأمان، موثوق بها من قبل الجهات الحكومية السعودية الكبرى.'
-    },
-    icon: 'government'
-  },
-  {
-    id: 'feature-3',
-    title: {
-      en: 'Enterprise-Scale Architecture',
-      ar: 'بنية على نطاق المؤسسات'
-    },
-    description: {
-      en: 'Scalable, secure solutions built to handle millions of users and transactions with 99.9% uptime reliability.',
-      ar: 'حلول قابلة للتطوير وآمنة مصممة للتعامل مع ملايين المستخدمين والمعاملات مع موثوقية تصل إلى 99.9٪.'
-    },
-    icon: 'scale'
-  },
-  {
-    id: 'feature-4',
-    title: {
-      en: 'Vision 2030 Aligned',
-      ar: 'متوافقة مع رؤية 2030'
-    },
-    description: {
-      en: 'Our solutions directly support Saudi Arabia\'s Vision 2030 digital transformation objectives and national development goals.',
-      ar: 'تدعم حلولنا بشكل مباشر أهداف التحول الرقمي لرؤية 2030 وأهداف التنمية الوطنية للمملكة العربية السعودية.'
+      en: "Become One of KSA's Foremost Business Organizations and Harnessing the Power of Satisfied Customers",
+      ar: 'أن نصبح من أبرز المؤسسات التجارية في المملكة العربية السعودية ونستثمر قوة رضا العملاء'
     },
     icon: 'vision'
   },
   {
-    id: 'feature-5',
+    id: 'feature-mission',
     title: {
-      en: 'Advanced Security & Compliance',
-      ar: 'أمان وامتثال متقدم'
+      en: 'Mission',
+      ar: 'المهمة'
     },
     description: {
-      en: 'ISO certified with comprehensive security frameworks meeting international and local regulatory requirements.',
-      ar: 'معتمدة من ISO مع أطر أمنية شاملة تلبي المتطلبات التنظيمية الدولية والمحلية.'
+      en: 'We develop digital strategies to enhance the efficiency and flexibility of your team, enabling extraordinary outcomes.',
+      ar: 'نطور استراتيجيات رقمية لتعزيز كفاءة ومرونة فريقك، مما يمكّن من تحقيق نتائج استثنائية.'
     },
-    icon: 'security'
+    icon: 'mission'
   },
   {
-    id: 'feature-6',
+    id: 'feature-values',
     title: {
-      en: 'Strategic Partnerships',
-      ar: 'شراكات استراتيجية'
+      en: 'Values',
+      ar: 'القيم'
     },
     description: {
-      en: 'Partnered with leading global technology providers and regional organizations to deliver best-in-class solutions.',
-      ar: 'شراكة مع مزودي التكنولوجيا العالميين الرائدين والمنظمات الإقليمية لتقديم حلول من الدرجة الأولى.'
+      en: 'We value innovation, collaboration, and customer satisfaction. Our focus is on creating efficient digital solutions that deliver real results for our clients.',
+      ar: 'نقدّر الابتكار والتعاون ورضا العملاء. تركيزنا على إنشاء حلول رقمية فعالة تحقق نتائج حقيقية لعملائنا.'
     },
-    icon: 'partnership'
+    icon: 'values'
   }
 ];
 
@@ -288,38 +252,44 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
 export const PARTNERS_DATA: Partner[] = [
   {
     id: 'partner-1',
-    name: 'Microsoft',
-    logo: '/assets/images/partners/microsoft.svg',
+    name: 'King Abdullah Humanitarian Foundation',
+    logo: '/assets/images/partners/king-abdullah-foundation.png',
     category: 'partner'
   },
   {
     id: 'partner-2',
-    name: 'AWS',
-    logo: '/assets/images/partners/aws.svg',
+    name: 'Gulf Health Council',
+    logo: '/assets/images/partners/gulf-health-council.png',
     category: 'partner'
   },
   {
     id: 'partner-3',
-    name: 'Oracle',
-    logo: '/assets/images/partners/oracle.svg',
+    name: 'Ministry of Health',
+    logo: '/assets/images/partners/ministry-of-health.png',
     category: 'partner'
   },
   {
     id: 'partner-4',
-    name: 'SAP',
-    logo: '/assets/images/partners/sap.svg',
+    name: 'King Salman Hospital',
+    logo: '/assets/images/partners/king-salman-hospital.png',
     category: 'partner'
   },
   {
     id: 'partner-5',
-    name: 'Government Entity',
-    logo: '/assets/images/partners/gov-entity.svg',
+    name: 'King Saud University',
+    logo: '/assets/images/partners/king-saud-university.png',
     category: 'government'
   },
   {
     id: 'partner-6',
-    name: 'Enterprise Client',
-    logo: '/assets/images/partners/enterprise.svg',
+    name: 'Sets Group',
+    logo: '/assets/images/partners/sets-group.png',
+    category: 'enterprise'
+  },
+  {
+    id: 'partner-7',
+    name: 'Ministry of Interior',
+    logo: '/assets/images/partners/ministry-of-interior.png',
     category: 'enterprise'
   }
 ];
