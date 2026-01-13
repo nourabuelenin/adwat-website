@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, AfterViewInit, OnDestroy, ViewChildren, QueryList, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
@@ -6,7 +6,6 @@ import { ContainerComponent } from '../../../shared/components/container/contain
 import { SectionComponent } from '../../../shared/components/section/section.component';
 import { SERVICES_DATA } from '../../../core/data/services.data';
 import { Service } from '../../../core/models/content.models';
-
 import { TranslationService } from '../../../core/services/translation.service';
 
 @Component({
@@ -16,10 +15,13 @@ import { TranslationService } from '../../../core/services/translation.service';
   templateUrl: './services-overview.component.html',
   styleUrls: ['./services-overview.component.css']
 })
-export class ServicesOverviewComponent {
+export class ServicesOverviewComponent implements AfterViewInit, OnDestroy {
   private translationService = inject(TranslationService);
   currentLang = this.translationService.currentLang;
   services: Service[] = SERVICES_DATA.filter(s => s.featured);
+  
+  @ViewChildren('serviceCard') serviceCards!: QueryList<ElementRef>;
+  private observer: IntersectionObserver | null = null;
 
   content = {
     heading: {
@@ -31,6 +33,48 @@ export class ServicesOverviewComponent {
       ar: 'اطلع على جميع الخدمات'
     }
   };
+
+  ngAfterViewInit() {
+    this.setupIntersectionObserver();
+  }
+
+  ngOnDestroy() {
+    if (this.observer) {
+      this.observer.disconnect();
+    }
+  }
+
+  private setupIntersectionObserver() {
+    if (typeof window === 'undefined' || !('IntersectionObserver' in window)) return;
+
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.6 // Trigger when 60% of the card is visible
+    };
+
+    this.observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        // Only apply this logic on mobile devices
+        if (window.innerWidth >= 768) return;
+
+        const description = entry.target.querySelector('.service-description');
+        if (!description) return;
+
+        if (entry.isIntersecting) {
+          description.classList.add('service-description-visible');
+          entry.target.classList.add('service-description-visible-card'); // Add background to card
+        } else {
+          description.classList.remove('service-description-visible');
+          entry.target.classList.remove('service-description-visible-card'); // Remove background from card
+        }
+      });
+    }, options);
+
+    this.serviceCards.forEach(card => {
+      this.observer?.observe(card.nativeElement);
+    });
+  }
 
   getServiceTitle(service: Service): string {
     return service.title[this.currentLang()];

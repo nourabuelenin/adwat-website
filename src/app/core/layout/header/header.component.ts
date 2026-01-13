@@ -29,7 +29,7 @@ export class HeaderComponent implements OnInit {
     { label: { en: 'About', ar: 'من نحن' }, route: '/about' },
     { label: { en: 'Services', ar: 'خدماتنا' }, route: '/services' },
     { label: { en: 'Projects', ar: 'مشاريعنا' }, route: '/projects' },
-    { label: { en: 'Contact', ar: 'اتصل بنا' }, route: '/contact' }
+    { label: { en: 'FAQ', ar: 'الأسئلة الشائعة' }, route: '/faq' }
   ];
 
   ngOnInit(): void {

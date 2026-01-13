@@ -1,212 +1,62 @@
 /* Services overview styles */
 
-/* Service Card Styles */
+/* Description Visibility State (for mobile scroll) */
+.service-description-visible {
+  max-height: 160px !important;
+  opacity: 1 !important;
+}
+
+/* Mobile: card gets background when description is visible (scroll triggered) */
+@media (max-width: 767px) {
+  .service-card.service-description-visible-card {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+/* Ensure smooth transforms */
 .service-card {
+  will-change: transform;
   position: relative;
-  aspect-ratio: 1;
-  border-radius: 20px;
-  overflow: hidden;
-  background: rgba(241, 245, 249, 0.6);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.service-card:hover {
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
-  border-color: rgba(0, 0, 0, 0.1);
-}
+/* Remove right border from rightmost column at each breakpoint */
+/* Mobile: 1 column - all cards in single column, no right borders needed */
 .service-card {
-  position: relative;
-  /* Grid cell style (not a floating card) */
-  min-height: 220px;
-  overflow: visible;
-  background: transparent;
-  border: none;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 1rem;
+  border-right: none;
 }
 
-.service-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 30px rgba(2, 48, 35, 0.06);
-}
-
-/* Grain overlay for texture */
-.grain-overlay {
-  position: absolute;
-  inset: 0;
-  opacity: 0.4;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  mix-blend-mode: overlay;
-}
-
-/* Gradient overlay on hover */
-.gradient-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(122, 184, 122, 0.7) 0%,
-    rgba(74, 124, 74, 0.85) 50%,
-    rgba(45, 85, 45, 0.9) 100%
-  );
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  pointer-events: none;
-}
-
-.service-card:hover .gradient-overlay {
-  opacity: 1;
-}
-.gradient-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(122, 184, 122, 0.08) 0%, rgba(74, 124, 74, 0.06) 50%, rgba(45, 85, 45, 0.04) 100%);
-  opacity: 0;
-  transition: opacity 0.35s ease, backdrop-filter 0.35s ease;
-  pointer-events: none;
-}
-
-.service-card:hover .gradient-overlay {
-  opacity: 1;
-  backdrop-filter: blur(4px) saturate(120%);
-}
-
-/* Card content */
-.service-content {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding: 1.75rem;
-}
-.service-content {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  padding: 1rem;
-  text-align: center;
-}
-
-/* Icon */
-.service-icon {
-  color: rgba(100, 116, 139, 0.7);
-  transition: all 0.4s ease;
-  margin-bottom: 0.5rem;
-}
-.service-icon {
-  color: rgba(30, 41, 45, 0.65);
-  transition: transform 0.35s ease, color 0.35s ease;
-  margin-bottom: 0.75rem;
-}
-
-.service-card:hover .service-icon {
-  transform: translateY(-6px) scale(1.02);
-  color: rgba(2, 48, 35, 0.9);
-}
-
-/* Title */
-.service-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #1e293b;
-  line-height: 1.3;
-  margin: 0;
-  margin-top: auto;
-  transition: all 0.4s ease;
-}
-
-.service-card:hover .service-title {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  color: #ffffff;
-}
-.service-title {
-  font-size: 1.125rem;
-  font-weight: 700;
-  color: #0f172a;
-  line-height: 1.25;
-  margin: 0.25rem 0 0.5rem;
-  transition: color 0.35s ease, transform 0.35s ease;
-}
-
-.service-card:hover .service-title {
-  color: #063b2e;
-  transform: translateY(-4px);
-}
-
-/* Description */
-.service-description {
-  font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.85);
-  line-height: 1.6;
-  margin: 0;
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.service-card:hover .service-description {
-  max-height: 200px;
-  opacity: 1;
-}
-.service-description {
-  font-size: 0.9rem;
-  color: rgba(15, 23, 42, 0.7);
-  line-height: 1.6;
-  margin: 0;
-  max-height: 3.6em; /* show up to ~2 lines by default */
-  opacity: 1;
-  overflow: hidden;
-  transition: max-height 0.45s ease, opacity 0.35s ease;
-}
-
-.service-card:hover .service-description {
-  max-height: 200px;
-  opacity: 1;
-}
-
-/* Glass effect on card */
-.service-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.15),
-    transparent
-  );
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
+@media (min-width: 768px) {
+  /* Tablet: 2 columns - add borders back, then remove from 2nd, 4th, 6th */
   .service-card {
-    aspect-ratio: 1.1;
+    border-right: 1px solid rgb(226 232 240);
   }
-  
-  .service-content {
-    padding: 1.5rem;
-  }
-  
-  .service-title {
-    font-size: 1.1rem;
-  }
-  
-  .service-description {
-    font-size: 0.8rem;
+  .service-card:nth-child(2n) {
+    border-right: none;
   }
 }
+
+@media (min-width: 1024px) {
+  /* Desktop: 3 columns - reset 2n rule, remove border from 3rd, 6th */
+  .service-card:nth-child(2n) {
+    border-right: 1px solid rgb(226 232 240);
+  }
+  .service-card:nth-child(3n) {
+    border-right: none;
+  }
+}
+
+@media (min-width: 1280px) {
+  /* Large desktop: 4 columns - reset 3n rule, remove border from 4th only (7th card is in 2nd row) */
+  .service-card:nth-child(3n) {
+    border-right: 1px solid rgb(226 232 240);
+  }
+  .service-card:nth-child(4n) {
+    border-right: none;
+  }
+}
+
+/* Glass effect refinement */
+.glass-hover {
+  backdrop-filter: blur(8px);
+}
+

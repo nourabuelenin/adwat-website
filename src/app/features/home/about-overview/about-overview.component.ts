@@ -5,6 +5,8 @@ import { ButtonComponent } from '../../../shared/components/button/button.compon
 import { ContainerComponent } from '../../../shared/components/container/container.component';
 import { SectionComponent } from '../../../shared/components/section/section.component';
 import { TranslationService } from '../../../core/services/translation.service';
+import { PARTNERS_DATA } from '../../../core/data/content.data';
+import { Partner } from '../../../core/models/content.models';
 
 @Component({
   selector: 'app-about-overview',
@@ -16,6 +18,7 @@ import { TranslationService } from '../../../core/services/translation.service';
 export class AboutOverviewComponent {
   private translationService = inject(TranslationService);
   currentLang = this.translationService.currentLang;
+  partners: Partner[] = PARTNERS_DATA;
 
   content = {
     heading: {

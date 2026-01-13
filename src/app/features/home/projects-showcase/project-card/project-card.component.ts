@@ -326,7 +326,8 @@ import { Project } from '../../../../core/models/content.models';
     .tablet-mockup {
       position: absolute;
       left: 0;
-      top: 50%;
+      top: 50%
+;
       transform: translateY(-50%);
       width: 200px;
       height: 280px;
@@ -335,6 +336,12 @@ import { Project } from '../../../../core/models/content.models';
       padding: 6px;
       border: 2px solid #334155;
       z-index: 1;
+    }
+
+    @media (max-width: 1024px) {
+      .tablet-mockup {
+        display: none;
+      }
     }
 
     .tablet-screen {

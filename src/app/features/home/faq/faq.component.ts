@@ -1,7 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { ContainerComponent } from '../../../shared/components/container/container.component';
 import { SectionComponent } from '../../../shared/components/section/section.component';
+import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { FAQ_DATA } from '../../../core/data/content.data';
 import { FAQ } from '../../../core/models/content.models';
 import { TranslationService } from '../../../core/services/translation.service';
@@ -9,7 +11,7 @@ import { TranslationService } from '../../../core/services/translation.service';
 @Component({
   selector: 'app-faq',
   standalone: true,
-  imports: [CommonModule, ContainerComponent, SectionComponent],
+  imports: [CommonModule, RouterModule, ContainerComponent, SectionComponent, ButtonComponent],
   template: `
     <app-section id="faq">
       <app-container [size]="'content'">
@@ -22,7 +24,7 @@ import { TranslationService } from '../../../core/services/translation.service';
           </h2>
         </div>
 
-        <div class="space-y-4">
+        <div class="space-y-4 mb-8">
           <div *ngFor="let faq of faqs; let i = index" class="card p-6">
             <button 
               (click)="toggleFaq(i)"
@@ -41,6 +43,16 @@ import { TranslationService } from '../../../core/services/translation.service';
             </div>
           </div>
         </div>
+
+        <!-- View All FAQs Button -->
+        <div class="text-center">
+          <app-button 
+            [variant]="'secondary'" 
+            [size]="'large'"
+            routerLink="/faq">
+            {{ currentLang() === 'en' ? 'View All FAQs' : 'عرض جميع الأسئلة' }}
+          </app-button>
+        </div>
       </app-container>
     </app-section>
   `
@@ -48,7 +60,7 @@ import { TranslationService } from '../../../core/services/translation.service';
 export class FaqComponent {
   private translationService = inject(TranslationService);
   currentLang = this.translationService.currentLang;
-  faqs: FAQ[] = FAQ_DATA;
+  faqs: FAQ[] = FAQ_DATA.slice(0, 5);
   openIndex: number | null = null;
 
   content = {

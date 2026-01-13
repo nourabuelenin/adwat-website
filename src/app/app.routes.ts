@@ -4,6 +4,7 @@ import { AboutComponent } from './features/about/about.component';
 import { ServicesComponent } from './features/services/services.component';
 import { ProjectsComponent } from './features/projects/projects.component';
 import { ContactComponent } from './features/contact/contact.component';
+import { FaqPageComponent } from './features/faq-page/faq-page.component';
 
 export const routes: Routes = [
   {
@@ -25,6 +26,11 @@ export const routes: Routes = [
     path: 'projects',
     component: ProjectsComponent,
     title: 'Our Projects - Adwat Information Technology'
+  },
+  {
+    path: 'faq',
+    component: FaqPageComponent,
+    title: 'FAQ - Adwat Information Technology'
   },
   {
     path: 'contact',

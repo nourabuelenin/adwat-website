@@ -18,27 +18,21 @@
       </div>
     </div>
 
-    <!-- Trust Signals -->
-    <div class="mt-16 pt-16 border-t border-slate-200">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-        <div 
-          *ngFor="let signal of trustSignals"
-          class="text-center">
-          
-          <div class="text-4xl md:text-5xl font-bold text-slate-900 mb-2">
-            {{ signal.value }}
+            <!-- Partners Section -->
+        <div class="border-t border-slate-200 pt-6 mt-12">
+          <!-- <p class="text-center text-slate-600 font-semibold mb-8">
+            {{ heroContent.partnersTitle[currentLang] }}
+          </p> -->
+          <div class="grid grid-cols-3 md:grid-cols-7 gap-6 items-center">
+            <div *ngFor="let partner of partners" class="flex items-center justify-center">
+              <img
+                [src]="partner.logo"
+                [alt]="partner.name"
+                class="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100"
+              />
+            </div>
           </div>
-          
-          <div class="text-sm md:text-base text-slate-600 font-medium">
-            {{ signal.label[currentLang()] }}
-          </div>
-          
-          <!-- <div *ngIf="signal.sublabel" class="text-xs text-slate-500 mt-1">
-            {{ signal.sublabel[currentLang] }}
-          </div> -->
         </div>
-      </div>
-    </div>
 
   </app-container>
 </app-section>
