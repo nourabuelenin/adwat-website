@@ -5,16 +5,16 @@
   [class.bg-transparent]="!isScrolled">
   
   <nav class="container-wrapper">
-    <div class="flex items-center justify-between h-20">
+    <div class="flex items-center justify-between h-16">
       
       <!-- Logo -->
       <a routerLink="/" class="flex items-center space-x-3">
         <img 
           src="/assets/images/logo/adwat-logo.png" 
           alt="Adwat Information Technology" 
-          class="h-10 w-auto">
-        <span class="text-xl font-bold hidden md:block transition-colors duration-300"
-          [class.text-white]="!isScrolled"
+          class="h-8 w-auto">
+        <span class="text-lg font-bold hidden md:block transition-colors duration-300"
+          [class.text-adwat-dark-green]="!isScrolled"
           [class.text-adwat-dark-green]="isScrolled">
           Adwat
         </span>
@@ -28,7 +28,7 @@
           routerLinkActive="text-primary font-semibold"
           [routerLinkActiveOptions]="{exact: true}"
           class="hover:text-primary transition-colors duration-200 font-medium"
-          [class.text-white]="!isScrolled"
+          [class.text-adwat-dark-green]="!isScrolled"
           [class.text-adwat-dark-green]="isScrolled">
           {{ getNavLabel(item) }}
         </a>
@@ -39,12 +39,13 @@
         <button 
           (click)="toggleLanguage()"
           class="px-3 py-2 text-sm font-medium hover:text-primary transition-colors"
-          [class.text-white]="!isScrolled"
+          [class.text-adwat-dark-green]="!isScrolled"
           [class.text-adwat-dark-green]="isScrolled">
           {{ currentLang === 'en' ? 'العربية' : 'English' }}
         </button>
         <app-button 
           [variant]="'primary'"
+          class="btn-small"
           (click)="$event.preventDefault()"
           routerLink="/contact">
           {{ currentLang === 'en' ? 'Contact Us' : 'اتصل بنا' }}
@@ -55,7 +56,7 @@
       <button 
         (click)="toggleMobileMenu()"
         class="lg:hidden p-2 hover:text-primary transition-colors"
-        [class.text-white]="!isScrolled"
+        [class.text-adwat-dark-green]="!isScrolled"
         [class.text-adwat-dark-green]="isScrolled"
         [attr.aria-expanded]="isMobileMenuOpen"
         aria-label="Toggle menu">

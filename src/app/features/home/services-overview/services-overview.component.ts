@@ -20,16 +20,8 @@ export class ServicesOverviewComponent {
 
   content = {
     heading: {
-      en: 'Our Services',
-      ar: 'خدماتنا'
-    },
-    title: {
-      en: 'Enterprise Solutions Built for Scale',
-      ar: 'حلول مؤسسية مصممة للنمو'
-    },
-    description: {
-      en: 'Comprehensive technology services designed to drive digital transformation and business growth',
-      ar: 'خدمات تقنية شاملة مصممة لدفع التحول الرقمي ونمو الأعمال'
+      en: 'Services',
+      ar: 'الخدمات'
     },
     cta: {
       en: 'View All Services',

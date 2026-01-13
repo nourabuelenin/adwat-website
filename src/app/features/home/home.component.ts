@@ -42,10 +42,19 @@ import { FinalCtaComponent } from './final-cta/final-cta.component';
     :host ::ng-deep app-projects-showcase,
     :host ::ng-deep app-why-choose-us,
     :host ::ng-deep app-testimonials,
-    :host ::ng-deep app-faq,
-    :host ::ng-deep app-final-cta {
+    :host ::ng-deep app-faq {
       display: block;
       min-height: 100vh;
+    }
+    
+    /* Center the about section vertically when it is full-height */
+    // :host ::ng-deep app-about-overview {
+    //   display: flex;
+    //   align-items: center;
+    // }
+    
+    :host ::ng-deep app-final-cta {
+      display: block;
     }
   `]
 })

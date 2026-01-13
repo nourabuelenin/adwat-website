@@ -2,93 +2,111 @@ import { Project } from '../models/content.models';
 
 export const PROJECTS_DATA: Project[] = [
   {
-    id: 'gov-digital-platform',
+    id: 'traffic-monitoring',
     title: {
-      en: 'National Digital Services Platform',
-      ar: 'منصة الخدمات الرقمية الوطنية'
+      en: 'Traffic Incident Monitoring System',
+      ar: 'نظام مراقبة حوادث المرور'
     },
     description: {
-      en: 'Comprehensive digital platform serving millions of citizens with secure, scalable government services aligned with Vision 2030.',
-      ar: 'منصة رقمية شاملة تخدم الملايين من المواطنين بخدمات حكومية آمنة وقابلة للتطوير متوافقة مع رؤية 2030.'
+      en: 'An intelligent solution for monitoring and analyzing road incidents using data and AI to support real-time traffic safety decisions. Helps authorities predict high-risk areas and proactive intervention to reduce accidents.',
+      ar: 'حل ذكي لمراقبة وتحليل حوادث الطرق يعتمد على البيانات والذكاء الاصطناعي لدعم قرارات السلامة المرورية في الوقت الفعلي. يساعد الجهات المعنية على التنبؤ بالمناطق عالية الخطورة والتدخل الاستباقي للحد من الحوادث.'
     },
     industry: {
-      en: 'Government & Public Sector',
-      ar: 'القطاع الحكومي والعام'
+      en: 'Riyadh Municipality',
+      ar: 'أمانة الرياض'
     },
     year: 2024,
-    tags: ['Government', 'Digital Transformation', 'Vision 2030'],
+    tags: ['AI', 'Traffic Management', 'Government'],
     featured: true
   },
   {
-    id: 'enterprise-erp',
+    id: 'advanced-monitoring',
     title: {
-      en: 'Enterprise Resource Planning System',
-      ar: 'نظام تخطيط موارد المؤسسة'
+      en: 'Advanced Monitoring System',
+      ar: 'نظام المراقبة المتقدم'
     },
     description: {
-      en: 'Integrated ERP solution for a major Saudi enterprise, streamlining operations across 15+ departments and 5000+ users.',
-      ar: 'حل متكامل لتخطيط موارد المؤسسات لشركة سعودية كبرى، يعمل على تبسيط العمليات عبر أكثر من 15 قسمًا وأكثر من 5000 مستخدم.'
+      en: 'A centralized platform for real-time hospital performance monitoring, enabling unified oversight of operations and healthcare quality across a wide network of facilities. Supports rapid decision-making and improves response efficiency and resource management at the sector level.',
+      ar: 'منصة مركزية لمراقبة أداء المستشفيات في الوقت الفعلي، تتيح إشرافًا موحدًا على العمليات وجودة الرعاية الصحية عبر شبكة واسعة من المنشآت. تدعم اتخاذ القرار السريع وتحسين كفاءة الاستجابة وإدارة الموارد على مستوى القطاع الصحي.'
     },
     industry: {
-      en: 'Manufacturing & Industrial',
-      ar: 'التصنيع والصناعة'
-    },
-    year: 2023,
-    tags: ['ERP', 'Enterprise', 'Integration'],
-    featured: true
-  },
-  {
-    id: 'smart-city',
-    title: {
-      en: 'Smart City Infrastructure Management',
-      ar: 'إدارة البنية التحتية للمدينة الذكية'
-    },
-    description: {
-      en: 'IoT-enabled smart city platform managing urban infrastructure, traffic, utilities, and citizen services in real-time.',
-      ar: 'منصة مدينة ذكية تعمل بإنترنت الأشياء لإدارة البنية التحتية الحضرية والمرور والمرافق وخدمات المواطنين في الوقت الفعلي.'
-    },
-    industry: {
-      en: 'Smart Cities & Infrastructure',
-      ar: 'المدن الذكية والبنية التحتية'
+      en: 'Ministry of Health',
+      ar: 'وزارة الصحة'
     },
     year: 2024,
-    tags: ['Smart City', 'IoT', 'Infrastructure'],
+    tags: ['Healthcare', 'Monitoring', 'Government'],
     featured: true
   },
   {
-    id: 'healthcare-system',
+    id: 'construction-management',
     title: {
-      en: 'Integrated Healthcare Management System',
-      ar: 'نظام إدارة الرعاية الصحية المتكامل'
+      en: 'Construction Project Management Platform',
+      ar: 'منصة إدارة مشاريع البناء'
     },
     description: {
-      en: 'Comprehensive healthcare platform connecting hospitals, clinics, and patients with secure, HIPAA-compliant digital services.',
-      ar: 'منصة رعاية صحية شاملة تربط المستشفيات والعيادات والمرضى بخدمات رقمية آمنة ومتوافقة مع معايير HIPAA.'
+      en: 'A unified digital platform for managing construction projects, bringing all project stakeholders together in one environment with clear workflows and real-time performance analytics. Helps control coordination, improve resource utilization, and reduce delays and costs throughout the project lifecycle.',
+      ar: 'منصة رقمية موحدة لإدارة مشاريع البناء، تجمع جميع أطراف المشروع في بيئة واحدة بسير عمل واضح وتحليلات أداء لحظية. تساعد على ضبط التنسيق، تحسين استخدام الموارد، وتقليل التأخير والتكاليف عبر دورة المشروع كاملة.'
     },
     industry: {
-      en: 'Healthcare & Medical',
-      ar: 'الرعاية الصحية والطبية'
-    },
-    year: 2023,
-    tags: ['Healthcare', 'Digital Health', 'Integration'],
-    featured: true
-  },
-  {
-    id: 'financial-platform',
-    title: {
-      en: 'Digital Banking Platform',
-      ar: 'منصة الخدمات المصرفية الرقمية'
-    },
-    description: {
-      en: 'Secure digital banking solution with advanced features for corporate clients and retail customers, fully compliant with SAMA regulations.',
-      ar: 'حل مصرفي رقمي آمن مع ميزات متقدمة للعملاء من الشركات والأفراد، متوافق تمامًا مع لوائح ساما.'
-    },
-    industry: {
-      en: 'Banking & Financial Services',
-      ar: 'الخدمات المصرفية والمالية'
+      en: 'Management Platform',
+      ar: 'منصة إدارة'
     },
     year: 2024,
-    tags: ['FinTech', 'Banking', 'Security'],
+    tags: ['Construction', 'Project Management', 'Enterprise'],
+    featured: true
+  },
+  {
+    id: 'e-next',
+    title: {
+      en: 'E-Next Smart E-Commerce Platform',
+      ar: 'E-Next منصة التجارة الإلكترونية الذكية'
+    },
+    description: {
+      en: 'An integrated e-commerce platform powered by AI to personalize shopping experiences, enhance security, and support digital retail business growth. Combines modern web technologies and smart management tools to boost sales and improve operational efficiency.',
+      ar: 'منصة تجارة إلكترونية متكاملة تعتمد على الذكاء الاصطناعي لتخصيص تجربة التسوق، تعزيز الأمان، ودعم نمو أعمال التجزئة الرقمية. تجمع بين تقنيات ويب حديثة وأدوات إدارة ذكية لرفع المبيعات وتحسين كفاءة التشغيل.'
+    },
+    industry: {
+      en: 'E-Commerce Platform',
+      ar: 'منصة تجارة إلكترونية'
+    },
+    year: 2024,
+    tags: ['E-Commerce', 'AI', 'Digital'],
+    featured: true
+  },
+  {
+    id: 'go-care-beauty',
+    title: {
+      en: 'Go Care Beauty & Personal Care Platform',
+      ar: 'Go Care منصة الجمال والعناية الشخصية'
+    },
+    description: {
+      en: 'A smart platform connecting customers with beauty salons and clinics through instant booking, location-based search, and a trusted rating system. Simplifies appointment management for service providers and delivers a seamless, transparent booking experience for customers.',
+      ar: 'منصة ذكية تربط العملاء بصالونات وعيادات التجميل عبر حجز فوري، بحث حسب الموقع، ونظام تقييم موثوق. تسهل إدارة المواعيد لمقدمي الخدمات وتقدم تجربة حجز سلسة وشفافة للعملاء.'
+    },
+    industry: {
+      en: 'Beauty & Personal Care',
+      ar: 'الجمال والعناية الشخصية'
+    },
+    year: 2024,
+    tags: ['Beauty', 'Booking', 'Mobile App'],
+    featured: true
+  },
+  {
+    id: 'go-care-healthcare',
+    title: {
+      en: 'Go Care Healthcare Management System',
+      ar: 'Go Care نظام إدارة الرعاية الصحية'
+    },
+    description: {
+      en: 'A centralized administrative system for managing the entire healthcare ecosystem, from service providers and patients to appointments and operational quality. Gives healthcare managers clear visibility and greater control over performance, compliance, and service improvement.',
+      ar: 'نظام إداري مركزي لإدارة منظومة الرعاية الصحية بالكامل، من مقدمي الخدمات والمرضى إلى المواعيد وجودة التشغيل. يمنح مديري الرعاية الصحية رؤية واضحة وتحكمًا أعلى في الأداء والامتثال وتحسين الخدمات.'
+    },
+    industry: {
+      en: 'Healthcare Management',
+      ar: 'إدارة الرعاية الصحية'
+    },
+    year: 2024,
+    tags: ['Healthcare', 'Management', 'Digital Health'],
     featured: true
   },
   {

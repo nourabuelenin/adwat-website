@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, AfterViewInit, OnDestroy, Input, OnChanges } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit, OnDestroy, Input, OnChanges, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
@@ -22,6 +22,7 @@ interface LayerConfig {
 export class AnimatedCubeComponent implements AfterViewInit, OnDestroy, OnChanges {
   @ViewChild('canvasContainer', { static: false }) canvasContainer!: ElementRef<HTMLDivElement>;
   @Input() assemblyProgress: number = 0;
+  @Input() disassembleOnHover: boolean = true;
 
   private scene!: THREE.Scene;
   private camera!: THREE.PerspectiveCamera;
@@ -30,6 +31,11 @@ export class AnimatedCubeComponent implements AfterViewInit, OnDestroy, OnChange
   private cubeGroup!: THREE.Group;
   private layers: { mesh: THREE.Mesh; config: LayerConfig }[] = [];
   private animationId: number = 0;
+  
+  // Hover state management
+  private isHovered: boolean = false;
+  private currentProgress: number = 0;
+  private targetProgress: number = 1;
 
   // Colors matching the logo exactly
   private readonly colors = {
@@ -50,10 +56,16 @@ export class AnimatedCubeComponent implements AfterViewInit, OnDestroy, OnChange
   ngAfterViewInit(): void {
     this.initScene();
     this.createCube();
+    this.currentProgress = this.assemblyProgress;
+    this.targetProgress = this.assemblyProgress;
     this.animate();
     
     // Handle window resize
     window.addEventListener('resize', this.onWindowResize.bind(this));
+    
+    // Add hover listeners to the canvas container
+    this.canvasContainer.nativeElement.addEventListener('mouseenter', this.onMouseEnter.bind(this));
+    this.canvasContainer.nativeElement.addEventListener('mouseleave', this.onMouseLeave.bind(this));
   }
 
   ngOnChanges(): void {
@@ -64,6 +76,10 @@ export class AnimatedCubeComponent implements AfterViewInit, OnDestroy, OnChange
 
   ngOnDestroy(): void {
     window.removeEventListener('resize', this.onWindowResize.bind(this));
+    if (this.canvasContainer?.nativeElement) {
+      this.canvasContainer.nativeElement.removeEventListener('mouseenter', this.onMouseEnter.bind(this));
+      this.canvasContainer.nativeElement.removeEventListener('mouseleave', this.onMouseLeave.bind(this));
+    }
     if (this.animationId) {
       cancelAnimationFrame(this.animationId);
     }
@@ -72,6 +88,20 @@ export class AnimatedCubeComponent implements AfterViewInit, OnDestroy, OnChange
     }
     if (this.controls) {
       this.controls.dispose();
+    }
+  }
+
+  private onMouseEnter(): void {
+    if (this.disassembleOnHover) {
+      this.isHovered = true;
+      this.targetProgress = 0; // Disassemble
+    }
+  }
+
+  private onMouseLeave(): void {
+    if (this.disassembleOnHover) {
+      this.isHovered = false;
+      this.targetProgress = 1; // Reassemble
     }
   }
 
@@ -86,7 +116,7 @@ export class AnimatedCubeComponent implements AfterViewInit, OnDestroy, OnChange
       0.1,
       1000
     );
-    this.camera.position.set(0, 0, 7);
+    this.camera.position.set(0, 0, 9);
 
     // Renderer
     this.renderer = new THREE.WebGLRenderer({ 
@@ -275,13 +305,38 @@ export class AnimatedCubeComponent implements AfterViewInit, OnDestroy, OnChange
   private animate(): void {
     this.animationId = requestAnimationFrame(() => this.animate());
 
+    // Smoothly interpolate current progress towards target
+    if (this.disassembleOnHover) {
+      const lerpSpeed = 0.04; // Adjust for faster/slower transition
+      this.currentProgress += (this.targetProgress - this.currentProgress) * lerpSpeed;
+      
+      // Update cube assembly based on current progress
+      if (this.layers.length > 0) {
+        this.updateCubeAssemblyWithProgress(this.currentProgress);
+      }
+    }
+
     // Slow rotation after assembly
-    const rotationSpeed = this.assemblyProgress >= 1 ? 0.004 : 0.002;
+    const rotationSpeed = this.currentProgress >= 0.9 ? 0.004 : 0.002;
     this.cubeGroup.rotation.y += rotationSpeed;
     this.cubeGroup.rotation.x = 0.4 + Math.sin(Date.now() * 0.0003) * 0.05;
 
     this.controls.update();
     this.renderer.render(this.scene, this.camera);
+  }
+
+  private updateCubeAssemblyWithProgress(progress: number): void {
+    const eased = this.easeInOutCubic(progress);
+
+    this.layers.forEach(({ mesh, config }) => {
+      // Interpolate position
+      mesh.position.lerpVectors(config.position, config.targetPosition, eased);
+
+      // Interpolate color and opacity
+      const material = mesh.material as THREE.MeshPhysicalMaterial;
+      material.color = this.lerpColor(config.color, config.targetColor, eased);
+      material.opacity = config.opacity + (config.targetOpacity - config.opacity) * eased;
+    });
   }
 
   private onWindowResize(): void {
