@@ -47,6 +47,12 @@ import { FinalCtaComponent } from './final-cta/final-cta.component';
       min-height: 100vh;
     }
     
+    /* Center the about section vertically when it is full-height */
+    // :host ::ng-deep app-about-overview {
+    //   display: flex;
+    //   align-items: center;
+    // }
+    
     :host ::ng-deep app-final-cta {
       display: block;
     }

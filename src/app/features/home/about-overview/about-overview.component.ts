@@ -20,6 +20,10 @@ export class AboutOverviewComponent {
       en: 'About Adwat',
       ar: 'عن أدوات'
     },
+    title: {
+      en: 'Transforming Business Through Smart Digital Solutions',
+      ar: 'تحويل الأعمال من خلال حلول رقمية ذكية'
+    },
     paragraphs: [
       {
         en: 'Adwat is a company specialized in building digital solutions for organizations seeking technical transformation, going beyond mere system development to improving work methods and supporting decision-making.',
