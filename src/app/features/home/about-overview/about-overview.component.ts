@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { ContainerComponent } from '../../../shared/components/container/container.component';
 import { SectionComponent } from '../../../shared/components/section/section.component';
+import { TranslationService } from '../../../core/services/translation.service';
 
 @Component({
   selector: 'app-about-overview',
@@ -13,7 +14,8 @@ import { SectionComponent } from '../../../shared/components/section/section.com
   styleUrls: ['./about-overview.component.css']
 })
 export class AboutOverviewComponent {
-  currentLang: 'en' | 'ar' = 'en';
+  private translationService = inject(TranslationService);
+  currentLang = this.translationService.currentLang;
 
   content = {
     heading: {
@@ -60,10 +62,5 @@ export class AboutOverviewComponent {
     }
   ];
 
-  ngOnInit(): void {
-    const storedLang = localStorage.getItem('preferredLang');
-    if (storedLang === 'ar' || storedLang === 'en') {
-      this.currentLang = storedLang;
-    }
-  }
+
 }

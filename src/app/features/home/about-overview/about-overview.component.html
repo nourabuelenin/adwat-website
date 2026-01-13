@@ -4,16 +4,16 @@
     <!-- About Content -->
     <div class="max-w-5xl mx-auto">
       <p class="text-primary font-semibold text-sm uppercase tracking-wide mb-4 text-center">
-        {{ content.heading[currentLang] }}
+        {{ content.heading[currentLang()] }}
       </p>
 
       <h2 class="text-3xl lg:text-4xl font-bold text-adwat-dark-green mb-4 text-center">
-        {{ content.title[currentLang] }}
+        {{ content.title[currentLang()] }}
       </h2>
 
       <div class="space-y-6 text-slate-700 text-lg leading-relaxed">
         <p *ngFor="let paragraph of content.paragraphs" class="text-center">
-          {{ paragraph[currentLang] }}
+          {{ paragraph[currentLang()] }}
         </p>
       </div>
     </div>
@@ -30,7 +30,7 @@
           </div>
           
           <div class="text-sm md:text-base text-slate-600 font-medium">
-            {{ signal.label[currentLang] }}
+            {{ signal.label[currentLang()] }}
           </div>
           
           <!-- <div *ngIf="signal.sublabel" class="text-xs text-slate-500 mt-1">

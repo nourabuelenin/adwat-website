@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
@@ -6,6 +6,8 @@ import { ContainerComponent } from '../../../shared/components/container/contain
 import { SectionComponent } from '../../../shared/components/section/section.component';
 import { SERVICES_DATA } from '../../../core/data/services.data';
 import { Service } from '../../../core/models/content.models';
+
+import { TranslationService } from '../../../core/services/translation.service';
 
 @Component({
   selector: 'app-services-overview',
@@ -15,7 +17,8 @@ import { Service } from '../../../core/models/content.models';
   styleUrls: ['./services-overview.component.css']
 })
 export class ServicesOverviewComponent {
-  currentLang: 'en' | 'ar' = 'en';
+  private translationService = inject(TranslationService);
+  currentLang = this.translationService.currentLang;
   services: Service[] = SERVICES_DATA.filter(s => s.featured);
 
   content = {
@@ -29,18 +32,11 @@ export class ServicesOverviewComponent {
     }
   };
 
-  ngOnInit(): void {
-    const storedLang = localStorage.getItem('preferredLang');
-    if (storedLang === 'ar' || storedLang === 'en') {
-      this.currentLang = storedLang;
-    }
-  }
-
   getServiceTitle(service: Service): string {
-    return service.title[this.currentLang];
+    return service.title[this.currentLang()];
   }
 
   getServiceDescription(service: Service): string {
-    return service.description[this.currentLang];
+    return service.description[this.currentLang()];
   }
 }

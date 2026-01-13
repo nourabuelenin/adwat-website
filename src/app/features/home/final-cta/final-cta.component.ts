@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ContainerComponent } from '../../../shared/components/container/container.component';
+import { TranslationService } from '../../../core/services/translation.service';
 
 @Component({
   selector: 'app-final-cta',
@@ -12,7 +13,8 @@ import { ContainerComponent } from '../../../shared/components/container/contain
   styleUrls: ['./final-cta.component.css']
 })
 export class FinalCtaComponent {
-  currentLang: 'en' | 'ar' = 'en';
+  private translationService = inject(TranslationService);
+  currentLang = this.translationService.currentLang;
   email: string = '';
   isSubmitting: boolean = false;
   submitSuccess: boolean = false;
@@ -33,10 +35,7 @@ export class FinalCtaComponent {
     ctaButton: { en: 'Get started', ar: 'ابدأ الآن' }
   };
 
-  ngOnInit(): void {
-    const storedLang = localStorage.getItem('preferredLang');
-    if (storedLang === 'ar' || storedLang === 'en') this.currentLang = storedLang;
-  }
+
 
   handleSubmit(): void {
     if (!this.email || this.isSubmitting) return;

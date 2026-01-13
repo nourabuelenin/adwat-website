@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { TranslationService } from '../../../core/services/translation.service';
 
 interface FooterLink {
   label: { en: string; ar: string };
@@ -20,8 +21,9 @@ interface FooterSection {
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent {
+  private translationService = inject(TranslationService);
   currentYear = new Date().getFullYear();
-  currentLang: 'en' | 'ar' = 'en';
+  currentLang = this.translationService.currentLang;
 
   footerSections: FooterSection[] = [
     {
@@ -83,18 +85,11 @@ export class FooterComponent {
     { name: 'Facebook', url: 'https://facebook.com/adwat', icon: 'facebook' }
   ];
 
-  ngOnInit(): void {
-    const storedLang = localStorage.getItem('preferredLang');
-    if (storedLang === 'ar' || storedLang === 'en') {
-      this.currentLang = storedLang;
-    }
-  }
-
   getSectionTitle(section: FooterSection): string {
-    return section.title[this.currentLang];
+    return section.title[this.currentLang()];
   }
 
   getLinkLabel(link: FooterLink): string {
-    return link.label[this.currentLang];
+    return link.label[this.currentLang()];
   }
 }

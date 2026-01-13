@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ContainerComponent } from '../../../shared/components/container/container.component';
 import { SectionComponent } from '../../../shared/components/section/section.component';
 import { FEATURES_DATA } from '../../../core/data/content.data';
 import { Feature } from '../../../core/models/content.models';
+import { TranslationService } from '../../../core/services/translation.service';
 
 @Component({
   selector: 'app-why-choose-us',
@@ -14,13 +15,13 @@ import { Feature } from '../../../core/models/content.models';
       <app-container>
         <div class="text-center max-w-3xl mx-auto mb-16">
           <p class="text-primary font-semibold text-sm uppercase tracking-wide mb-3">
-            {{ content.heading[currentLang] }}
+            {{ content.heading[currentLang()] }}
           </p>
           <h2 class="text-3xl lg:text-4xl font-bold text-adwat-dark-green mb-4">
-            {{ content.title[currentLang] }}
+            {{ content.title[currentLang()] }}
           </h2>
           <p class="text-lg text-adwat-dark-green/70">
-            {{ content.description[currentLang] }}
+            {{ content.description[currentLang()] }}
           </p>
         </div>
 
@@ -40,10 +41,10 @@ import { Feature } from '../../../core/models/content.models';
             </div>
             
             <h3 class="text-xl font-bold text-adwat-dark-green mb-4">
-              {{ item.title[currentLang] }}
+              {{ item.title[currentLang()] }}
             </h3>
             <p class="text-adwat-dark-green/60 leading-relaxed text-sm max-w-xs mx-auto">
-              {{ item.description[currentLang] }}
+              {{ item.description[currentLang()] }}
             </p>
           </div>
         </div>
@@ -145,7 +146,8 @@ import { Feature } from '../../../core/models/content.models';
   `]
 })
 export class WhyChooseUsComponent {
-  currentLang: 'en' | 'ar' = 'en';
+  private translationService = inject(TranslationService);
+  currentLang = this.translationService.currentLang;
   features: Feature[] = FEATURES_DATA;
 
   content = {
@@ -180,9 +182,4 @@ export class WhyChooseUsComponent {
       cubeStyle: 'cube-lavender'
     }
   ];
-
-  ngOnInit(): void {
-    const storedLang = localStorage.getItem('preferredLang');
-    if (storedLang === 'ar' || storedLang === 'en') this.currentLang = storedLang;
-  }
 }

@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ContainerComponent } from '../../../shared/components/container/container.component';
 import { SectionComponent } from '../../../shared/components/section/section.component';
 import { TESTIMONIALS_DATA, PARTNERS_DATA } from '../../../core/data/content.data';
 import { Testimonial, Partner } from '../../../core/models/content.models';
+import { TranslationService } from '../../../core/services/translation.service';
 
 @Component({
   selector: 'app-testimonials',
@@ -14,10 +15,10 @@ import { Testimonial, Partner } from '../../../core/models/content.models';
       <app-container>
         <div class="text-center max-w-3xl mx-auto mb-12">
           <p class="text-primary font-semibold text-sm uppercase tracking-wide mb-3">
-            {{ content.heading[currentLang] }}
+            {{ content.heading[currentLang()] }}
           </p>
           <h2 class="text-3xl lg:text-4xl font-bold text-adwat-dark-green mb-4">
-            {{ content.title[currentLang] }}
+            {{ content.title[currentLang()] }}
           </h2>
         </div>
 
@@ -27,17 +28,17 @@ import { Testimonial, Partner } from '../../../core/models/content.models';
               <span *ngFor="let star of [1,2,3,4,5]" class="text-yellow-400 text-xl">★</span>
             </div>
             <p class="text-adwat-dark-green/80 leading-relaxed mb-6 italic">
-              "{{ testimonial.content[currentLang] }}"
+              "{{ testimonial.content[currentLang()] }}"
             </p>
             <div class="border-t border-adwat-dark-green/10 pt-4">
               <p class="font-semibold text-adwat-dark-green">
-                {{ testimonial.clientName[currentLang] }}
+                {{ testimonial.clientName[currentLang()] }}
               </p>
               <p class="text-sm text-adwat-dark-green/60">
-                {{ testimonial.position[currentLang] }}
+                {{ testimonial.position[currentLang()] }}
               </p>
               <p class="text-sm text-adwat-dark-green/60">
-                {{ testimonial.company[currentLang] }}
+                {{ testimonial.company[currentLang()] }}
               </p>
             </div>
           </div>
@@ -45,7 +46,7 @@ import { Testimonial, Partner } from '../../../core/models/content.models';
 
         <!-- <div class="border-t border-adwat-dark-green/10 pt-12">
           <p class="text-center text-adwat-dark-green/60 font-semibold mb-8">
-            {{ content.partnersTitle[currentLang] }}
+            {{ content.partnersTitle[currentLang()] }}
           </p>
           <div class="grid grid-cols-3 md:grid-cols-6 gap-8 items-center opacity-60">
             <div *ngFor="let partner of partners" class="flex items-center justify-center">
@@ -60,7 +61,8 @@ import { Testimonial, Partner } from '../../../core/models/content.models';
   `
 })
 export class TestimonialsComponent {
-  currentLang: 'en' | 'ar' = 'en';
+  private translationService = inject(TranslationService);
+  currentLang = this.translationService.currentLang;
   testimonials: Testimonial[] = TESTIMONIALS_DATA;
   partners: Partner[] = PARTNERS_DATA;
 
@@ -69,9 +71,4 @@ export class TestimonialsComponent {
     title: { en: 'What Our Clients Say', ar: 'ماذا يقول عملاؤنا' },
     partnersTitle: { en: 'Trusted by Leading Organizations', ar: 'موثوق به من قبل المؤسسات الرائدة' }
   };
-
-  ngOnInit(): void {
-    const storedLang = localStorage.getItem('preferredLang');
-    if (storedLang === 'ar' || storedLang === 'en') this.currentLang = storedLang;
-  }
 }

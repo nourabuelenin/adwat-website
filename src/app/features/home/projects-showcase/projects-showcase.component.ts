@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { ProjectsSliderComponent } from './projects-slider/projects-slider.component';
 import { PROJECTS_DATA } from '../../../core/data/projects.data';
 import { Project } from '../../../core/models/content.models';
+import { TranslationService } from '../../../core/services/translation.service';
 
 @Component({
   selector: 'app-projects-showcase',
@@ -72,34 +73,35 @@ import { Project } from '../../../core/models/content.models';
     <section class="projects-section" id="projects">
       <div class="section-header">
         <p class="section-tag">
-          {{ content.heading[currentLang] }}
+          {{ content.heading[currentLang()] }}
         </p>
         <h2 class="section-title">
-          {{ content.title[currentLang] }}
+          {{ content.title[currentLang()] }}
         </h2>
         <p class="section-description">
-          {{ content.description[currentLang] }}
+          {{ content.description[currentLang()] }}
         </p>
       </div>
 
       <div class="slider-wrapper">
         <app-projects-slider 
           [projects]="projects" 
-          [currentLang]="currentLang"
+          [currentLang]="currentLang()"
           [autoSlide]="false">
         </app-projects-slider>
       </div>
 
       <div class="cta-wrapper">
         <app-button [variant]="'primary'" [size]="'large'" routerLink="/projects">
-          {{ content.cta[currentLang] }}
+          {{ content.cta[currentLang()] }}
         </app-button>
       </div>
     </section>
   `
 })
-export class ProjectsShowcaseComponent implements OnInit {
-  currentLang: 'en' | 'ar' = 'en';
+export class ProjectsShowcaseComponent {
+  private translationService = inject(TranslationService);
+  currentLang = this.translationService.currentLang;
   projects: Project[] = PROJECTS_DATA.filter(p => p.featured);
 
   content = {
@@ -108,11 +110,4 @@ export class ProjectsShowcaseComponent implements OnInit {
     description: { en: 'Delivering mission-critical solutions for government and enterprise clients', ar: 'تقديم حلول حيوية للعملاء الحكوميين والمؤسسات' },
     cta: { en: 'View All Projects', ar: 'اطلع على جميع المشاريع' }
   };
-
-  ngOnInit(): void {
-    const storedLang = localStorage.getItem('preferredLang');
-    if (storedLang === 'ar' || storedLang === 'en') {
-      this.currentLang = storedLang;
-    }
-  }
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, inject } from '@angular/core';
+import { TranslationService } from '../../services/translation.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
@@ -16,9 +17,12 @@ interface NavItem {
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  private translationService = inject(TranslationService);
   isScrolled = false;
   isMobileMenuOpen = false;
-  currentLang: 'en' | 'ar' = 'en';
+  
+  // Use signals from service
+  currentLang = this.translationService.currentLang;
 
   navItems: NavItem[] = [
     { label: { en: 'Home', ar: 'الرئيسية' }, route: '/' },
@@ -29,12 +33,7 @@ export class HeaderComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    // Check for stored language preference
-    const storedLang = localStorage.getItem('preferredLang');
-    if (storedLang === 'ar' || storedLang === 'en') {
-      this.currentLang = storedLang;
-    }
-    // Check initial scroll position
+    // Initial scroll check
     this.onWindowScroll();
   }
 
@@ -53,13 +52,10 @@ export class HeaderComponent implements OnInit {
   }
 
   toggleLanguage(): void {
-    this.currentLang = this.currentLang === 'en' ? 'ar' : 'en';
-    localStorage.setItem('preferredLang', this.currentLang);
-    document.documentElement.lang = this.currentLang;
-    document.documentElement.dir = this.currentLang === 'ar' ? 'rtl' : 'ltr';
+    this.translationService.toggleLanguage();
   }
 
   getNavLabel(item: NavItem): string {
-    return item.label[this.currentLang];
+    return item.label[this.currentLang()];
   }
 }

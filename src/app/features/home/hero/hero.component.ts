@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
@@ -6,6 +6,8 @@ import { ContainerComponent } from '../../../shared/components/container/contain
 import { Hero3dComponent } from '../../../shared/components/hero3d/hero3d.component';
 import { PARTNERS_DATA } from '../../../core/data/content.data';
 import { Partner } from '../../../core/models/content.models';
+
+import { TranslationService } from '../../../core/services/translation.service';
 
 @Component({
   selector: 'app-hero',
@@ -21,7 +23,8 @@ import { Partner } from '../../../core/models/content.models';
   styleUrl: './hero.component.css'
 })
 export class HeroComponent {
-  currentLang: 'en' | 'ar' = 'en';
+  private translationService = inject(TranslationService);
+  currentLang = this.translationService.currentLang;
   partners: Partner[] = PARTNERS_DATA;
 
   heroContent = {
