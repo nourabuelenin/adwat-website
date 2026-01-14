@@ -48,8 +48,8 @@
       </div>
     </div>
 
-    <!-- Contact Information -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12 pt-12 border-t border-white/10">
+    <!-- Contact Information with Map -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12 pt-12 border-t border-white/10">
       <!-- KSA Office -->
       <div>
         <h4 class="text-white font-semibold mb-3">
@@ -79,6 +79,21 @@
               {{ contactInfo.egypt.email }}
             </a>
           </p>
+        </div>
+      </div>
+
+      <!-- Map -->
+      <div class="map-container">
+        <h4 class="text-white font-semibold mb-3">
+          {{ currentLang() === 'en' ? 'Our Location' : 'موقعنا' }}
+        </h4>
+        <div class="rounded-lg overflow-hidden h-40 lg:h-48">
+          <iframe 
+            src="https://www.openstreetmap.org/export/embed.html?bbox=46.5%2C24.6%2C46.9%2C24.8&layer=mapnik&marker=24.7136%2C46.6753"
+            class="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-300"
+            loading="lazy"
+            title="Office Location Map">
+          </iframe>
         </div>
       </div>
     </div>
