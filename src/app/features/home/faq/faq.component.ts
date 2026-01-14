@@ -13,7 +13,7 @@ import { TranslationService } from '../../../core/services/translation.service';
   standalone: true,
   imports: [CommonModule, RouterModule, ContainerComponent, SectionComponent, ButtonComponent],
   template: `
-    <app-section id="faq">
+    <app-section [withGradients]="true" [gradientVariant]="'top-right-only'" id="faq">
       <app-container [size]="'content'">
         <div class="text-center mb-12">
           <p class="text-primary font-semibold text-sm uppercase tracking-wide mb-3">

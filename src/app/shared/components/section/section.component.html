@@ -1,3 +1,23 @@
 <section [class]="sectionClasses">
+  <!-- Gradient Orbs Background - Left Variant (top-left, bottom-right) -->
+  <div *ngIf="withGradients && gradientVariant === 'left'" class="gradient-orbs-container">
+    <div class="gradient-orb orb-top-left"></div>
+    <div class="gradient-orb orb-bottom-right"></div>
+  </div>
+  
+  <!-- Gradient Orbs Background - Right Variant (top-right, bottom-left) -->
+  <div *ngIf="withGradients && gradientVariant === 'right'" class="gradient-orbs-container">
+    <div class="gradient-orb orb-top-right"></div>
+    <div class="gradient-orb orb-bottom-left"></div>
+  </div>
+  
+  <!-- Gradient Orbs Background - Top Right Only (for FAQ before CTA) -->
+  <div *ngIf="withGradients && gradientVariant === 'top-right-only'" class="gradient-orbs-container">
+    <div class="gradient-orb orb-top-right"></div>
+  </div>
+  
+  <!-- Grid Pattern -->
+  <div *ngIf="withGradients" class="grid-pattern-overlay"></div>
+  
   <ng-content></ng-content>
 </section>

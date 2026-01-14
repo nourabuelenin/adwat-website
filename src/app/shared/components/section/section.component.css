@@ -1,0 +1,109 @@
+/* Section base styles */
+section {
+  position: relative;
+  overflow-x: clip; /* Prevent horizontal scroll while allowing vertical overlap */
+  overflow-y: visible;
+}
+
+/* Gradient Orbs Container */
+.gradient-orbs-container {
+  position: absolute;
+  top: -100px;
+  bottom: -100px;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Gradient Orbs Base */
+.gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px); /* Increased blur for softer transitions */
+  opacity: 0.3;
+  animation: float 15s ease-in-out infinite;
+}
+
+/* Left Variant - Top Left & Bottom Right - using green tones */
+.orb-top-left {
+  width: 500px;
+  height: 500px;
+  background: rgba(122, 184, 122, 0.4); /* Light green */
+  top: -15%;
+  left: -10%;
+  animation-delay: 0s;
+}
+
+.orb-bottom-right {
+  width: 450px;
+  height: 450px;
+  background: rgba(74, 174, 255, 0.3); /* Blue */
+  bottom: -15%;
+  right: -10%;
+  animation-delay: 5s;
+}
+
+/* Right Variant - Top Right & Bottom Left - using blue/green tones */
+.orb-top-right {
+  width: 500px;
+  height: 500px;
+  background: rgba(74, 174, 255, 0.35); /* Blue */
+  top: -15%;
+  right: -10%;
+  animation-delay: 2s;
+}
+
+.orb-bottom-left {
+  width: 450px;
+  height: 450px;
+  background: rgba(122, 184, 122, 0.35); /* Light green */
+  bottom: -15%;
+  left: -10%;
+  animation-delay: 7s;
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translate(0, 0) scale(1); 
+    opacity: 0.3;
+  }
+  33% { 
+    transform: translate(25px, -15px) scale(1.03); 
+    opacity: 0.35;
+  }
+  66% { 
+    transform: translate(-15px, 10px) scale(0.97); 
+    opacity: 0.25;
+  }
+}
+
+/* Grid Pattern Overlay */
+.grid-pattern-overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 0;
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Ensure content is above gradient orbs */
+section > :not(.gradient-orbs-container):not(.grid-pattern-overlay) {
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .orb-top-left,
+  .orb-bottom-right,
+  .orb-top-right,
+  .orb-bottom-left {
+    width: 280px;
+    height: 280px;
+  }
+}

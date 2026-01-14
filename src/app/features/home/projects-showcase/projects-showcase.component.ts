@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { ProjectsSliderComponent } from './projects-slider/projects-slider.component';
+import { SectionComponent } from '../../../shared/components/section/section.component';
+import { ContainerComponent } from '../../../shared/components/container/container.component';
 import { PROJECTS_DATA } from '../../../core/data/projects.data';
 import { Project } from '../../../core/models/content.models';
 import { TranslationService } from '../../../core/services/translation.service';
@@ -14,16 +16,13 @@ import { TranslationService } from '../../../core/services/translation.service';
     CommonModule, 
     RouterModule, 
     ButtonComponent, 
-    ProjectsSliderComponent
+    ProjectsSliderComponent,
+    SectionComponent,
+    ContainerComponent
   ],
   styles: [`
     :host {
       display: block;
-    }
-
-    .projects-section {
-      background: white;
-      padding: 4rem 0;
     }
 
     .section-header {
@@ -70,33 +69,35 @@ import { TranslationService } from '../../../core/services/translation.service';
     }
   `],
   template: `
-    <section class="projects-section" id="projects">
-      <div class="section-header">
-        <p class="section-tag">
-          {{ content.heading[currentLang()] }}
-        </p>
-        <h2 class="section-title">
-          {{ content.title[currentLang()] }}
-        </h2>
-        <p class="section-description">
-          {{ content.description[currentLang()] }}
-        </p>
-      </div>
+    <app-section [variant]="'light'" [withGradients]="true" [gradientVariant]="'left'" id="projects">
+      <app-container>
+        <div class="section-header">
+          <p class="section-tag">
+            {{ content.heading[currentLang()] }}
+          </p>
+          <h2 class="section-title">
+            {{ content.title[currentLang()] }}
+          </h2>
+          <p class="section-description">
+            {{ content.description[currentLang()] }}
+          </p>
+        </div>
 
-      <div class="slider-wrapper">
-        <app-projects-slider 
-          [projects]="projects" 
-          [currentLang]="currentLang()"
-          [autoSlide]="false">
-        </app-projects-slider>
-      </div>
+        <div class="slider-wrapper">
+          <app-projects-slider 
+            [projects]="projects" 
+            [currentLang]="currentLang()"
+            [autoSlide]="false">
+          </app-projects-slider>
+        </div>
 
-      <div class="cta-wrapper">
-        <app-button [variant]="'primary'" [size]="'large'" routerLink="/projects">
-          {{ content.cta[currentLang()] }}
-        </app-button>
-      </div>
-    </section>
+        <div class="cta-wrapper">
+          <app-button [variant]="'primary'" [size]="'large'" routerLink="/projects">
+            {{ content.cta[currentLang()] }}
+          </app-button>
+        </div>
+      </app-container>
+    </app-section>
   `
 })
 export class ProjectsShowcaseComponent {

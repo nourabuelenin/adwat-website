@@ -9,9 +9,9 @@ import { TranslationService } from '../../../core/services/translation.service';
 @Component({
   selector: 'app-why-choose-us',
   standalone: true,
-  imports: [CommonModule, ContainerComponent, ],
+  imports: [CommonModule, ContainerComponent, SectionComponent],
   template: `
-    <section class="py-20 lg:py-28 bg-white" id="why-choose-us">
+    <app-section [variant]="'light'" [withGradients]="true" [gradientVariant]="'right'" id="why-choose-us">
       <app-container>
         <div class="text-center max-w-3xl mx-auto mb-16">
           <p class="text-primary font-semibold text-sm uppercase tracking-wide mb-3">
@@ -49,7 +49,7 @@ import { TranslationService } from '../../../core/services/translation.service';
           </div>
         </div>
       </app-container>
-    </section>
+    </app-section>
   `,
   styles: [`
     .cube-container {

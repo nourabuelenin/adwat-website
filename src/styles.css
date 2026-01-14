@@ -126,7 +126,7 @@
   }
 
   .section-light {
-    @apply bg-adwat-cream;
+    @apply bg-white;
   }
 
   /* Card Styles */
