@@ -1,7 +1,8 @@
 <header 
-  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-  [class.bg-white]="isScrolled"
-  [class.bg-transparent]="!isScrolled">
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md"
+  [class.bg-white/80]="isScrolled"
+  [class.bg-white/30]="!isScrolled"
+  [class.shadow-sm]="isScrolled">
   
   <nav class="container-wrapper">
     <div class="flex items-center justify-between h-16">
