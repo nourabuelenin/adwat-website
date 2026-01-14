@@ -40,17 +40,17 @@
         </div>
 
         <!-- Trust Signals -->
-        <div #trustSignalsSection class="mt-12 pt-12 border-t border-slate-200">
+        <div #trustSignalsSection class="mt-12 pt-12">
           <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12">
             <div 
               *ngFor="let signal of trustSignals"
-              class="text-center">
+              class="flex flex-col items-center justify-start text-center">
               
               <div class="text-3xl md:text-5xl font-bold text-adwat-teal mb-2">
                 {{ getDisplayValue(signal) }}
               </div>
               
-              <div class="text-xs md:text-base text-slate-600 font-medium">
+              <div class="text-xs md:text-base text-slate-600 font-medium leading-tight">
                 {{ signal.label[currentLang()] }}
               </div>
             </div>
@@ -65,10 +65,8 @@
     </div>
   </app-container>
 
-  <!-- Scroll Indicator -->
-  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-    <div class="scroll-indicator">
-      <div class="scroll-arrow"></div>
-    </div>
+  <!-- Partners Banner at bottom of hero -->
+  <div class="absolute bottom-0 left-0 right-0 z-10">
+    <app-partners-banner></app-partners-banner>
   </div>
 </section>

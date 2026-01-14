@@ -1,0 +1,236 @@
+.partners-section {
+  background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.95) 30%, #ffffff 100%);
+  padding: 2rem 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Trusted By Text - Above the logos */
+.trusted-by-text {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0 0 1.25rem 0;
+  text-align: center;
+}
+
+/* Scroll Wrapper with Fade Edges */
+.scroll-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.fade-edge {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.fade-left {
+  left: 0;
+  background: linear-gradient(to right, rgba(255,255,255,1) 0%, transparent 100%);
+}
+
+.fade-right {
+  right: 0;
+  background: linear-gradient(to left, rgba(255,255,255,1) 0%, transparent 100%);
+}
+
+/* Scroll Container */
+.scroll-container {
+  width: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  cursor: grab;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 0.5rem 3rem;
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-container.grabbing {
+  cursor: grabbing;
+}
+
+/* Scroll Track */
+.scroll-track {
+  display: flex;
+  gap: 3rem;
+  width: max-content;
+  align-items: center;
+}
+
+/* Partner Items */
+.partner-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  transition: transform 0.3s ease;
+}
+
+.partner-item:hover {
+  transform: scale(1.05);
+}
+
+/* Partner Logos */
+.partner-logo {
+  height: 2.75rem;
+  width: auto;
+  max-width: 130px;
+  object-fit: contain;
+  filter: grayscale(30%);
+  opacity: 0.85;
+  transition: all 0.3s ease;
+  user-select: none;
+  pointer-events: none;
+}
+
+.partner-item:hover .partner-logo {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* Integrated Scroll Indicator */
+.scroll-indicator-container {
+  margin-top: 1.5rem;
+}
+
+.scroll-indicator {
+  width: 24px;
+  height: 40px;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  position: relative;
+  background: rgba(255,255,255,0.8);
+}
+
+.scroll-arrow {
+  width: 4px;
+  height: 4px;
+  background: rgba(17,24,39,0.6);
+  border-radius: 50%;
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { 
+    top: 8px; 
+    opacity: 1; 
+  }
+  50% { 
+    top: 20px; 
+    opacity: 0.4; 
+  }
+}
+
+/* RTL Support */
+:host-context([dir="rtl"]) .fade-left {
+  right: 0;
+  left: auto;
+  background: linear-gradient(to left, rgba(255,255,255,1) 0%, transparent 100%);
+}
+
+:host-context([dir="rtl"]) .fade-right {
+  left: 0;
+  right: auto;
+  background: linear-gradient(to right, rgba(255,255,255,1) 0%, transparent 100%);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .scroll-track {
+    gap: 2.5rem;
+  }
+
+  .partner-logo {
+    height: 2.5rem;
+    max-width: 110px;
+  }
+
+  .fade-edge {
+    width: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .partners-section {
+    padding: 1.5rem 0 0.75rem;
+  }
+
+  .trusted-by-text {
+    font-size: 0.65rem;
+    margin-bottom: 1rem;
+  }
+
+  .scroll-track {
+    gap: 2rem;
+  }
+
+  .partner-logo {
+    height: 2rem;
+    max-width: 90px;
+  }
+
+  .scroll-container {
+    padding: 0.5rem 2rem;
+  }
+
+  .fade-edge {
+    width: 40px;
+  }
+
+  .scroll-indicator-container {
+    margin-top: 1rem;
+  }
+
+  .scroll-indicator {
+    width: 20px;
+    height: 32px;
+  }
+
+  .scroll-arrow {
+    width: 3px;
+    height: 3px;
+    top: 6px;
+  }
+
+  @keyframes scrollBounce {
+    0%, 100% { top: 6px; opacity: 1; }
+    50% { top: 15px; opacity: 0.4; }
+  }
+}
+
+@media (max-width: 480px) {
+  .partner-logo {
+    height: 1.75rem;
+    max-width: 70px;
+  }
+
+  .scroll-track {
+    gap: 1.5rem;
+  }
+
+  .scroll-container {
+    padding: 0.5rem 1.5rem;
+  }
+
+  .fade-edge {
+    width: 25px;
+  }
+}
