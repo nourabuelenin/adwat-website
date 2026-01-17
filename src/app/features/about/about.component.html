@@ -1,0 +1,161 @@
+<!-- Hero Section -->
+<app-section [variant]="'light'" [withGradients]="false">
+  <app-container>
+    <div class="text-center mx-auto max-w-4xl pt-12 pb-8">
+      <h1 class="text-4xl lg:text-5xl font-bold text-adwat-dark-green mb-6">
+        {{ content.hero.title[currentLang()] }}
+      </h1>
+      <p class="text-lg lg:text-xl text-adwat-dark-green/70 leading-relaxed">
+        {{ content.hero.subtitle[currentLang()] }}
+      </p>
+    </div>
+  </app-container>
+</app-section>
+
+<!-- Content Sections -->
+<app-section [variant]="'light'" [withGradients]="true" [gradientVariant]="'left'">
+  <app-container>
+    <!-- Driving Digital Transformation -->
+    <div class="grid lg:grid-cols-2 gap-12 items-center mb-24">
+      <div class="order-2 lg:order-1">
+        <h2 class="text-3xl lg:text-4xl font-bold text-adwat-dark-green mb-6">
+          {{ content.sections[0].title[currentLang()] }}
+        </h2>
+        <p class="text-lg text-adwat-dark-green/70 leading-relaxed">
+          {{ content.sections[0].description[currentLang()] }}
+        </p>
+      </div>
+      <div class="order-1 lg:order-2">
+        <div class="rounded-3xl overflow-hidden shadow-lg">
+          <img
+            [src]="content.sections[0].image"
+            [alt]="content.sections[0].title[currentLang()]"
+            class="w-full h-auto object-cover"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Partnering For Sustainable Growth -->
+    <div class="grid lg:grid-cols-2 gap-12 items-center mb-24">
+      <div class="order-1">
+        <div class="rounded-3xl overflow-hidden shadow-lg">
+          <img
+            [src]="content.sections[1].image"
+            [alt]="content.sections[1].title[currentLang()]"
+            class="w-full h-auto object-cover"
+          />
+        </div>
+      </div>
+      <div class="order-2">
+        <h2 class="text-3xl lg:text-4xl font-bold text-adwat-dark-green mb-6">
+          {{ content.sections[1].title[currentLang()] }}
+        </h2>
+        <p class="text-lg text-adwat-dark-green/70 leading-relaxed">
+          {{ content.sections[1].description[currentLang()] }}
+        </p>
+      </div>
+    </div>
+
+    <!-- Solutions Built Around Real Business Needs -->
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div class="order-2 lg:order-1">
+        <h2 class="text-3xl lg:text-4xl font-bold text-adwat-dark-green mb-6">
+          {{ content.sections[2].title[currentLang()] }}
+        </h2>
+        <p class="text-lg text-adwat-dark-green/70 leading-relaxed">
+          {{ content.sections[2].description[currentLang()] }}
+        </p>
+      </div>
+      <div class="order-1 lg:order-2">
+        <div class="rounded-3xl overflow-hidden shadow-lg">
+          <img
+            [src]="content.sections[2].image"
+            [alt]="content.sections[2].title[currentLang()]"
+            class="w-full h-auto object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  </app-container>
+</app-section>
+
+<!-- Why Choose Adwat Section -->
+<app-section [variant]="'light'" [withGradients]="false">
+  <app-container>
+    <div class="text-center mb-16">
+      <h2 class="text-3xl lg:text-4xl font-bold text-adwat-dark-green mb-4">
+        {{ content.whyChoose.title[currentLang()] }}
+      </h2>
+      <p class="text-lg text-adwat-dark-green/70 max-w-3xl mx-auto">
+        {{ content.whyChoose.subtitle[currentLang()] }}
+      </p>
+    </div>
+
+    <!-- Features Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div *ngFor="let feature of content.whyChoose.features" class="text-center">
+        <!-- Icon Container -->
+        <div
+          class="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-2xl"
+          [ngStyle]="{ 'background-color': feature.iconBg }"
+        >
+          <fa-icon
+            [icon]="feature.icon"
+            [style.color]="feature.iconColor"
+            class="text-2xl"
+          ></fa-icon>
+        </div>
+
+        <h3 class="text-xl font-bold text-adwat-dark-green mb-3">
+          {{ feature.title[currentLang()] }}
+        </h3>
+        <p class="text-sm text-adwat-dark-green/60 leading-relaxed">
+          {{ feature.description[currentLang()] }}
+        </p>
+      </div>
+    </div>
+  </app-container>
+</app-section>
+
+<!-- Meet Our Team Section -->
+<app-section [variant]="'light'" [withGradients]="true" [gradientVariant]="'right'">
+  <app-container>
+    <div class="text-center mb-16">
+      <h2 class="text-3xl lg:text-4xl font-bold text-adwat-dark-green mb-4">
+        {{ content.team.title[currentLang()] }}
+      </h2>
+    </div>
+
+    <!-- Team Grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div *ngFor="let member of content.team.members" class="text-center">
+        <!-- Avatar -->
+        <div class="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
+          <img
+            [src]="member.avatar"
+            [alt]="member.name[currentLang()]"
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        <h3 class="text-lg font-bold text-adwat-dark-green mb-1">
+          {{ member.name[currentLang()] }}
+        </h3>
+        <p class="text-sm text-adwat-dark-green/60 mb-4">
+          {{ member.position[currentLang()] }}
+        </p>
+
+        <!-- LinkedIn Icon -->
+        <a
+          [href]="member.linkedin"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block text-primary hover:text-primary-dark transition-colors"
+        >
+          <fa-icon [icon]="linkedinIcon" class="text-xl"></fa-icon>
+        </a>
+      </div>
+    </div>
+  </app-container>
+</app-section>
