@@ -48,23 +48,24 @@
 
 /* Icon - Top Left */
 .card-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 14px;
-  background: rgba(2, 91, 68, 0.08);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #025B44;
-  transition: all 0.3s ease;
+  font-size: 1.5rem; /* Adjust base size if needed, though text-3xl controls it */
+  display: inline-block;
+  color: #025B44; /* Default static color */
+  transition: transform 0.3s ease;
   position: relative;
   z-index: 1;
   align-self: flex-start;
+  margin-bottom: 1rem; /* Add some spacing since padding is gone */
 }
 
 .service-card:hover .card-icon {
-  background: linear-gradient(135deg, #025B44 0%, #176DB5 100%);
-  color: white;
+  transform: scale(1.1);
+}
+
+/* Target the SVG path specifically for the gradient fill */
+:host ::ng-deep .service-card:hover .card-icon fa-icon svg path {
+  fill: url(#icon-gradient) !important;
+  transition: fill 0.3s ease;
 }
 
 /* Content at bottom */
@@ -127,8 +128,8 @@
   }
 
   .card-icon {
-    width: 48px;
-    height: 48px;
+    font-size: 1.25rem; /* Slightly smaller on mobile */
+    margin-bottom: 0.75rem;
   }
 
   .card-title {
