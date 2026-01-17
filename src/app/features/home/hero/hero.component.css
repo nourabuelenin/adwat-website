@@ -38,16 +38,23 @@
 }
 
 @keyframes float {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(30px, -30px) scale(1.1); }
-  66% { transform: translate(-20px, 20px) scale(0.9); }
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -30px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
 }
 
 /* Grid Pattern */
 .grid-pattern {
   width: 100%;
   height: 100%;
-  background-image: 
+  background-image:
     linear-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px),
     linear-gradient(90deg, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
   background-size: 60px 60px;
@@ -55,8 +62,12 @@
 }
 
 @keyframes gridMove {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(50px, 50px); }
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
 }
 
 /* Fade in animation */
@@ -82,13 +93,13 @@
   border: 2px solid rgba(0, 0, 0, 0.12);
   border-radius: 25px;
   position: relative;
-  background: rgba(255,255,255,0.6);
+  background: rgba(255, 255, 255, 0.6);
 }
 
 .scroll-arrow {
   width: 6px;
   height: 6px;
-  background: rgba(17,24,39,0.9);
+  background: rgba(17, 24, 39, 0.9);
   border-radius: 50%;
   position: absolute;
   top: 10px;
@@ -98,9 +109,18 @@
 }
 
 @keyframes scroll {
-  0% { top: 10px; opacity: 1; }
-  50% { top: 25px; opacity: 0.5; }
-  100% { top: 10px; opacity: 1; }
+  0% {
+    top: 10px;
+    opacity: 1;
+  }
+  50% {
+    top: 25px;
+    opacity: 0.5;
+  }
+  100% {
+    top: 10px;
+    opacity: 1;
+  }
 }
 
 /* Responsive adjustments */
@@ -109,48 +129,115 @@
     max-width: 350px;
     height: 350px;
   }
-  
+
   .logo-cube-container {
     width: 240px;
     height: 240px;
   }
-  
+
   .logo-layer {
     width: 150px;
     height: 150px;
   }
-  
+
   .layer-7 {
     width: 120px;
     height: 120px;
   }
 }
 
+/* Partners Banner positioning */
+.partners-banner-wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+/* Mobile adjustments */
 @media (max-width: 768px) {
+  .hero-section {
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height for mobile browsers */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    padding-bottom: 120px; /* Space for partner banner */
+  }
+
+  .hero-section app-container {
+    display: flex;
+    flex: 1;
+    align-items: center;
+  }
+
+  .hero-content {
+    margin-top: 5rem;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
   .gradient-orb-1,
   .gradient-orb-2,
   .gradient-orb-3 {
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
+    filter: blur(60px);
   }
-  
+
+  .partners-banner-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .trust-signals-container {
+    margin-bottom: 0;
+  }
+
   .logo-scene {
     max-width: 300px;
     height: 300px;
   }
-  
+
   .logo-cube-container {
     width: 200px;
     height: 200px;
   }
-  
+
   .logo-layer {
     width: 120px;
     height: 120px;
   }
-  
+
   .layer-7 {
     width: 100px;
     height: 100px;
+  }
+}
+
+/* Extra small mobile adjustments */
+@media (max-width: 480px) {
+  .gradient-orb-1,
+  .gradient-orb-2,
+  .gradient-orb-3 {
+    width: 150px;
+    height: 150px;
+    filter: blur(50px);
+    opacity: 0.4;
+  }
+
+  /* Smaller buttons on mobile to fit side-by-side */
+  .cta-buttons :deep(.btn) {
+    padding: 0.625rem 1rem;
+    font-size: 0.8125rem;
+  }
+
+  .cta-buttons :deep(.btn-large) {
+    padding: 0.625rem 1rem;
+    font-size: 0.8125rem;
   }
 }

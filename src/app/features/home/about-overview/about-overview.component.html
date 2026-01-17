@@ -1,22 +1,45 @@
 <app-section [variant]="'light'" [withGradients]="true" [gradientVariant]="'left'" id="about">
   <app-container>
-    
-    <!-- About Content -->
-    <div class="mx-auto">
-      <p class="text-primary font-semibold text-sm uppercase tracking-wide mb-4 text-center">
-        {{ content.heading[currentLang()] }}
-      </p>
-
-      <h2 class="text-3xl lg:text-4xl font-bold text-adwat-dark-green mb-4 text-center">
-        {{ content.title[currentLang()] }}
-      </h2>
-
-      <div class="space-y-6 text-slate-700 text-lg leading-relaxed">
-        <p *ngFor="let paragraph of content.paragraphs" class="text-center">
-          {{ paragraph[currentLang()] }}
+    <div class="hero-content relative py-12 lg:py-32 flex flex-col lg:flex-row items-center gap-12">
+      <!-- About Content -->
+      <div class="mx-auto w-full lg:w-2/3">
+        <p class="text-primary font-semibold text-sm uppercase tracking-wide mb-4 text-center">
+          {{ content.heading[currentLang()] }}
         </p>
+
+        <h2 class="text-3xl lg:text-4xl font-bold text-adwat-dark-green mb-4 text-center">
+          {{ content.title[currentLang()] }}
+        </h2>
+
+        <div class="space-y-6 text-slate-700 text-lg leading-relaxed">
+          <p *ngFor="let paragraph of content.paragraphs" class="text-center">
+            {{ paragraph[currentLang()] }}
+          </p>
+        </div>
+
+        <div class="mt-10 text-center">
+          <div class="relative inline-block px-10 lg:px-16">
+            <!-- Quote Icon Opening -->
+            <span class="absolute -top-1 left-0 text-4xl text-adwat-teal leading-none">“</span>
+
+            <p class="text-lg lg:text-xl text-slate-800 leading-snug tracking-tight">
+              {{ content.quote[currentLang()] }}
+              <span class="text-4xl text-adwat-teal align-bottom leading-none ml-1">”</span>
+            </p>
+          </div>
+
+          <div class="max-w-4xl mx-auto my-12">
+            <div class="h-px bg-slate-200"></div>
+          </div>
+
+          <p class="text-lg lg:text-xl font-semibold text-slate-900">
+            {{ content.speaker[currentLang()] }}
+          </p>
+        </div>
+      </div>
+      <div class="w-1/3">
+        <img src="assets/images/web-mobile-dev.jpg" alt="" />
       </div>
     </div>
-
   </app-container>
 </app-section>
