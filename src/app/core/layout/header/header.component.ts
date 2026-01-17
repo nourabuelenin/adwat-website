@@ -26,9 +26,9 @@ export class HeaderComponent implements OnInit {
 
   navItems: NavItem[] = [
     { label: { en: 'Home', ar: 'الرئيسية' }, route: '/' },
-    { label: { en: 'About', ar: 'من نحن' }, route: '/about' },
     { label: { en: 'Services', ar: 'خدماتنا' }, route: '/services' },
     { label: { en: 'Projects', ar: 'مشاريعنا' }, route: '/projects' },
+    { label: { en: 'About', ar: 'من نحن' }, route: '/about' },
     { label: { en: 'FAQ', ar: 'الأسئلة الشائعة' }, route: '/faq' }
   ];
 
