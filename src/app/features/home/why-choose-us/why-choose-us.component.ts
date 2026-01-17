@@ -13,7 +13,7 @@ import { TranslationService } from '../../../core/services/translation.service';
   template: `
     <app-section [variant]="'light'" [withGradients]="true" [gradientVariant]="'right'" id="why-choose-us">
       <app-container>
-        <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="text-center mx-auto mb-16">
           <p class="text-primary font-semibold text-sm uppercase tracking-wide mb-3">
             {{ content.heading[currentLang()] }}
           </p>

@@ -29,7 +29,7 @@ import { TranslationService } from '../../../core/services/translation.service';
       text-align: center;
       max-width: 48rem;
       margin: 0 auto 3rem;
-      padding: 0 1rem;
+      margin: 0 auto 3rem;
     }
 
     .section-tag {
@@ -60,7 +60,6 @@ import { TranslationService } from '../../../core/services/translation.service';
     }
 
     .slider-wrapper {
-      padding: 0 1rem;
     }
 
     .cta-wrapper {

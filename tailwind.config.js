@@ -59,7 +59,7 @@ module.exports = {
       },
       maxWidth: {
         // Container widths
-        'container': '1280px',
+        'container': '1440px',
         'container-lg': '1440px',
         'content': '960px',
       },

@@ -21,7 +21,7 @@
 .scroll-wrapper {
   position: relative;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1440px;
 }
 
 .fade-edge {
@@ -51,7 +51,7 @@
   cursor: grab;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  padding: 0.5rem 3rem;
+  padding: 0.5rem 5rem;
 }
 
 .scroll-container::-webkit-scrollbar {
