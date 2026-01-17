@@ -29,7 +29,6 @@ import { TranslationService } from '../../../core/services/translation.service';
       text-align: center;
       max-width: 48rem;
       margin: 0 auto 3rem;
-      margin: 0 auto 3rem;
     }
 
     .section-tag {
