@@ -8,8 +8,8 @@ export const SERVICES_DATA: Service[] = [
       ar: 'التحول الرقمي'
     },
     description: {
-      en: 'We help organizations rebuild their way of working using technology to achieve real leaps in performance and efficiency. We transform complexity into clear systems that support growth, from strategy to implementation.',
-      ar: 'نساعد المؤسسات على إعادة بناء طريقة العمل بتوظيف التقنية لتحقيق قفزات حقيقية في الأداء والكفاءة، من خلال تحويل التعقيدات التشغيلية إلى أنظمة واضحة تدعم النمو، بدءًا من الاستراتيجية حتى التنفيذ العملي.'
+      en: 'We help organizations rebuild their way of working using technology to achieve real leaps in performance and efficiency.',
+      ar: 'نساعد المؤسسات على إعادة بناء طريقة العمل بتوظيف التقنية لتحقيق قفزات حقيقية في الأداء والكفاءة.'
     },
     icon: 'transform',
     link: '/services/digital-transformation',
@@ -22,8 +22,8 @@ export const SERVICES_DATA: Service[] = [
       ar: 'حلول البرمجيات'
     },
     description: {
-      en: 'We develop custom software systems built based on your business needs. Powerful solutions that support scaling, integration, and confident decision-making.',
-      ar: 'نطور أنظمة برمجية مخصصة تُبنى وفق احتياجات العمل الفعلية وتدعم التوسع والتكامل، كما تمكّن الجهات من اتخاذ القرارات المستنيرة.'
+      en: 'We develop custom software systems built based on your business needs.',
+      ar: 'نطور أنظمة برمجية مخصصة تُبنى وفق احتياجات العمل الفعلية وتدعم التوسع والتكامل.'
     },
     icon: 'code',
     link: '/services/custom-software',
@@ -36,8 +36,8 @@ export const SERVICES_DATA: Service[] = [
       ar: 'تحليل البيانات'
     },
     description: {
-      en: 'We turn numbers into clear stories that drive the right decision at the right time. Dashboards and analytics that connect numbers to daily decisions.',
-      ar: 'نحوّل الأرقام إلى رؤى واضحة تدعم آلية اتخاذ القرار في الوقت المناسب، عبر لوحات تحكم وتحليلات دقيقة تربط البيانات بعملية اتخاذ القرارات اليومية.'
+      en: 'We turn numbers into clear stories that drive the right decision at the right time.',
+      ar: 'نحوّل الأرقام إلى رؤى واضحة تدعم آلية اتخاذ القرار في الوقت المناسب.'
     },
     icon: 'analytics',
     link: '/services/data-analytics',
@@ -50,7 +50,7 @@ export const SERVICES_DATA: Service[] = [
       ar: 'حلول الذكاء الاصطناعي'
     },
     description: {
-      en: 'We design AI solutions that are actually used in operations, not just for show. We turn data into tangible value, from prediction to automation.',
+      en: 'We design AI solutions that are actually used in operations, not just for show.',
       ar: 'نصمم حلول تعتمد على الذكاء الاصطناعي في عملية التشغيل الفعلي، حيث نوظف البيانات والمعطيات ونحولها إلى قيم ملموسة، من التنبؤ الأولي حتى الأتمتة الكاملة.'
     },
     icon: 'ai',
@@ -64,8 +64,8 @@ export const SERVICES_DATA: Service[] = [
       ar: 'البنية التحتية لتقنية المعلومات'
     },
     description: {
-      en: 'We build flexible and secure infrastructure that keeps pace with your business growth without disrupting operations. Cloud solutions designed for stability, high performance, and compliance.',
-      ar: 'نبني بنية تحتية مرنة وآمنة تواكب نمو الأعمال دون تعطيل التشغيل، من خلال حلول سحابية مصممة لدعم الأداء العالي والامتثال.'
+      en: 'We build flexible and secure infrastructure that keeps pace with your business growth without disrupting operations.',
+      ar: 'نبني بنية تحتية مرنة وآمنة تواكب نمو الأعمال دون تعطيل التشغيل.'
     },
     icon: 'cloud',
     link: '/services/it-infrastructure',
@@ -78,8 +78,8 @@ export const SERVICES_DATA: Service[] = [
       ar: 'تطوير الويب'
     },
     description: {
-      en: 'We develop websites and web platforms that express your brand and work as a real growth tool. Smooth user experience, strong performance, and modern technologies.',
-      ar: 'نطور مواقع ومنصات ويب تعبّر عن العلامة التجارية والهوية البصرية، وتعمل كأداة نمو حقيقية، بالإضافة إلى تقديم تجربة مستخدم سهلة وتقنيات تصفح حديثة.'
+      en: 'We develop websites and web platforms that express your brand and work as a real growth tool.',
+      ar: 'نطور مواقع ومنصات ويب تعبّر عن العلامة التجارية والهوية البصرية، وتعمل كأداة نمو حقيقية.'
     },
     icon: 'web',
     link: '/services/web-development',
@@ -92,8 +92,8 @@ export const SERVICES_DATA: Service[] = [
       ar: 'تطبيقات الجوال'
     },
     description: {
-      en: 'We design mobile apps that are easy to use and make a difference in customer experience. iOS and Android apps focusing on performance, speed, and reliability.',
-      ar: 'نصمم تطبيقات جوال سهلة الاستخدام وتصنع الفارق في تجربة العميل، سواء كانت لأنظمة (iOS) أو (Android)، مع الحرص على جودة الأداء وسرعة الاستجابة.'
+      en: 'We design mobile apps that are easy to use and make a difference in customer experience.',
+      ar: 'نصمم تطبيقات جوال سهلة الاستخدام وتصنع الفارق في تجربة العميل.'
     },
     icon: 'mobile',
     link: '/services/mobile-apps',
