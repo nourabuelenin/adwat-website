@@ -2,6 +2,8 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { TranslationService } from '../../../core/services/translation.service';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faMapMarkerAlt, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 interface FooterLink {
   label: { en: string; ar: string };
@@ -16,7 +18,7 @@ interface FooterSection {
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, FontAwesomeModule],
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css']
 })
@@ -24,6 +26,11 @@ export class FooterComponent {
   private translationService = inject(TranslationService);
   currentYear = new Date().getFullYear();
   currentLang = this.translationService.currentLang;
+
+  // Icons
+  faMapMarkerAlt = faMapMarkerAlt;
+  faPhone = faPhone;
+  faEnvelope = faEnvelope;
 
   footerSections: FooterSection[] = [
     {

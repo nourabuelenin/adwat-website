@@ -55,11 +55,18 @@
         <h4 class="text-white font-semibold mb-3">
           {{ contactInfo.ksa.label[currentLang()] }}
         </h4>
-        <div class="space-y-2 text-white/70 text-sm">
-          <p>{{ contactInfo.ksa.address[currentLang()] }}</p>
-          <p>{{ currentLang() === 'en' ? 'Phone:' : 'هاتف:' }} {{ contactInfo.ksa.phone }}</p>
-          <p>{{ currentLang() === 'en' ? 'Email:' : 'بريد إلكتروني:' }} 
-            <a href="mailto:{{ contactInfo.ksa.email }}" class="hover:text-white transition-colors">
+        <div class="space-y-3 text-sm">
+          <p class="text-white/90 flex items-start gap-3">
+            <fa-icon [icon]="faMapMarkerAlt" class="text-primary mt-1"></fa-icon>
+            <span>{{ contactInfo.ksa.address[currentLang()] }}</span>
+          </p>
+          <p class="text-white/90 flex items-center gap-3">
+            <fa-icon [icon]="faPhone" class="text-primary"></fa-icon>
+            <span dir="ltr">{{ contactInfo.ksa.phone }}</span>
+          </p>
+          <p class="text-white/90 flex items-center gap-3">
+            <fa-icon [icon]="faEnvelope" class="text-primary"></fa-icon> 
+            <a href="mailto:{{ contactInfo.ksa.email }}" class="text-white hover:text-primary transition-colors">
               {{ contactInfo.ksa.email }}
             </a>
           </p>
@@ -67,7 +74,7 @@
       </div>
 
       <!-- Egypt Office -->
-      <div>
+      <!-- <div>
         <h4 class="text-white font-semibold mb-3">
           {{ contactInfo.egypt.label[currentLang()] }}
         </h4>
@@ -80,13 +87,13 @@
             </a>
           </p>
         </div>
-      </div>
+      </div> -->
 
       <!-- Map -->
       <div class="map-container">
-        <h4 class="text-white font-semibold mb-3">
+        <!-- <h4 class="text-white font-semibold mb-3">
           {{ currentLang() === 'en' ? 'Our Location' : 'موقعنا' }}
-        </h4>
+        </h4> -->
         <div class="rounded-lg overflow-hidden h-40 lg:h-48">
           <iframe 
             src="https://www.openstreetmap.org/export/embed.html?bbox=46.5%2C24.6%2C46.9%2C24.8&layer=mapnik&marker=24.7136%2C46.6753"
