@@ -36,13 +36,6 @@
 
       <!-- CTA & Language Toggle (Desktop) -->
       <div class="hidden lg:flex items-center gap-4">
-        <button 
-          (click)="toggleLanguage()"
-          class="px-3 py-2 text-sm font-medium hover:text-primary transition-colors"
-          [class.text-adwat-dark-green]="!isScrolled"
-          [class.text-adwat-dark-green]="isScrolled">
-          {{ currentLang() === 'en' ? 'العربية' : 'English' }}
-        </button>
         <app-button 
           [variant]="'primary'"
           class="btn-small"
@@ -50,6 +43,14 @@
           routerLink="/contact">
           {{ currentLang() === 'en' ? 'Contact Us' : 'اتصل بنا' }}
         </app-button>
+        <button 
+          (click)="toggleLanguage()"
+          class="px-3 py-2 text-sm font-medium hover:text-primary transition-colors"
+          [class.text-adwat-dark-green]="!isScrolled"
+          [class.text-adwat-dark-green]="isScrolled">
+          <fa-icon [icon]="faGlobe"></fa-icon>
+          {{ currentLang() === 'en' ? 'ع' : 'En' }}
+        </button>
       </div>
 
       <!-- Mobile Menu Button -->

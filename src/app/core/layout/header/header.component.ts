@@ -3,6 +3,8 @@ import { TranslationService } from '../../services/translation.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faMapMarkerAlt, faGlobe, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 interface NavItem {
   label: { en: string; ar: string };
@@ -12,7 +14,7 @@ interface NavItem {
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, RouterModule, ButtonComponent],
+  imports: [CommonModule, RouterModule, ButtonComponent, FontAwesomeModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
@@ -21,6 +23,7 @@ export class HeaderComponent implements OnInit {
   isScrolled = false;
   isMobileMenuOpen = false;
   
+  faGlobe = faGlobe;
   // Use signals from service
   currentLang = this.translationService.currentLang;
 
