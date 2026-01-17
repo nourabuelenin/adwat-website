@@ -1,0 +1,121 @@
+<app-section [variant]="'light'">
+  <app-container>
+    <!-- Header Section -->
+    <div class="text-center mb-16">
+      <h1 class="text-4xl lg:text-5xl font-bold text-adwat-dark-green mb-4">
+        {{ content.heading[currentLang()] }}
+      </h1>
+      <p class="text-lg text-adwat-dark-green/70 max-w-3xl mx-auto">
+        {{ content.subtitle[currentLang()] }}
+      </p>
+    </div>
+
+    <!-- Featured Services Section -->
+    <div class="mb-16">
+      <h2 class="text-2xl font-bold text-adwat-dark-green mb-8 text-center">
+        {{ content.featuredHeading[currentLang()] }}
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <ng-container *ngFor="let service of featuredServices">
+          <div
+            class="featured-service-card group cursor-pointer"
+            [routerLink]="service.link || '/services'"
+          >
+            <div class="featured-card-image">
+              <img [src]="service.imageUrl" [alt]="getServiceTitle(service)" />
+              <div class="image-overlay"></div>
+            </div>
+            <div class="featured-card-content">
+              <h3 class="text-xl font-semibold text-adwat-dark-green mb-2">
+                {{ getServiceTitle(service) }}
+              </h3>
+              <p class="text-sm text-adwat-dark-green/70">
+                {{ getServiceDescription(service) }}
+              </p>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
+    <!-- All Services Grid -->
+    <div class="mb-16">
+      <!-- SVG Gradient Definition -->
+      <svg width="0" height="0" class="absolute">
+        <defs>
+          <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#025B44" />
+            <stop offset="100%" stop-color="#176DB5" />
+          </linearGradient>
+        </defs>
+      </svg>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <ng-container *ngFor="let service of allServices">
+          <div class="service-card group cursor-pointer" [routerLink]="service.link || '/services'">
+            <div class="card-inner">
+              <!-- Icon -->
+              <div class="card-icon">
+                <fa-icon [icon]="getIcon(service.icon)" class="text-4xl"></fa-icon>
+              </div>
+
+              <!-- Content -->
+              <div class="card-content">
+                <h3 class="card-title">
+                  {{ getServiceTitle(service) }}
+                </h3>
+                <p class="card-description">
+                  {{ getServiceDescription(service) }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </app-container>
+</app-section>
+
+<!-- How We Deliver Excellence Section -->
+<app-section [variant]="'dark'">
+  <app-container>
+    <div class="text-center mb-12">
+      <h2 class="text-3xl lg:text-4xl font-bold text-white mb-4">
+        {{ content.processHeading[currentLang()] }}
+      </h2>
+      <p class="text-lg text-white/80 max-w-2xl mx-auto">
+        {{ content.processSubtitle[currentLang()] }}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <ng-container *ngFor="let phase of processPhases">
+        <div class="process-card">
+          <div class="process-icon">
+            <fa-icon [icon]="getIcon(phase.icon)" class="text-3xl"></fa-icon>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-2">
+            {{ phase.title[currentLang()] }}
+          </h3>
+          <p class="text-sm text-white/70">
+            {{ phase.description[currentLang()] }}
+          </p>
+        </div>
+      </ng-container>
+    </div>
+  </app-container>
+</app-section>
+
+<!-- Final CTA Section -->
+<app-section [variant]="'dark'" class="cta-section">
+  <app-container>
+    <div class="text-center">
+      <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">
+        {{ content.ctaHeading[currentLang()] }}
+      </h2>
+      <app-button [variant]="'primary'" [routerLink]="'/contact'">
+        {{ content.ctaButton[currentLang()] }}
+      </app-button>
+    </div>
+  </app-container>
+</app-section>
