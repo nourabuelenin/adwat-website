@@ -39,6 +39,27 @@ export interface Project {
   tags?: string[];
   link?: string;
   featured?: boolean;
+
+  // Extended details for project detail page
+  details?: {
+    about?: {
+      en: string;
+      ar: string;
+    };
+    challenge?: {
+      title?: { en: string; ar: string };
+      points: { en: string; ar: string }[];
+    };
+    keyFeatures?: {
+      title?: { en: string; ar: string };
+      points: { en: string; ar: string }[];
+    };
+    impact?: {
+      title?: { en: string; ar: string };
+      points: { en: string; ar: string }[];
+    };
+    relatedProjects?: string[]; // Array of project IDs
+  };
 }
 
 /**

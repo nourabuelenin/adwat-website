@@ -1,24 +1,84 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router, RouterModule } from '@angular/router';
 import { ContainerComponent } from '../../shared/components/container/container.component';
 import { SectionComponent } from '../../shared/components/section/section.component';
-import { ButtonComponent } from '../../shared/components/button/button.component';
-import { RouterModule } from '@angular/router';
+import { TranslationService } from '../../core/services/translation.service';
+import { PROJECTS_DATA } from '../../core/data/projects.data';
+import { Project } from '../../core/models/content.models';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule, ContainerComponent, SectionComponent, ButtonComponent, RouterModule],
-  template: `
-    <app-section>
-      <app-container>
-        <h1 class="text-4xl font-bold text-adwat-dark-green mb-6">Our Projects</h1>
-        <p class="text-lg text-adwat-dark-green/70 mb-8">
-          This page is under construction. Full project portfolio with case studies coming soon.
-        </p>
-        <app-button routerLink="/">Back to Home</app-button>
-      </app-container>
-    </app-section>
-  `
+  imports: [CommonModule, RouterModule, ContainerComponent, SectionComponent],
+  templateUrl: './projects.component.html',
+  styleUrls: ['./projects.component.css'],
 })
-export class ProjectsComponent {}
+export class ProjectsComponent {
+  private translationService = inject(TranslationService);
+  private router = inject(Router);
+
+  currentLang = this.translationService.currentLang;
+  projects: Project[] = PROJECTS_DATA.filter((p) => p.featured);
+
+  // Map project IDs to logo file names
+  private logoMap: { [key: string]: string } = {
+    'traffic-monitoring': 'traffic-monitoring-logo.png',
+    'advanced-monitoring': 'moh-logo.png',
+    'construction-management': 'construction-mgmt-logo.png',
+    'e-next': 'e-next-logo.png',
+    'go-care-beauty': 'go-care-logo.png',
+    'go-care-healthcare': 'go-care-admin-logo.png',
+    'education-platform': 'education-platform-logo.png',
+  };
+
+  content = {
+    heading: {
+      en: 'Our Projects',
+      ar: 'مشاريعنا',
+    },
+    subheading: {
+      en: 'Trusted by Leading Organizations',
+      ar: 'موثوق به من قبل المؤسسات الرائدة',
+    },
+    subtitle: {
+      en: 'Delivering digital solutions that transform businesses and empower organizations across various sectors',
+      ar: 'نقدم حلولاً رقمية تحول الأعمال وتمكن المؤسسات عبر مختلف القطاعات',
+    },
+    learnMore: {
+      en: 'Learn More',
+      ar: 'اعرف المزيد',
+    },
+    visit: {
+      en: 'Visit',
+      ar: 'زيارة',
+    },
+  };
+
+  getProjectTitle(project: Project): string {
+    return project.title[this.currentLang()];
+  }
+
+  getProjectDescription(project: Project): string {
+    return project.description[this.currentLang()];
+  }
+
+  getProjectIndustry(project: Project): string {
+    return project.industry[this.currentLang()];
+  }
+
+  getProjectLogo(projectId: string): string {
+    const logoFileName = this.logoMap[projectId];
+    return logoFileName
+      ? `/assets/images/projects/${logoFileName}`
+      : '/assets/images/projects/default-logo.png';
+  }
+
+  onLearnMore(projectId: string): void {
+    this.router.navigate(['/projects', projectId]);
+  }
+
+  onVisit(link: string): void {
+    window.open(link, '_blank');
+  }
+}
