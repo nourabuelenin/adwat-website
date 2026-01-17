@@ -67,7 +67,7 @@ import { ProjectCardComponent } from '../project-card/project-card.component';
       position: relative;
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 1.5rem;
     }
 
     .slider-viewport {

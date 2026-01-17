@@ -59,6 +59,13 @@ import { TranslationService } from '../../../core/services/translation.service';
     }
 
     .slider-wrapper {
+      margin: 0 -1rem;
+    }
+
+    @media (min-width: 1024px) {
+      .slider-wrapper {
+        margin: 0 -5rem;
+      }
     }
 
     .cta-wrapper {
