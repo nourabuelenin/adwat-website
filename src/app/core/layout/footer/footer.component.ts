@@ -20,7 +20,7 @@ interface FooterSection {
   standalone: true,
   imports: [CommonModule, RouterModule, FontAwesomeModule],
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css']
+  styleUrls: ['./footer.component.css'],
 })
 export class FooterComponent {
   private translationService = inject(TranslationService);
@@ -39,17 +39,23 @@ export class FooterComponent {
         { label: { en: 'About Us', ar: 'من نحن' }, route: '/about' },
         { label: { en: 'Our Services', ar: 'خدماتنا' }, route: '/services' },
         { label: { en: 'Projects', ar: 'مشاريعنا' }, route: '/projects' },
-        { label: { en: 'Careers', ar: 'الوظائف' }, route: '/careers' }
-      ]
+        { label: { en: 'Careers', ar: 'الوظائف' }, route: '/careers' },
+      ],
     },
     {
       title: { en: 'Services', ar: 'الخدمات' },
       links: [
-        { label: { en: 'Digital Transformation', ar: 'التحول الرقمي' }, route: '/services/digital-transformation' },
-        { label: { en: 'Custom Software', ar: 'البرمجيات المخصصة' }, route: '/services/custom-software' },
+        {
+          label: { en: 'Digital Transformation', ar: 'التحول الرقمي' },
+          route: '/services/digital-transformation',
+        },
+        {
+          label: { en: 'Custom Software', ar: 'البرمجيات المخصصة' },
+          route: '/services/custom-software',
+        },
         { label: { en: 'Cloud Solutions', ar: 'الحلول السحابية' }, route: '/services/cloud' },
-        { label: { en: 'Consulting', ar: 'الاستشارات' }, route: '/services/consulting' }
-      ]
+        { label: { en: 'Consulting', ar: 'الاستشارات' }, route: '/services/consulting' },
+      ],
     },
     {
       title: { en: 'Resources', ar: 'الموارد' },
@@ -57,8 +63,8 @@ export class FooterComponent {
         { label: { en: 'Blog', ar: 'المدونة' }, route: '/blog' },
         { label: { en: 'Case Studies', ar: 'دراسات الحالة' }, route: '/case-studies' },
         { label: { en: 'Documentation', ar: 'التوثيق' }, route: '/docs' },
-        { label: { en: 'Support', ar: 'الدعم' }, route: '/support' }
-      ]
+        { label: { en: 'Support', ar: 'الدعم' }, route: '/support' },
+      ],
     },
     {
       title: { en: 'Legal', ar: 'قانوني' },
@@ -66,30 +72,33 @@ export class FooterComponent {
         { label: { en: 'Privacy Policy', ar: 'سياسة الخصوصية' }, route: '/privacy' },
         { label: { en: 'Terms of Service', ar: 'شروط الخدمة' }, route: '/terms' },
         { label: { en: 'Cookie Policy', ar: 'سياسة الكوكيز' }, route: '/cookies' },
-        { label: { en: 'Compliance', ar: 'الامتثال' }, route: '/compliance' }
-      ]
-    }
+        { label: { en: 'Compliance', ar: 'الامتثال' }, route: '/compliance' },
+      ],
+    },
   ];
 
   contactInfo = {
     ksa: {
       label: { en: 'Saudi Arabia Office', ar: 'مكتب المملكة العربية السعودية' },
-      address: { en: 'Riyadh, Saudi Arabia', ar: 'الرياض، المملكة العربية السعودية' },
-      phone: '+966 XX XXX XXXX',
-      email: 'info@adwat.sa'
+      address: {
+        en: 'Al Arfaj, Al Olaya, Riyadh 12611, Saudi Arabia',
+        ar: 'الرياض، المملكة العربية السعودية',
+      },
+      phone: '+966 112176600',
+      email: 'info@adwat.com',
     },
     egypt: {
       label: { en: 'Egypt Office', ar: 'مكتب مصر' },
       address: { en: 'Cairo, Egypt', ar: 'القاهرة، مصر' },
       phone: '+20 XX XXX XXXX',
-      email: 'info@adwat.com.eg'
-    }
+      email: 'info@adwat.com.eg',
+    },
   };
 
   socialLinks = [
     { name: 'LinkedIn', url: 'https://linkedin.com/company/adwat', icon: 'linkedin' },
     { name: 'Twitter', url: 'https://twitter.com/adwat', icon: 'twitter' },
-    { name: 'Facebook', url: 'https://facebook.com/adwat', icon: 'facebook' }
+    { name: 'Facebook', url: 'https://facebook.com/adwat', icon: 'facebook' },
   ];
 
   getSectionTitle(section: FooterSection): string {
