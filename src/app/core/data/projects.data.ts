@@ -18,6 +18,7 @@ export const PROJECTS_DATA: Project[] = [
     year: 2024,
     tags: ['Software Development', 'AI Training', 'Software Development'],
     featured: true,
+    image: 'assets/images/projects/RSD.png',
     details: {
       about: {
         en: 'A Smart And Integrated System Developed In Collaboration With Riyadh Municipality To Improve Road Safety And Reduce Accident Rates Through Predictive Analytics And Real-Time Monitoring.\n\nThis Advanced System Leverages Artificial Intelligence And Big Data Analytics To Provide Comprehensive Traffic Safety Management For Urban Environments.',
@@ -94,6 +95,7 @@ export const PROJECTS_DATA: Project[] = [
     year: 2024,
     tags: ['Healthcare', 'Monitoring', 'Government'],
     featured: true,
+    image: 'assets/images/projects/TASM.png',
   },
   {
     id: 'construction-management',
@@ -112,6 +114,7 @@ export const PROJECTS_DATA: Project[] = [
     year: 2024,
     tags: ['Construction', 'Project Management', 'Enterprise'],
     featured: true,
+    image: 'assets/images/projects/czone.png',
   },
   {
     id: 'e-next',
@@ -148,6 +151,7 @@ export const PROJECTS_DATA: Project[] = [
     year: 2024,
     tags: ['Beauty', 'Booking', 'Mobile App'],
     featured: true,
+    image: 'assets/images/projects/gocare.png',
   },
   {
     id: 'go-care-healthcare',

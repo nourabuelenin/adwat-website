@@ -10,173 +10,202 @@ import { ProjectCardComponent } from '../project-card/project-card.component';
   template: `
     <div class="slider-wrapper">
       <div class="slider-container">
-        <button 
+        <button
           class="slider-button prev"
           (click)="previousSlide()"
           [disabled]="currentSlide === 0"
-          aria-label="Previous project">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          aria-label="Previous project"
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
             <polyline points="15 18 9 12 15 6"></polyline>
           </svg>
         </button>
 
         <div class="slider-viewport">
-          <div 
-            class="slider-track" 
-            [style.transform]="'translateX(calc(-' + currentSlide + ' * (80% + 2rem)))'">
-            <div 
-              *ngFor="let project of projects; let i = index" 
+          <div
+            class="slider-track"
+            [style.transform]="'translateX(calc(-' + currentSlide + ' * (80% + 2rem)))'"
+          >
+            <div
+              *ngFor="let project of projects; let i = index"
               class="slider-item"
-              [class.active]="currentSlide === i">
-              <app-project-card 
-                [project]="project" 
+              [class.active]="currentSlide === i"
+            >
+              <app-project-card
+                [project]="project"
                 [currentLang]="currentLang"
-                [active]="currentSlide === i">
+                [active]="currentSlide === i"
+              >
               </app-project-card>
             </div>
           </div>
         </div>
 
-        <button 
+        <button
           class="slider-button next"
           (click)="nextSlide()"
           [disabled]="currentSlide >= projects.length - 1"
-          aria-label="Next project">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          aria-label="Next project"
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
             <polyline points="9 18 15 12 9 6"></polyline>
           </svg>
         </button>
       </div>
 
       <div class="dots-container">
-        <div 
+        <div
           *ngFor="let project of projects; let i = index"
           class="dot"
           [class.active]="currentSlide === i"
-          (click)="goToSlide(i)">
-        </div>
+          (click)="goToSlide(i)"
+        ></div>
       </div>
     </div>
   `,
-  styles: [`
-    .slider-wrapper {
-      width: 100%;
-    }
-
-    .slider-container {
-      position: relative;
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    .slider-viewport {
-      flex: 1;
-      overflow: hidden;
-    }
-
-    .slider-track {
-      display: flex;
-      gap: 2rem;
-      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-      will-change: transform;
-    }
-
-    .slider-item {
-      flex: 0 0 80%;
-      min-width: 0;
-      opacity: 0.65;
-      transform: scale(0.98);
-      transition: all 0.45s ease;
-    }
-
-    .slider-item.active {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    @media (max-width: 768px) {
-      .slider-item {
-        flex: 0 0 100%;
-      }
-
-      .slider-track {
-        gap: 1rem;
+  styles: [
+    `
+      .slider-wrapper {
+        width: 100%;
+        overflow: visible;
       }
 
       .slider-container {
-        gap: 0.5rem;
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        overflow: visible;
       }
-    }
 
-    .slider-button {
-      flex-shrink: 0;
-      background: #0f172a;
-      border: 1px solid rgba(2,6,23,0.12);
-      border-radius: 50%;
-      width: 56px;
-      height: 56px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.25s ease;
-      color: white;
-      box-shadow: 0 8px 20px rgba(2,6,23,0.12);
-    }
+      .slider-viewport {
+        flex: 1;
+        overflow: hidden;
+        padding-right: 100px;
+        margin-right: -100px;
+      }
 
-    .slider-button:hover:not(:disabled) {
-      background: linear-gradient(90deg, #10b981, #06b6d4);
-      transform: scale(1.06);
-      border-color: transparent;
-    }
+      .slider-track {
+        display: flex;
+        gap: 2rem;
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: transform;
+        overflow: visible;
+      }
 
-    .slider-button:disabled {
-      opacity: 0.35;
-      cursor: not-allowed;
-      transform: none;
-    }
+      .slider-item {
+        flex: 0 0 80%;
+        min-width: 0;
+        opacity: 0.65;
+        transform: scale(0.96);
+        transition: all 0.45s ease;
+        overflow: visible;
+      }
 
-    @media (max-width: 768px) {
+      .slider-item.active {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      @media (max-width: 768px) {
+        .slider-item {
+          flex: 0 0 100%;
+        }
+
+        .slider-track {
+          gap: 1rem;
+        }
+
+        .slider-container {
+          gap: 0.5rem;
+        }
+      }
+
       .slider-button {
-        width: 40px;
-        height: 40px;
+        flex-shrink: 0;
+        background: #0f172a;
+        border: 1px solid rgba(2, 6, 23, 0.12);
+        border-radius: 50%;
+        width: 56px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        color: white;
+        box-shadow: 0 8px 20px rgba(2, 6, 23, 0.12);
+        position: relative;
+        z-index: 100;
       }
 
-      .slider-button svg {
-        width: 18px;
-        height: 18px;
+      .slider-button:hover:not(:disabled) {
+        background: linear-gradient(90deg, #10b981, #06b6d4);
+        transform: scale(1.06);
+        border-color: transparent;
       }
-    }
 
-    .dots-container {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 2rem;
-    }
+      .slider-button:disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+        transform: none;
+      }
 
-    .dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #e6eef7;
-      cursor: pointer;
-      transition: all 0.28s ease;
-      border: 1px solid rgba(2,6,23,0.04);
-    }
+      @media (max-width: 768px) {
+        .slider-button {
+          width: 40px;
+          height: 40px;
+        }
 
-    .dot:hover {
-      transform: scale(1.1);
-    }
+        .slider-button svg {
+          width: 18px;
+          height: 18px;
+        }
+      }
 
-    .dot.active {
-      background: linear-gradient(90deg, #10b981, #06b6d4);
-      width: 36px;
-      border-radius: 8px;
-      border: none;
-    }
-  `]
+      .dots-container {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 2rem;
+      }
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #e6eef7;
+        cursor: pointer;
+        transition: all 0.28s ease;
+        border: 1px solid rgba(2, 6, 23, 0.04);
+      }
+
+      .dot:hover {
+        transform: scale(1.1);
+      }
+
+      .dot.active {
+        background: linear-gradient(90deg, #10b981, #06b6d4);
+        width: 36px;
+        border-radius: 8px;
+        border: none;
+      }
+    `,
+  ],
 })
 export class ProjectsSliderComponent implements OnInit, OnDestroy {
   @Input() projects: Project[] = [];
