@@ -34,7 +34,7 @@ import { Project } from '../../../../core/models/content.models';
             </div>
           </div>
 
-          <button class="case-study-btn" routerLink="/projects">
+          <!-- <button class="case-study-btn" routerLink="/projects">
             {{ caseStudyText[currentLang] }}
             <svg
               width="16"
@@ -47,7 +47,7 @@ import { Project } from '../../../../core/models/content.models';
               <line x1="5" y1="12" x2="19" y2="12"></line>
               <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
-          </button>
+          </button> -->
         </div>
 
         <!-- Mockup Inside Card but Breaking Out -->
@@ -224,8 +224,76 @@ import { Project } from '../../../../core/models/content.models';
       }
 
       @media (max-width: 1024px) {
+        .project-card {
+          grid-template-columns: 1fr;
+          min-height: auto;
+          padding: 1.5rem;
+        }
+
+        .project-title {
+          font-size: 1.35rem;
+        }
+
+        .project-description {
+          font-size: 0.85rem;
+          line-height: 1.6;
+          margin-bottom: 1rem;
+        }
+
+        .client-info {
+          margin-bottom: 1rem;
+        }
+
+        .client-avatar {
+          width: 30px;
+          height: 30px;
+        }
+
+        .client-avatar svg {
+          width: 16px;
+          height: 16px;
+        }
+
+        .client-name {
+          font-size: 0.8rem;
+        }
+
+        .client-role {
+          font-size: 0.7rem;
+        }
+
+        .case-study-btn {
+          padding: 0.65rem 1.25rem;
+          font-size: 0.8rem;
+        }
+
         .card-mockup {
-          display: none;
+          display: block;
+          margin-top: 1rem;
+        }
+
+        .mockup-image {
+          max-width: 100%;
+          transform: none;
+          filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.15));
+        }
+
+        .project-card:hover .mockup-image {
+          transform: none;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .project-card {
+          padding: 1.25rem;
+        }
+
+        .project-title {
+          font-size: 1.15rem;
+        }
+
+        .project-description {
+          font-size: 0.8rem;
         }
       }
 

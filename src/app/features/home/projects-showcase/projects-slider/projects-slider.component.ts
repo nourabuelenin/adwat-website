@@ -31,7 +31,9 @@ import { ProjectCardComponent } from '../project-card/project-card.component';
         <div class="slider-viewport">
           <div
             class="slider-track"
-            [style.transform]="'translateX(calc(-' + currentSlide + ' * (80% + 2rem)))'"
+            [style.transform]="
+              'translateX(calc(-' + currentSlide + ' * (var(--slide-width) + var(--slide-gap))))'
+            "
           >
             <div
               *ngFor="let project of projects; let i = index"
@@ -82,6 +84,8 @@ import { ProjectCardComponent } from '../project-card/project-card.component';
       .slider-wrapper {
         width: 100%;
         overflow: visible;
+        --slide-width: 80%;
+        --slide-gap: 2rem;
       }
 
       .slider-container {
@@ -122,8 +126,15 @@ import { ProjectCardComponent } from '../project-card/project-card.component';
       }
 
       @media (max-width: 768px) {
+        .slider-wrapper {
+          --slide-width: 100%;
+          --slide-gap: 1rem;
+        }
+
         .slider-item {
           flex: 0 0 100%;
+          opacity: 1;
+          transform: scale(1);
         }
 
         .slider-track {
@@ -132,6 +143,11 @@ import { ProjectCardComponent } from '../project-card/project-card.component';
 
         .slider-container {
           gap: 0.5rem;
+        }
+
+        .slider-viewport {
+          padding-right: 0;
+          margin-right: 0;
         }
       }
 
