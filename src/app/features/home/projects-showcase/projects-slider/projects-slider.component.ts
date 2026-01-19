@@ -17,6 +17,7 @@ import { ProjectCardComponent } from '../project-card/project-card.component';
           aria-label="Previous project"
         >
           <svg
+            [style.transform]="currentLang === 'ar' ? 'rotate(180deg)' : 'none'"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -32,7 +33,10 @@ import { ProjectCardComponent } from '../project-card/project-card.component';
           <div
             class="slider-track"
             [style.transform]="
-              'translateX(calc(-' + currentSlide + ' * (var(--slide-width) + var(--slide-gap))))'
+              'translateX(calc(' +
+              (currentLang === 'ar' ? '' : '-') +
+              currentSlide +
+              ' * (var(--slide-width) + var(--slide-gap))))'
             "
           >
             <div
@@ -57,6 +61,7 @@ import { ProjectCardComponent } from '../project-card/project-card.component';
           aria-label="Next project"
         >
           <svg
+            [style.transform]="currentLang === 'ar' ? 'rotate(180deg)' : 'none'"
             width="24"
             height="24"
             viewBox="0 0 24 24"

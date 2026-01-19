@@ -4,11 +4,11 @@ export const PROJECTS_DATA: Project[] = [
   {
     id: 'traffic-monitoring',
     title: {
-      en: 'Traffic Incident Monitoring System',
-      ar: 'نظام مراقبة حوادث المرور',
+      en: 'Location Monitoring System',
+      ar: 'نظام تحديد مواقع',
     },
     description: {
-      en: 'An intelligent solution for monitoring and analyzing road incidents using data and AI to support real-time traffic safety decisions. Helps authorities predict high-risk areas and proactive intervention to reduce accidents.',
+      en: 'An intelligent solution for monitoring and analyzing locations using data and AI to support real-time traffic safety decisions. Helps authorities predict high-risk areas and proactive intervention to reduce accidents.',
       ar: 'حل ذكي لمراقبة وتحليل حوادث الطرق يعتمد على البيانات والذكاء الاصطناعي لدعم قرارات السلامة المرورية في الوقت الفعلي. يساعد الجهات المعنية على التنبؤ بالمناطق عالية الخطورة والتدخل الاستباقي للحد من الحوادث.',
     },
     industry: {
@@ -16,7 +16,7 @@ export const PROJECTS_DATA: Project[] = [
       ar: 'منصة حكومية',
     },
     year: 2024,
-    tags: ['Software Development', 'AI Training', 'Software Development'],
+    tags: ['Software Development', 'AI Training', 'Navigation'],
     featured: true,
     image: 'assets/images/projects/RSD.png',
     details: {
@@ -81,12 +81,12 @@ export const PROJECTS_DATA: Project[] = [
   {
     id: 'advanced-monitoring',
     title: {
-      en: 'Advanced Monitoring System',
-      ar: 'نظام المراقبة المتقدم',
+      en: 'Data Analysis System',
+      ar: 'نظام تحليل بيانات',
     },
     description: {
-      en: 'A centralized platform for real-time hospital performance monitoring, enabling unified oversight of operations and healthcare quality across a wide network of facilities. Supports rapid decision-making and improves response efficiency and resource management at the sector level.',
-      ar: 'منصة مركزية لمراقبة أداء المستشفيات في الوقت الفعلي، تتيح إشرافًا موحدًا على العمليات وجودة الرعاية الصحية عبر شبكة واسعة من المنشآت. تدعم اتخاذ القرار السريع وتحسين كفاءة الاستجابة وإدارة الموارد على مستوى القطاع الصحي.',
+      en: 'A centralized platform for real-time performance monitoring. Supports rapid decision-making and improves response efficiency and resource management.',
+      ar: 'منصة مركزية لمراقبة الأداء في الوقت الفعلي. تدعم اتخاذ القرار السريع وتحسين كفاءة الاستجابة وإدارة الموارد.',
     },
     industry: {
       en: 'Ministry of Health',
@@ -100,12 +100,12 @@ export const PROJECTS_DATA: Project[] = [
   {
     id: 'construction-management',
     title: {
-      en: 'Construction Project Management Platform',
-      ar: 'منصة إدارة مشاريع البناء',
+      en: 'Project Management Platform',
+      ar: 'منصة إدارة مشاريع ',
     },
     description: {
-      en: 'A unified digital platform for managing construction projects, bringing all project stakeholders together in one environment with clear workflows and real-time performance analytics. Helps control coordination, improve resource utilization, and reduce delays and costs throughout the project lifecycle.',
-      ar: 'منصة رقمية موحدة لإدارة مشاريع البناء، تجمع جميع أطراف المشروع في بيئة واحدة بسير عمل واضح وتحليلات أداء لحظية. تساعد على ضبط التنسيق، تحسين استخدام الموارد، وتقليل التأخير والتكاليف عبر دورة المشروع كاملة.',
+      en: 'A unified digital platform for managing projects, bringing all stakeholders together in one environment with clear workflows and real-time performance analytics. Helps control coordination, improve resource utilization, and reduce delays and costs throughout the project lifecycle.',
+      ar: 'منصة رقمية موحدة لإدارة المشاريع, تجمع جميع أطراف المشروع في بيئة واحدة بسير عمل واضح وتحليلات أداء لحظية. تساعد على ضبط التنسيق، تحسين استخدام الموارد، وتقليل التأخير والتكاليف عبر دورة المشروع كاملة.',
     },
     industry: {
       en: 'Management Platform',
@@ -137,8 +137,8 @@ export const PROJECTS_DATA: Project[] = [
   {
     id: 'go-care-beauty',
     title: {
-      en: 'Go Care Beauty & Personal Care Platform',
-      ar: 'Go Care منصة الجمال والعناية الشخصية',
+      en: 'Go Care - Booking System',
+      ar: 'Go Care - نظام حجوزات',
     },
     description: {
       en: 'A smart platform connecting customers with beauty salons and clinics through instant booking, location-based search, and a trusted rating system. Simplifies appointment management for service providers and delivers a seamless, transparent booking experience for customers.',
@@ -149,7 +149,7 @@ export const PROJECTS_DATA: Project[] = [
       ar: 'الجمال والعناية الشخصية',
     },
     year: 2024,
-    tags: ['Beauty', 'Booking', 'Mobile App'],
+    tags: ['E-commerce', 'Booking', 'Retail', 'Mobile App'],
     featured: true,
     image: 'assets/images/projects/gocare.png',
   },

@@ -9,7 +9,11 @@ import { Project } from '../../../../core/models/content.models';
   imports: [CommonModule, RouterModule],
   template: `
     <div class="project-card-wrapper">
-      <div class="project-card" [class.active]="active">
+      <div
+        class="project-card"
+        [class.active]="active"
+        [style.--tx-dir]="currentLang === 'ar' ? -1 : 1"
+      >
         <!-- Left Content -->
         <div class="card-content">
           <h3 class="project-title">
@@ -189,14 +193,14 @@ import { Project } from '../../../../core/models/content.models';
         width: 100%;
         max-width: 520px;
         height: auto;
-        transform: translateX(60px) translateY(20px);
+        transform: translateX(calc(60px * var(--tx-dir, 1))) translateY(20px);
         filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.2))
           drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
         transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
       .project-card:hover .mockup-image {
-        transform: translateX(70px) translateY(15px) scale(1.02);
+        transform: translateX(calc(70px * var(--tx-dir, 1))) translateY(15px) scale(1.02);
         filter: drop-shadow(0 35px 60px rgba(0, 0, 0, 0.25))
           drop-shadow(0 15px 30px rgba(0, 0, 0, 0.2));
       }
@@ -204,22 +208,22 @@ import { Project } from '../../../../core/models/content.models';
       @media (max-width: 1400px) {
         .mockup-image {
           max-width: 450px;
-          transform: translateX(40px) translateY(15px);
+          transform: translateX(calc(40px * var(--tx-dir, 1))) translateY(15px);
         }
 
         .project-card:hover .mockup-image {
-          transform: translateX(50px) translateY(10px) scale(1.02);
+          transform: translateX(calc(50px * var(--tx-dir, 1))) translateY(10px) scale(1.02);
         }
       }
 
       @media (max-width: 1200px) {
         .mockup-image {
           max-width: 380px;
-          transform: translateX(30px) translateY(10px);
+          transform: translateX(calc(30px * var(--tx-dir, 1))) translateY(10px);
         }
 
         .project-card:hover .mockup-image {
-          transform: translateX(35px) translateY(5px) scale(1.02);
+          transform: translateX(calc(35px * var(--tx-dir, 1))) translateY(5px) scale(1.02);
         }
       }
 
