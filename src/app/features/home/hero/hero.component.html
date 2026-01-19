@@ -44,23 +44,18 @@
         </div>
 
         <!-- Trust Signals -->
-        <div
-          #trustSignalsSection
-          class="trust-signals-container mt-4 md:mt-8 pt-4 md:pt-8 w-full max-w-full"
-        >
-          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 w-full">
+        <div #trustSignalsSection class="trust-signals-container mt-4 md:mt-8 pt-4 md:pt-8 w-full">
+          <div class="grid grid-cols-4 gap-1 sm:gap-3 md:gap-6 w-full">
             <div
               *ngFor="let signal of trustSignals"
               class="flex flex-col items-center justify-start text-center"
             >
-              <div
-                class="text-base sm:text-xl md:text-2xl font-bold text-adwat-teal mb-0.5 md:mb-1"
-              >
+              <div class="text-sm sm:text-lg md:text-2xl font-bold text-adwat-teal mb-0.5">
                 {{ getDisplayValue(signal) }}
               </div>
 
               <div
-                class="text-[7px] sm:text-[9px] md:text-xs text-slate-600 font-medium leading-tight"
+                class="text-[6px] sm:text-[8px] md:text-xs text-slate-600 font-medium leading-tight"
               >
                 {{ signal.label[currentLang()] }}
               </div>
@@ -69,8 +64,8 @@
         </div>
       </div>
 
-      <!-- Right: Dashboard Mockup - Desktop only -->
-      <div class="hidden lg:block z-10 w-[50%] dashboard-container">
+      <!-- Dashboard Mockup -->
+      <div class="z-10 w-full lg:w-[50%] dashboard-container mt-8 lg:mt-0">
         <app-dashboard-mockup></app-dashboard-mockup>
       </div>
     </div>

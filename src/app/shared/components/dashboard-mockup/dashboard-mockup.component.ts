@@ -250,20 +250,34 @@ import { CommonModule } from '@angular/common';
       :host {
         display: block;
         width: 100%;
+        max-width: 100%;
       }
 
       .dashboard-mockup {
         width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
         aspect-ratio: 4 / 3;
         background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
-        border-radius: 16px;
+        border-radius: 12px;
         box-shadow:
-          0 25px 50px -12px rgba(0, 0, 0, 0.15),
+          0 15px 30px -8px rgba(0, 0, 0, 0.12),
           0 0 0 1px rgba(0, 0, 0, 0.05);
         overflow: hidden;
         display: flex;
         flex-direction: column;
-        font-size: 0.7rem;
+        font-size: 0.5rem;
+      }
+
+      @media (min-width: 1024px) {
+        .dashboard-mockup {
+          max-width: none;
+          border-radius: 16px;
+          box-shadow:
+            0 25px 50px -12px rgba(0, 0, 0, 0.15),
+            0 0 0 1px rgba(0, 0, 0, 0.05);
+          font-size: 0.7rem;
+        }
       }
 
       /* Header */

@@ -72,14 +72,22 @@
 
 /* Dashboard Mockup Container */
 .dashboard-container {
-  transform: scale(1.1);
-  transform-origin: left center; /* LTR: anchor left, expand right (away from content) */
+  transform: none; /* No scale on mobile */
+  transform-origin: center center;
 }
 
-/* RTL support - dashboard is on left, anchor right, expand left (away from content) */
-:host-context([dir='rtl']) .dashboard-container,
-[dir='rtl'] .dashboard-container {
-  transform-origin: right center;
+/* Scale up on desktop */
+@media (min-width: 1024px) {
+  .dashboard-container {
+    transform: scale(1.1);
+    transform-origin: left center; /* LTR: anchor left, expand right (away from content) */
+  }
+
+  /* RTL support - dashboard is on left, anchor right, expand left (away from content) */
+  :host-context([dir='rtl']) .dashboard-container,
+  [dir='rtl'] .dashboard-container {
+    transform-origin: right center;
+  }
 }
 
 /* Grid Pattern */
