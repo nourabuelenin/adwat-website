@@ -50,6 +50,38 @@
   }
 }
 
+/* New Gentle Float for Image */
+@keyframes float-gentle {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float-gentle 6s ease-in-out infinite;
+}
+
+/* Hero content layout - ensure consistent spacing in both LTR and RTL */
+.hero-content {
+  justify-content: space-between;
+}
+
+/* Dashboard Mockup Container */
+.dashboard-container {
+  transform: scale(1.1);
+  transform-origin: left center; /* LTR: anchor left, expand right (away from content) */
+}
+
+/* RTL support - dashboard is on left, anchor right, expand left (away from content) */
+:host-context([dir='rtl']) .dashboard-container,
+[dir='rtl'] .dashboard-container {
+  transform-origin: right center;
+}
+
 /* Grid Pattern */
 .grid-pattern {
   width: 100%;

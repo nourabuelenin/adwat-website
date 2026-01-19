@@ -14,9 +14,11 @@
   </div>
 
   <app-container>
-    <div class="hero-content relative py-12 lg:py-32 flex flex-col lg:flex-row items-center gap-12">
+    <div
+      class="hero-content relative py-12 lg:py-32 flex flex-col lg:flex-row items-center lg:items-start gap-6 lg:gap-8"
+    >
       <!-- Left Content -->
-      <div class="z-10 lg:w-3/4 w-full">
+      <div class="z-10 lg:w-[50%] w-full overflow-hidden">
         <!-- Main Headline -->
         <h1
           class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 leading-tight animate-fade-in text-slate-900"
@@ -42,18 +44,23 @@
         </div>
 
         <!-- Trust Signals -->
-        <div #trustSignalsSection class="trust-signals-container mt-6 md:mt-12 pt-6 md:pt-12">
-          <div class="grid grid-cols-4 gap-2 sm:gap-4 md:gap-12">
+        <div
+          #trustSignalsSection
+          class="trust-signals-container mt-4 md:mt-8 pt-4 md:pt-8 w-full max-w-full"
+        >
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 w-full">
             <div
               *ngFor="let signal of trustSignals"
               class="flex flex-col items-center justify-start text-center"
             >
-              <div class="text-lg sm:text-2xl md:text-5xl font-bold text-adwat-teal mb-0.5 md:mb-2">
+              <div
+                class="text-base sm:text-xl md:text-2xl font-bold text-adwat-teal mb-0.5 md:mb-1"
+              >
                 {{ getDisplayValue(signal) }}
               </div>
 
               <div
-                class="text-[8px] sm:text-[10px] md:text-base text-slate-600 font-medium leading-tight"
+                class="text-[7px] sm:text-[9px] md:text-xs text-slate-600 font-medium leading-tight"
               >
                 {{ signal.label[currentLang()] }}
               </div>
@@ -62,11 +69,9 @@
         </div>
       </div>
 
-      <!-- Right: 3D Animated Logo Cube - Desktop only -->
-      <div
-        class="hidden lg:flex z-10 lg:w-1/4 h-[400px] lg:h-[500px] justify-center items-center -mt-12 lg:-mt-20 lg:-mr-8"
-      >
-        <app-hero3d class="w-full h-full"></app-hero3d>
+      <!-- Right: Dashboard Mockup - Desktop only -->
+      <div class="hidden lg:block z-10 w-[50%] dashboard-container">
+        <app-dashboard-mockup></app-dashboard-mockup>
       </div>
     </div>
   </app-container>
