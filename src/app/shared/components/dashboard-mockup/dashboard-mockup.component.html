@@ -1,0 +1,234 @@
+<div class="dashboard-mockup">
+  <!-- Header Bar -->
+  <div class="dashboard-header">
+    <div class="header-left">
+      <div class="nav-items">
+        <div class="nav-item active"></div>
+        <div class="nav-item"></div>
+        <div class="nav-item"></div>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="search-bar"></div>
+      <div class="avatar"></div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="dashboard-content">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="sidebar-item active">
+        <div class="sidebar-icon"></div>
+        <div class="sidebar-text"></div>
+      </div>
+      <div class="sidebar-item">
+        <div class="sidebar-icon"></div>
+        <div class="sidebar-text"></div>
+      </div>
+      <div class="sidebar-item">
+        <div class="sidebar-icon"></div>
+        <div class="sidebar-text"></div>
+      </div>
+      <div class="sidebar-item">
+        <div class="sidebar-icon"></div>
+        <div class="sidebar-text"></div>
+      </div>
+      <div class="sidebar-item">
+        <div class="sidebar-icon"></div>
+        <div class="sidebar-text"></div>
+      </div>
+    </div>
+
+    <!-- Main Panel -->
+    <div class="main-panel">
+      <!-- Stats Row -->
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-icon green"></div>
+          <div class="stat-info">
+            <div class="stat-value"></div>
+            <div class="stat-label"></div>
+          </div>
+          <div class="stat-trend up">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+              <polyline points="17 6 23 6 23 12"></polyline>
+            </svg>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon blue"></div>
+          <div class="stat-info">
+            <div class="stat-value"></div>
+            <div class="stat-label"></div>
+          </div>
+          <div class="stat-trend up">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+              <polyline points="17 6 23 6 23 12"></polyline>
+            </svg>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon purple"></div>
+          <div class="stat-info">
+            <div class="stat-value"></div>
+            <div class="stat-label"></div>
+          </div>
+          <div class="stat-trend down">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline>
+              <polyline points="17 18 23 18 23 12"></polyline>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts Row -->
+      <div class="charts-row">
+        <!-- Line Chart -->
+        <div class="chart-card large">
+          <div class="chart-header">
+            <div class="chart-title"></div>
+            <div class="chart-legend">
+              <div class="legend-item green"></div>
+              <div class="legend-item blue"></div>
+            </div>
+          </div>
+          <div class="line-chart">
+            <svg viewBox="0 0 300 100" preserveAspectRatio="none">
+              <!-- Grid lines -->
+              <line x1="0" y1="25" x2="300" y2="25" class="grid-line" />
+              <line x1="0" y1="50" x2="300" y2="50" class="grid-line" />
+              <line x1="0" y1="75" x2="300" y2="75" class="grid-line" />
+
+              <!-- Area fill -->
+              <path
+                d="M0,80 Q30,70 60,65 T120,45 T180,55 T240,30 T300,40 L300,100 L0,100 Z"
+                class="area-fill green"
+              />
+              <path
+                d="M0,90 Q30,85 60,80 T120,70 T180,75 T240,55 T300,60 L300,100 L0,100 Z"
+                class="area-fill blue"
+              />
+
+              <!-- Lines -->
+              <path
+                d="M0,80 Q30,70 60,65 T120,45 T180,55 T240,30 T300,40"
+                class="chart-line green"
+              />
+              <path
+                d="M0,90 Q30,85 60,80 T120,70 T180,75 T240,55 T300,60"
+                class="chart-line blue"
+              />
+
+              <!-- Dots -->
+              <circle cx="60" cy="65" r="4" class="chart-dot green" />
+              <circle cx="120" cy="45" r="4" class="chart-dot green" />
+              <circle cx="180" cy="55" r="4" class="chart-dot green" />
+              <circle cx="240" cy="30" r="4" class="chart-dot green" />
+            </svg>
+          </div>
+          <div class="chart-labels">
+            <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span
+            ><span>Jun</span>
+          </div>
+        </div>
+
+        <!-- Donut Chart -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <div class="chart-title"></div>
+          </div>
+          <div class="donut-chart">
+            <svg viewBox="0 0 100 100">
+              <circle
+                cx="50"
+                cy="50"
+                r="35"
+                class="donut-segment"
+                stroke-dasharray="110 110"
+                stroke-dashoffset="0"
+              />
+              <circle
+                cx="50"
+                cy="50"
+                r="35"
+                class="donut-segment blue"
+                stroke-dasharray="66 154"
+                stroke-dashoffset="-110"
+              />
+              <circle
+                cx="50"
+                cy="50"
+                r="35"
+                class="donut-segment purple"
+                stroke-dasharray="44 176"
+                stroke-dashoffset="-176"
+              />
+            </svg>
+            <div class="donut-center">
+              <div class="donut-value">78%</div>
+            </div>
+          </div>
+          <div class="donut-legend">
+            <div class="legend-row"><span class="dot green"></span><span class="label"></span></div>
+            <div class="legend-row"><span class="dot blue"></span><span class="label"></span></div>
+            <div class="legend-row">
+              <span class="dot purple"></span><span class="label"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bar Chart Row -->
+      <div class="charts-row">
+        <div class="chart-card">
+          <div class="chart-header">
+            <div class="chart-title"></div>
+          </div>
+          <div class="bar-chart">
+            <div class="bar" style="--height: 65%"><div class="bar-fill green"></div></div>
+            <div class="bar" style="--height: 85%"><div class="bar-fill green"></div></div>
+            <div class="bar" style="--height: 45%"><div class="bar-fill green"></div></div>
+            <div class="bar" style="--height: 95%"><div class="bar-fill green"></div></div>
+            <div class="bar" style="--height: 70%"><div class="bar-fill green"></div></div>
+            <div class="bar" style="--height: 55%"><div class="bar-fill green"></div></div>
+            <div class="bar" style="--height: 80%"><div class="bar-fill green"></div></div>
+          </div>
+        </div>
+
+        <!-- Activity List -->
+        <div class="chart-card">
+          <div class="chart-header">
+            <div class="chart-title"></div>
+          </div>
+          <div class="activity-list">
+            <div class="activity-item">
+              <div class="activity-dot green"></div>
+              <div class="activity-content">
+                <div class="activity-text"></div>
+                <div class="activity-time"></div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot blue"></div>
+              <div class="activity-content">
+                <div class="activity-text"></div>
+                <div class="activity-time"></div>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-dot purple"></div>
+              <div class="activity-content">
+                <div class="activity-text"></div>
+                <div class="activity-time"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

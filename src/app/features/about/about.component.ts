@@ -12,7 +12,7 @@ import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
   standalone: true,
   imports: [CommonModule, ContainerComponent, SectionComponent, FontAwesomeModule],
   templateUrl: './about.component.html',
-  styleUrls: ['./about.css'],
+  styleUrls: ['./about.component.css'],
 })
 export class AboutComponent {
   private translationService = inject(TranslationService);

@@ -1,0 +1,41 @@
+<app-section [withGradients]="true" [gradientVariant]="'top-right-only'" id="faq">
+  <app-container [size]="'content'">
+    <div class="text-center mb-12">
+      <p class="text-primary font-semibold text-sm uppercase tracking-wide mb-3">
+        {{ content.heading[currentLang()] }}
+      </p>
+      <h2 class="text-3xl lg:text-4xl font-bold text-adwat-dark-green mb-4">
+        {{ content.title[currentLang()] }}
+      </h2>
+    </div>
+
+    <div class="space-y-4 mb-8">
+      @for (faq of faqs; track faq.question.en; let i = $index) {
+        <div class="card p-6">
+          <button (click)="toggleFaq(i)" class="w-full flex justify-between items-center text-left">
+            <h3 class="text-lg font-semibold text-adwat-dark-green pr-4">
+              {{ faq.question[currentLang()] }}
+            </h3>
+            <span class="text-primary text-2xl flex-shrink-0">
+              {{ openIndex === i ? '−' : '+' }}
+            </span>
+          </button>
+          @if (openIndex === i) {
+            <div class="mt-4 pt-4 border-t border-adwat-dark-green/10">
+              <p class="text-adwat-dark-green/70 leading-relaxed">
+                {{ faq.answer[currentLang()] }}
+              </p>
+            </div>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- View All FAQs Button -->
+    <div class="text-center">
+      <app-button [variant]="'secondary'" [size]="'large'" routerLink="/faq">
+        {{ currentLang() === 'en' ? 'View All FAQs' : 'عرض جميع الأسئلة' }}
+      </app-button>
+    </div>
+  </app-container>
+</app-section>

@@ -1,29 +1,19 @@
 <section class="partners-section">
   <!-- Trusted By Header -->
   <p class="trusted-by-text">{{ content.trustedBy[currentLang()] }}</p>
-  
+
   <!-- Scrollable logos container -->
   <div class="scroll-wrapper">
     <div class="fade-edge fade-left"></div>
     <div class="scroll-container" #scrollTrack>
       <div class="scroll-track">
-        <div *ngFor="let partner of scrollPartners" class="partner-item">
-          <img
-            [src]="partner.logo"
-            [alt]="partner.name"
-            class="partner-logo"
-            draggable="false"
-          />
-        </div>
+        @for (partner of scrollPartners; track partner.name) {
+          <div class="partner-item">
+            <img [src]="partner.logo" [alt]="partner.name" class="partner-logo" draggable="false" />
+          </div>
+        }
       </div>
     </div>
     <div class="fade-edge fade-right"></div>
   </div>
-  
-  <!-- Integrated Scroll Indicator -->
-  <!-- <div class="scroll-indicator-container">
-    <div class="scroll-indicator">
-      <div class="scroll-arrow"></div>
-    </div>
-  </div> -->
 </section>

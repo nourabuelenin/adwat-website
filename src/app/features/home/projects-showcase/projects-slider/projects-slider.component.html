@@ -1,0 +1,70 @@
+<div class="slider-wrapper">
+  <div class="slider-container">
+    <button
+      class="slider-button prev"
+      (click)="previousSlide()"
+      [disabled]="currentSlide === 0"
+      aria-label="Previous project"
+    >
+      <svg
+        [style.transform]="currentLang === 'ar' ? 'rotate(180deg)' : 'none'"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+
+    <div class="slider-viewport">
+      <div
+        class="slider-track"
+        [style.transform]="
+          'translateX(calc(' +
+          (currentLang === 'ar' ? '' : '-') +
+          currentSlide +
+          ' * (var(--slide-width) + var(--slide-gap))))'
+        "
+      >
+        @for (project of projects; track project.id; let i = $index) {
+          <div class="slider-item" [class.active]="currentSlide === i">
+            <app-project-card
+              [project]="project"
+              [currentLang]="currentLang"
+              [active]="currentSlide === i"
+            >
+            </app-project-card>
+          </div>
+        }
+      </div>
+    </div>
+
+    <button
+      class="slider-button next"
+      (click)="nextSlide()"
+      [disabled]="currentSlide >= projects.length - 1"
+      aria-label="Next project"
+    >
+      <svg
+        [style.transform]="currentLang === 'ar' ? 'rotate(180deg)' : 'none'"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+  </div>
+
+  <div class="dots-container">
+    @for (project of projects; track project.id; let i = $index) {
+      <div class="dot" [class.active]="currentSlide === i" (click)="goToSlide(i)"></div>
+    }
+  </div>
+</div>

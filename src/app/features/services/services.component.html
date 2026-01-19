@@ -16,7 +16,7 @@
         {{ content.featuredHeading[currentLang()] }}
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <ng-container *ngFor="let service of featuredServices">
+        @for (service of featuredServices; track service.id) {
           <div
             class="featured-service-card group cursor-pointer"
             [routerLink]="service.link || '/services'"
@@ -34,7 +34,7 @@
               </p>
             </div>
           </div>
-        </ng-container>
+        }
       </div>
     </div>
 
@@ -51,7 +51,7 @@
       </svg>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <ng-container *ngFor="let service of allServices">
+        @for (service of allServices; track service.id) {
           <div class="service-card group cursor-pointer" [routerLink]="service.link || '/services'">
             <div class="card-inner">
               <!-- Icon -->
@@ -70,7 +70,7 @@
               </div>
             </div>
           </div>
-        </ng-container>
+        }
       </div>
     </div>
   </app-container>
@@ -89,7 +89,7 @@
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <ng-container *ngFor="let phase of processPhases">
+      @for (phase of processPhases; track phase.title.en) {
         <div class="process-card">
           <div class="process-icon">
             <fa-icon [icon]="getIcon(phase.icon)" class="text-3xl"></fa-icon>
@@ -101,7 +101,7 @@
             {{ phase.description[currentLang()] }}
           </p>
         </div>
-      </ng-container>
+      }
     </div>
   </app-container>
 </app-section>

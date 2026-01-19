@@ -1,6 +1,6 @@
 /* Grid pattern */
 .grid-pattern {
-  background-image: 
+  background-image:
     linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
   background-size: 60px 60px;
@@ -8,7 +8,8 @@
 
 /* Glow pulse animation */
 @keyframes glow-pulse {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
     opacity: 0.2;
   }
@@ -23,7 +24,7 @@
 }
 
 /* Custom gradient colors - matching ADWAT brand */
-:host ::ng-deep {
+:host {
   --color-secondary: #8888bb;
   --color-primary: #7ab87a;
   --color-accent: #c77eb3;
@@ -46,7 +47,8 @@
 }
 
 .via-primary {
-  --tw-gradient-stops: var(--tw-gradient-from), var(--color-primary), var(--tw-gradient-to, rgba(122, 184, 122, 0));
+  --tw-gradient-stops:
+    var(--tw-gradient-from), var(--color-primary), var(--tw-gradient-to, rgba(122, 184, 122, 0));
 }
 
 .to-accent {
@@ -67,7 +69,7 @@
   .text-5xl {
     font-size: 2.5rem;
   }
-  
+
   .text-7xl {
     font-size: 3.5rem;
   }

@@ -109,11 +109,8 @@
   transform: scale(1.1);
 }
 
-/* Apply gradient to icon on hover */
-:host ::ng-deep .service-card:hover .card-icon fa-icon svg path {
-  fill: url(#icon-gradient) !important;
-  transition: fill 0.3s ease;
-}
+/* Icon gradient fill on hover - applied via global styles or encapsulation none */
+/* Note: SVG fill gradient styling is handled in global styles.css */
 
 /* Content */
 .card-content {

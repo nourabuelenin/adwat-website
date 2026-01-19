@@ -1,0 +1,139 @@
+.slider-wrapper {
+  width: 100%;
+  overflow: visible;
+  --slide-width: 80%;
+  --slide-gap: 2rem;
+}
+
+.slider-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  overflow: visible;
+}
+
+.slider-viewport {
+  flex: 1;
+  overflow: hidden;
+  padding-right: 100px;
+  margin-right: -100px;
+}
+
+.slider-track {
+  display: flex;
+  gap: 2rem;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+  overflow: visible;
+}
+
+.slider-item {
+  flex: 0 0 80%;
+  min-width: 0;
+  opacity: 0.65;
+  transform: scale(0.96);
+  transition: all 0.45s ease;
+  overflow: visible;
+}
+
+.slider-item.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@media (max-width: 768px) {
+  .slider-wrapper {
+    --slide-width: 100%;
+    --slide-gap: 1rem;
+  }
+
+  .slider-item {
+    flex: 0 0 100%;
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .slider-track {
+    gap: 1rem;
+  }
+
+  .slider-container {
+    gap: 0.5rem;
+  }
+
+  .slider-viewport {
+    padding-right: 0;
+    margin-right: 0;
+  }
+}
+
+.slider-button {
+  flex-shrink: 0;
+  background: #0f172a;
+  border: 1px solid rgba(2, 6, 23, 0.12);
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  color: white;
+  box-shadow: 0 8px 20px rgba(2, 6, 23, 0.12);
+  position: relative;
+  z-index: 100;
+}
+
+.slider-button:hover:not(:disabled) {
+  background: linear-gradient(90deg, #10b981, #06b6d4);
+  transform: scale(1.06);
+  border-color: transparent;
+}
+
+.slider-button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  transform: none;
+}
+
+@media (max-width: 768px) {
+  .slider-button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .slider-button svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.dots-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 2rem;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #e6eef7;
+  cursor: pointer;
+  transition: all 0.28s ease;
+  border: 1px solid rgba(2, 6, 23, 0.04);
+}
+
+.dot:hover {
+  transform: scale(1.1);
+}
+
+.dot.active {
+  background: linear-gradient(90deg, #10b981, #06b6d4);
+  width: 36px;
+  border-radius: 8px;
+  border: none;
+}

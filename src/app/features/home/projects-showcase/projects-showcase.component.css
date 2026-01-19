@@ -1,0 +1,78 @@
+:host {
+  display: block;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 48rem;
+  margin: 0 auto 3rem;
+}
+
+.section-tag {
+  color: #10b981;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 1024px) {
+  .section-title {
+    font-size: 2.5rem;
+  }
+}
+
+.section-description {
+  font-size: 1.0625rem;
+  color: #475569;
+}
+
+.slider-wrapper {
+  margin: 0 -1rem;
+  overflow: visible;
+}
+
+@media (min-width: 1024px) {
+  .slider-wrapper {
+    margin: 0 -5rem;
+    overflow: visible;
+  }
+}
+
+.cta-wrapper {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #0f172a;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  padding: 0.5rem 0;
+}
+
+.cta-link:hover {
+  color: #10b981;
+  gap: 0.75rem;
+}
+
+.cta-link svg {
+  transition: transform 0.25s ease;
+}
+
+.cta-link:hover svg {
+  transform: translateX(4px);
+}

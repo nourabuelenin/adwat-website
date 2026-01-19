@@ -1,4 +1,4 @@
-<app-section [variant]="'light'" [withGradients]="true" [gradientVariant]="'right'" id="services">  
+<app-section [variant]="'light'" [withGradients]="true" [gradientVariant]="'right'" id="services">
   <!-- Gradient Definition for Icons -->
   <svg width="0" height="0" class="absolute">
     <defs>
@@ -18,42 +18,41 @@
 
     <!-- Services Grid with Glass Cards -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
-      <ng-container *ngFor="let service of services; let i = index">
-        <div 
-          *ngIf="i < 8"
-          #serviceCard
-          class="service-card group cursor-pointer"
-          [routerLink]="service.link || '/services'">
-          
-          <!-- Glass Card Container -->
-          <div class="card-inner">
-            <!-- Icon (top left) -->
-            <div class="card-icon">
-              <fa-icon [icon]="getIcon(service.icon)" class="text-3xl"></fa-icon>
-            </div>
-            
-            <!-- Content at bottom -->
-            <div class="card-content">
-              <!-- Title -->
-              <h3 class="card-title">
-                {{ getServiceTitle(service) }}
-              </h3>
-              
-              <!-- Description (appears on hover) -->
-              <div class="card-description">
-                <p>{{ getServiceDescription(service) }}</p>
+      @for (service of services; track service.id; let i = $index) {
+        @if (i < 8) {
+          <div
+            #serviceCard
+            class="service-card group cursor-pointer"
+            [routerLink]="service.link || '/services'"
+          >
+            <!-- Glass Card Container -->
+            <div class="card-inner">
+              <!-- Icon (top left) -->
+              <div class="card-icon">
+                <fa-icon [icon]="getIcon(service.icon)" class="text-3xl"></fa-icon>
+              </div>
+
+              <!-- Content at bottom -->
+              <div class="card-content">
+                <!-- Title -->
+                <h3 class="card-title">
+                  {{ getServiceTitle(service) }}
+                </h3>
+
+                <!-- Description (appears on hover) -->
+                <div class="card-description">
+                  <p>{{ getServiceDescription(service) }}</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </ng-container>
+        }
+      }
     </div>
 
     <!-- CTA Button -->
     <div class="text-center">
-      <app-button 
-        [variant]="'primary'" 
-        [routerLink]="'/services'">
+      <app-button [variant]="'primary'" [routerLink]="'/services'">
         {{ content.cta[currentLang()] }}
         <fa-icon [icon]="faArrowRight" class="ms-2"></fa-icon>
       </app-button>

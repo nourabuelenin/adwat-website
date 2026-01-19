@@ -15,7 +15,7 @@
 
     <!-- Projects List -->
     <div class="projects-list">
-      <ng-container *ngFor="let project of projects; let i = index">
+      @for (project of projects; track project.id; let i = $index) {
         <div class="project-item" [class.reverse]="i % 2 !== 0">
           <!-- Project Logo/Image -->
           <div class="project-logo">
@@ -50,13 +50,15 @@
               <button class="btn-learn-more" (click)="onLearnMore(project.id)">
                 {{ content.learnMore[currentLang()] }}
               </button>
-              <button class="btn-visit" *ngIf="project.link" (click)="onVisit(project.link!)">
-                {{ content.visit[currentLang()] }}
-              </button>
+              @if (project.link) {
+                <button class="btn-visit" (click)="onVisit(project.link!)">
+                  {{ content.visit[currentLang()] }}
+                </button>
+              }
             </div>
           </div>
         </div>
-      </ng-container>
+      }
     </div>
   </app-container>
 </app-section>

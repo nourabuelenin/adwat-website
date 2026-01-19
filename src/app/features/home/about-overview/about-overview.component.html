@@ -12,19 +12,21 @@
         </h2>
 
         <div class="space-y-6 text-slate-700 text-lg leading-relaxed">
-          <p *ngFor="let paragraph of content.paragraphs" class="text-center">
-            {{ paragraph[currentLang()] }}
-          </p>
+          @for (paragraph of content.paragraphs; track $index) {
+            <p class="text-center">
+              {{ paragraph[currentLang()] }}
+            </p>
+          }
         </div>
 
         <div class="mt-10 text-center">
           <div class="relative inline-block px-10 lg:px-16">
             <!-- Quote Icon Opening -->
-            <span class="absolute -top-1 left-0 text-4xl text-adwat-teal leading-none">“</span>
+            <span class="absolute -top-1 left-0 text-4xl text-adwat-teal leading-none">"</span>
 
             <p class="text-lg lg:text-xl text-slate-800 leading-snug tracking-tight">
               {{ content.quote[currentLang()] }}
-              <span class="text-4xl text-adwat-teal align-bottom leading-none ml-1">”</span>
+              <span class="text-4xl text-adwat-teal align-bottom leading-none ml-1">"</span>
             </p>
           </div>
 

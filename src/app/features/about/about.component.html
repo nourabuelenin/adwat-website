@@ -94,26 +94,28 @@
 
     <!-- Features Grid -->
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-      <div *ngFor="let feature of content.whyChoose.features" class="text-center">
-        <!-- Icon Container -->
-        <div
-          class="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-2xl"
-          [ngStyle]="{ 'background-color': feature.iconBg }"
-        >
-          <fa-icon
-            [icon]="feature.icon"
-            [style.color]="feature.iconColor"
-            class="text-2xl"
-          ></fa-icon>
-        </div>
+      @for (feature of content.whyChoose.features; track feature.title.en) {
+        <div class="text-center">
+          <!-- Icon Container -->
+          <div
+            class="w-16 h-16 mx-auto mb-6 flex items-center justify-center rounded-2xl"
+            [ngStyle]="{ 'background-color': feature.iconBg }"
+          >
+            <fa-icon
+              [icon]="feature.icon"
+              [style.color]="feature.iconColor"
+              class="text-2xl"
+            ></fa-icon>
+          </div>
 
-        <h3 class="text-xl font-bold text-adwat-dark-green mb-3">
-          {{ feature.title[currentLang()] }}
-        </h3>
-        <p class="text-sm text-adwat-dark-green/60 leading-relaxed">
-          {{ feature.description[currentLang()] }}
-        </p>
-      </div>
+          <h3 class="text-xl font-bold text-adwat-dark-green mb-3">
+            {{ feature.title[currentLang()] }}
+          </h3>
+          <p class="text-sm text-adwat-dark-green/60 leading-relaxed">
+            {{ feature.description[currentLang()] }}
+          </p>
+        </div>
+      }
     </div>
   </app-container>
 </app-section>
@@ -129,33 +131,35 @@
 
     <!-- Team Grid -->
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-      <div *ngFor="let member of content.team.members" class="text-center">
-        <!-- Avatar -->
-        <div class="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
-          <img
-            [src]="member.avatar"
-            [alt]="member.name[currentLang()]"
-            class="w-full h-full object-cover"
-          />
+      @for (member of content.team.members; track member.name.en) {
+        <div class="text-center">
+          <!-- Avatar -->
+          <div class="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
+            <img
+              [src]="member.avatar"
+              [alt]="member.name[currentLang()]"
+              class="w-full h-full object-cover"
+            />
+          </div>
+
+          <h3 class="text-lg font-bold text-adwat-dark-green mb-1">
+            {{ member.name[currentLang()] }}
+          </h3>
+          <p class="text-sm text-adwat-dark-green/60 mb-4">
+            {{ member.position[currentLang()] }}
+          </p>
+
+          <!-- LinkedIn Icon -->
+          <a
+            [href]="member.linkedin"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block text-primary hover:text-primary-dark transition-colors"
+          >
+            <fa-icon [icon]="linkedinIcon" class="text-xl"></fa-icon>
+          </a>
         </div>
-
-        <h3 class="text-lg font-bold text-adwat-dark-green mb-1">
-          {{ member.name[currentLang()] }}
-        </h3>
-        <p class="text-sm text-adwat-dark-green/60 mb-4">
-          {{ member.position[currentLang()] }}
-        </p>
-
-        <!-- LinkedIn Icon -->
-        <a
-          [href]="member.linkedin"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-block text-primary hover:text-primary-dark transition-colors"
-        >
-          <fa-icon [icon]="linkedinIcon" class="text-xl"></fa-icon>
-        </a>
-      </div>
+      }
     </div>
   </app-container>
 </app-section>

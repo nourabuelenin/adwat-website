@@ -190,3 +190,10 @@
 ::-moz-selection {
   @apply bg-primary text-white;
 }
+
+/* FontAwesome Icon Gradient Hover Effect - Global Style */
+/* This replaces ::ng-deep usage in component-specific CSS */
+.service-card:hover .card-icon fa-icon svg path {
+  fill: url(#icon-gradient) !important;
+  transition: fill 0.3s ease;
+}

@@ -2,50 +2,59 @@
   <!-- Main Footer Content -->
   <div class="container-wrapper py-12 lg:py-16">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-12">
-      
       <!-- Company Info & Logo -->
       <div class="lg:col-span-2">
-        <img 
-          src="/assets/images/logo/adwat-logo.png" 
-          alt="Adwat Information Technology" 
-          class="h-12 w-auto mb-6 brightness-0 invert">
+        <img
+          src="/assets/images/logo/adwat-logo.png"
+          alt="Adwat Information Technology"
+          class="h-12 w-auto mb-6 brightness-0 invert"
+        />
         <p class="text-white/80 text-sm leading-relaxed mb-6">
-          {{ currentLang() === 'en' 
-            ? 'Leading Saudi software development company delivering enterprise solutions for government and private sectors since 2000.' 
-            : 'شركة سعودية رائدة في تطوير البرمجيات تقدم حلول المؤسسات للقطاعين الحكومي والخاص منذ عام 2000.' }}
+          {{
+            currentLang() === 'en'
+              ? 'Leading Saudi software development company delivering enterprise solutions for government and private sectors since 2000.'
+              : 'شركة سعودية رائدة في تطوير البرمجيات تقدم حلول المؤسسات للقطاعين الحكومي والخاص منذ عام 2000.'
+          }}
         </p>
-        
+
         <!-- Social Links -->
         <div class="flex gap-4">
-          <a 
-            *ngFor="let social of socialLinks"
-            [href]="social.url"
-            target="_blank"
-            rel="noopener noreferrer"
-            [attr.aria-label]="social.name"
-            class="w-10 h-10 rounded-full bg-white/10 hover:bg-primary transition-colors duration-300 flex items-center justify-center">
-            <span class="sr-only">{{ social.name }}</span>
-            <!-- Icon placeholder - can be replaced with actual SVG icons -->
-            <span class="text-sm font-bold">{{ social.icon.charAt(0).toUpperCase() }}</span>
-          </a>
+          @for (social of socialLinks; track social.name) {
+            <a
+              [href]="social.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              [attr.aria-label]="social.name"
+              class="w-10 h-10 rounded-full bg-white/10 hover:bg-primary transition-colors duration-300 flex items-center justify-center"
+            >
+              <span class="sr-only">{{ social.name }}</span>
+              <!-- Icon placeholder - can be replaced with actual SVG icons -->
+              <span class="text-sm font-bold">{{ social.icon.charAt(0).toUpperCase() }}</span>
+            </a>
+          }
         </div>
       </div>
 
       <!-- Footer Links -->
-      <div *ngFor="let section of footerSections" class="lg:col-span-1">
-        <h4 class="text-white font-semibold text-lg mb-4">
-          {{ getSectionTitle(section) }}
-        </h4>
-        <ul class="space-y-3">
-          <li *ngFor="let link of section.links">
-            <a 
-              [routerLink]="link.route"
-              class="text-white/70 hover:text-white transition-colors duration-200 text-sm">
-              {{ getLinkLabel(link) }}
-            </a>
-          </li>
-        </ul>
-      </div>
+      @for (section of footerSections; track section.title.en) {
+        <div class="lg:col-span-1">
+          <h4 class="text-white font-semibold text-lg mb-4">
+            {{ getSectionTitle(section) }}
+          </h4>
+          <ul class="space-y-3">
+            @for (link of section.links; track link.route) {
+              <li>
+                <a
+                  [routerLink]="link.route"
+                  class="text-white/70 hover:text-white transition-colors duration-200 text-sm"
+                >
+                  {{ getLinkLabel(link) }}
+                </a>
+              </li>
+            }
+          </ul>
+        </div>
+      }
     </div>
 
     <!-- Contact Information with Map -->
@@ -65,41 +74,26 @@
             <span dir="ltr">{{ contactInfo.ksa.phone }}</span>
           </p>
           <p class="text-white/90 flex items-center gap-3">
-            <fa-icon [icon]="faEnvelope" class="text-primary"></fa-icon> 
-            <a href="mailto:{{ contactInfo.ksa.email }}" class="text-white hover:text-primary transition-colors">
+            <fa-icon [icon]="faEnvelope" class="text-primary"></fa-icon>
+            <a
+              href="mailto:{{ contactInfo.ksa.email }}"
+              class="text-white hover:text-primary transition-colors"
+            >
               {{ contactInfo.ksa.email }}
             </a>
           </p>
         </div>
       </div>
 
-      <!-- Egypt Office -->
-      <!-- <div>
-        <h4 class="text-white font-semibold mb-3">
-          {{ contactInfo.egypt.label[currentLang()] }}
-        </h4>
-        <div class="space-y-2 text-white/70 text-sm">
-          <p>{{ contactInfo.egypt.address[currentLang()] }}</p>
-          <p>{{ currentLang() === 'en' ? 'Phone:' : 'هاتف:' }} {{ contactInfo.egypt.phone }}</p>
-          <p>{{ currentLang() === 'en' ? 'Email:' : 'بريد إلكتروني:' }} 
-            <a href="mailto:{{ contactInfo.egypt.email }}" class="hover:text-white transition-colors">
-              {{ contactInfo.egypt.email }}
-            </a>
-          </p>
-        </div>
-      </div> -->
-
       <!-- Map -->
       <div class="map-container">
-        <!-- <h4 class="text-white font-semibold mb-3">
-          {{ currentLang() === 'en' ? 'Our Location' : 'موقعنا' }}
-        </h4> -->
         <div class="rounded-lg overflow-hidden h-40 lg:h-48">
-          <iframe 
+          <iframe
             src="https://www.openstreetmap.org/export/embed.html?bbox=46.5%2C24.6%2C46.9%2C24.8&layer=mapnik&marker=24.7136%2C46.6753"
             class="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-300"
             loading="lazy"
-            title="Office Location Map">
+            title="Office Location Map"
+          >
           </iframe>
         </div>
       </div>
@@ -111,9 +105,11 @@
     <div class="container-wrapper py-6">
       <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
         <p class="text-white/60 text-sm">
-          {{ currentLang() === 'en' 
-            ? '© ' + currentYear + ' Adwat Information Technology. All rights reserved.' 
-            : '© ' + currentYear + ' أدوات لتقنية المعلومات. جميع الحقوق محفوظة.' }}
+          {{
+            currentLang() === 'en'
+              ? '© ' + currentYear + ' Adwat Information Technology. All rights reserved.'
+              : '© ' + currentYear + ' أدوات لتقنية المعلومات. جميع الحقوق محفوظة.'
+          }}
         </p>
         <div class="flex items-center gap-6 text-sm">
           <span class="text-white/60">

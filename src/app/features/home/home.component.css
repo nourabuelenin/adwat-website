@@ -1,0 +1,20 @@
+/* Home page styles */
+:host {
+  display: block;
+}
+
+/* Using :host context instead of ::ng-deep for child component display */
+app-hero,
+app-about-overview,
+app-services-overview,
+app-projects-showcase,
+app-why-choose-us,
+app-testimonials,
+app-faq,
+app-final-cta {
+  display: block;
+}
+
+app-hero {
+  min-height: 100vh;
+}

@@ -1,122 +1,128 @@
-<header 
+<header
   class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md"
   [class.bg-white/80]="isScrolled"
   [class.bg-white/30]="!isScrolled"
-  [class.shadow-sm]="isScrolled">
-  
+  [class.shadow-sm]="isScrolled"
+>
   <nav class="container-wrapper">
     <div class="flex items-center justify-between h-16">
-      
       <!-- Logo -->
       <a routerLink="/" class="flex items-center gap-3">
-        <img 
-          src="/assets/images/logo/adwat-logo.png" 
-          alt="Adwat Information Technology" 
-          class="h-8 w-auto">
-        <span class="text-lg font-bold hidden md:block transition-colors duration-300"
+        <img
+          src="/assets/images/logo/adwat-logo.png"
+          alt="Adwat Information Technology"
+          class="h-8 w-auto"
+        />
+        <span
+          class="text-lg font-bold hidden md:block transition-colors duration-300"
           [class.text-adwat-dark-green]="!isScrolled"
-          [class.text-adwat-dark-green]="isScrolled">
+          [class.text-adwat-dark-green]="isScrolled"
+        >
           Adwat
         </span>
       </a>
 
       <!-- Desktop Navigation -->
       <div class="hidden lg:flex items-center gap-8">
-        <a 
-          *ngFor="let item of navItems"
-          [routerLink]="item.route"
-          routerLinkActive="text-primary font-semibold"
-          [routerLinkActiveOptions]="{exact: true}"
-          class="hover:text-primary transition-colors duration-200 font-medium"
-          [class.text-adwat-dark-green]="!isScrolled"
-          [class.text-adwat-dark-green]="isScrolled">
-          {{ getNavLabel(item) }}
-        </a>
+        @for (item of navItems; track item.route) {
+          <a
+            [routerLink]="item.route"
+            routerLinkActive="text-primary font-semibold"
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="hover:text-primary transition-colors duration-200 font-medium"
+            [class.text-adwat-dark-green]="!isScrolled"
+            [class.text-adwat-dark-green]="isScrolled"
+          >
+            {{ getNavLabel(item) }}
+          </a>
+        }
       </div>
 
       <!-- CTA & Language Toggle (Desktop) -->
       <div class="hidden lg:flex items-center gap-4">
-        <app-button 
+        <app-button
           [variant]="'primary'"
           class="btn-small"
           (click)="$event.preventDefault()"
-          routerLink="/contact">
+          routerLink="/contact"
+        >
           {{ currentLang() === 'en' ? 'Contact Us' : 'اتصل بنا' }}
         </app-button>
-        <button 
+        <button
           (click)="toggleLanguage()"
           class="px-3 py-2 text-sm font-medium hover:text-primary transition-colors"
           [class.text-adwat-dark-green]="!isScrolled"
-          [class.text-adwat-dark-green]="isScrolled">
+          [class.text-adwat-dark-green]="isScrolled"
+        >
           <fa-icon [icon]="faGlobe"></fa-icon>
           {{ currentLang() === 'en' ? 'ع' : 'En' }}
         </button>
       </div>
 
       <!-- Mobile Menu Button -->
-      <button 
+      <button
         (click)="toggleMobileMenu()"
         class="lg:hidden p-2 hover:text-primary transition-colors"
         [class.text-adwat-dark-green]="!isScrolled"
         [class.text-adwat-dark-green]="isScrolled"
         [attr.aria-expanded]="isMobileMenuOpen"
-        aria-label="Toggle menu">
-        <svg 
-          *ngIf="!isMobileMenuOpen" 
-          class="w-6 h-6" 
-          fill="none" 
-          stroke="currentColor" 
-          viewBox="0 0 24 24">
-          <path 
-            stroke-linecap="round" 
-            stroke-linejoin="round" 
-            stroke-width="2" 
-            d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-        <svg 
-          *ngIf="isMobileMenuOpen" 
-          class="w-6 h-6" 
-          fill="none" 
-          stroke="currentColor" 
-          viewBox="0 0 24 24">
-          <path 
-            stroke-linecap="round" 
-            stroke-linejoin="round" 
-            stroke-width="2" 
-            d="M6 18L18 6M6 6l12 12" />
-        </svg>
+        aria-label="Toggle menu"
+      >
+        @if (!isMobileMenuOpen) {
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        } @else {
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        }
       </button>
     </div>
 
     <!-- Mobile Menu -->
-    <div 
-      *ngIf="isMobileMenuOpen"
-      class="lg:hidden py-4 border-t border-adwat-dark-green/10 animate-slide-up">
-      <div class="flex flex-col space-y-4">
-        <a 
-          *ngFor="let item of navItems"
-          [routerLink]="item.route"
-          routerLinkActive="text-primary font-semibold"
-          [routerLinkActiveOptions]="{exact: true}"
-          (click)="closeMobileMenu()"
-          class="text-adwat-dark-green hover:text-primary transition-colors duration-200 font-medium py-2">
-          {{ getNavLabel(item) }}
-        </a>
-        <div class="pt-4 border-t border-adwat-dark-green/10 space-y-3">
-          <button 
-            (click)="toggleLanguage()"
-            class="w-full text-left px-4 py-2 text-sm font-medium text-adwat-dark-green hover:text-primary transition-colors">
-            {{ currentLang() === 'en' ? 'العربية' : 'English' }}
-          </button>
-          <app-button 
-            [variant]="'primary'"
-            [fullWidth]="true"
-            routerLink="/contact"
-            (click)="closeMobileMenu()">
-            {{ currentLang() === 'en' ? 'Contact Us' : 'اتصل بنا' }}
-          </app-button>
+    @if (isMobileMenuOpen) {
+      <div class="lg:hidden py-4 border-t border-adwat-dark-green/10 animate-slide-up">
+        <div class="flex flex-col space-y-4">
+          @for (item of navItems; track item.route) {
+            <a
+              [routerLink]="item.route"
+              routerLinkActive="text-primary font-semibold"
+              [routerLinkActiveOptions]="{ exact: true }"
+              (click)="closeMobileMenu()"
+              class="text-adwat-dark-green hover:text-primary transition-colors duration-200 font-medium py-2"
+            >
+              {{ getNavLabel(item) }}
+            </a>
+          }
+          <div class="pt-4 border-t border-adwat-dark-green/10 space-y-3">
+            <button
+              (click)="toggleLanguage()"
+              class="w-full text-left px-4 py-2 text-sm font-medium text-adwat-dark-green hover:text-primary transition-colors"
+            >
+              {{ currentLang() === 'en' ? 'العربية' : 'English' }}
+            </button>
+            <app-button
+              [variant]="'primary'"
+              [fullWidth]="true"
+              routerLink="/contact"
+              (click)="closeMobileMenu()"
+            >
+              {{ currentLang() === 'en' ? 'Contact Us' : 'اتصل بنا' }}
+            </app-button>
+          </div>
         </div>
       </div>
-    </div>
+    }
   </nav>
 </header>

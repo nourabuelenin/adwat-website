@@ -1,145 +1,176 @@
-<app-section [variant]="'light'" class="project-detail-page" *ngIf="project">
-  <app-container>
-    <!-- Header Section -->
-    <div class="project-header">
-      <div class="project-header-content">
-        <h1 class="project-title">{{ getProjectTitle() }}</h1>
-        <p class="project-category">{{ getProjectIndustry() }}</p>
+@if (project) {
+  <app-section [variant]="'light'" class="project-detail-page">
+    <app-container>
+      <!-- Header Section -->
+      <div class="project-header">
+        <div class="project-header-content">
+          <h1 class="project-title">{{ getProjectTitle() }}</h1>
+          <p class="project-category">{{ getProjectIndustry() }}</p>
 
-        <!-- Tags -->
-        <div class="project-tags" *ngIf="project.tags && project.tags.length > 0">
-          <span class="tag" *ngFor="let tag of project.tags">{{ tag }}</span>
+          <!-- Tags -->
+          @if (project.tags && project.tags.length > 0) {
+            <div class="project-tags">
+              @for (tag of project.tags; track tag) {
+                <span class="tag">{{ tag }}</span>
+              }
+            </div>
+          }
+        </div>
+
+        <!-- Logo -->
+        <div class="project-logo">
+          <img [src]="getProjectLogo()" [alt]="getProjectTitle()" />
         </div>
       </div>
 
-      <!-- Logo -->
-      <div class="project-logo">
-        <img [src]="getProjectLogo()" [alt]="getProjectTitle()" />
-      </div>
-    </div>
+      <!-- About Section -->
+      @if (project.details?.about) {
+        <div class="about-section">
+          <h2 class="section-title">{{ content.aboutTitle[currentLang()] }}</h2>
+          <p class="about-text" [innerHTML]="getAboutText()"></p>
+        </div>
+      }
 
-    <!-- About Section -->
-    <div class="about-section" *ngIf="project.details?.about">
-      <h2 class="section-title">{{ content.aboutTitle[currentLang()] }}</h2>
-      <p class="about-text" [innerHTML]="getAboutText()"></p>
-    </div>
-
-    <!-- Three Columns: Challenge, Key Features, Impact -->
-    <div class="details-grid">
-      <!-- The Challenge -->
-      <div class="detail-card" *ngIf="project.details?.challenge">
-        <div class="detail-card-header">
-          <div class="detail-icon challenge-icon">
-            <fa-icon [icon]="faLightbulb"></fa-icon>
+      <!-- Three Columns: Challenge, Key Features, Impact -->
+      <div class="details-grid">
+        <!-- The Challenge -->
+        @if (project.details?.challenge) {
+          <div class="detail-card">
+            <div class="detail-card-header">
+              <div class="detail-icon challenge-icon">
+                <fa-icon [icon]="faLightbulb"></fa-icon>
+              </div>
+              <h3 class="detail-card-title">
+                {{
+                  project.details!.challenge!.title
+                    ? project.details!.challenge!.title[currentLang()]
+                    : content.challengeTitle[currentLang()]
+                }}
+              </h3>
+            </div>
+            <ul class="detail-list">
+              @for (point of project.details!.challenge!.points; track $index) {
+                <li>{{ point[currentLang()] }}</li>
+              }
+            </ul>
           </div>
-          <h3 class="detail-card-title">
-            {{
-              project.details!.challenge!.title
-                ? project.details!.challenge!.title[currentLang()]
-                : content.challengeTitle[currentLang()]
-            }}
-          </h3>
-        </div>
-        <ul class="detail-list">
-          <li *ngFor="let point of project.details!.challenge!.points">
-            {{ point[currentLang()] }}
-          </li>
-        </ul>
-      </div>
+        }
 
-      <!-- Key Features -->
-      <div class="detail-card" *ngIf="project.details?.keyFeatures">
-        <div class="detail-card-header">
-          <div class="detail-icon features-icon">
-            <fa-icon [icon]="faStar"></fa-icon>
+        <!-- Key Features -->
+        @if (project.details?.keyFeatures) {
+          <div class="detail-card">
+            <div class="detail-card-header">
+              <div class="detail-icon features-icon">
+                <fa-icon [icon]="faStar"></fa-icon>
+              </div>
+              <h3 class="detail-card-title">
+                {{
+                  project.details!.keyFeatures!.title
+                    ? project.details!.keyFeatures!.title[currentLang()]
+                    : content.featuresTitle[currentLang()]
+                }}
+              </h3>
+            </div>
+            <ul class="detail-list">
+              @for (point of project.details!.keyFeatures!.points; track $index) {
+                <li>{{ point[currentLang()] }}</li>
+              }
+            </ul>
           </div>
-          <h3 class="detail-card-title">
-            {{
-              project.details!.keyFeatures!.title
-                ? project.details!.keyFeatures!.title[currentLang()]
-                : content.featuresTitle[currentLang()]
-            }}
-          </h3>
-        </div>
-        <ul class="detail-list">
-          <li *ngFor="let point of project.details!.keyFeatures!.points">
-            {{ point[currentLang()] }}
-          </li>
-        </ul>
-      </div>
+        }
 
-      <!-- Impact -->
-      <div class="detail-card" *ngIf="project.details?.impact">
-        <div class="detail-card-header">
-          <div class="detail-icon impact-icon">
-            <fa-icon [icon]="faChartLine"></fa-icon>
+        <!-- Impact -->
+        @if (project.details?.impact) {
+          <div class="detail-card">
+            <div class="detail-card-header">
+              <div class="detail-icon impact-icon">
+                <fa-icon [icon]="faChartLine"></fa-icon>
+              </div>
+              <h3 class="detail-card-title">
+                {{
+                  project.details!.impact!.title
+                    ? project.details!.impact!.title[currentLang()]
+                    : content.impactTitle[currentLang()]
+                }}
+              </h3>
+            </div>
+            <ul class="detail-list">
+              @for (point of project.details!.impact!.points; track $index) {
+                <li>{{ point[currentLang()] }}</li>
+              }
+            </ul>
           </div>
-          <h3 class="detail-card-title">
-            {{
-              project.details!.impact!.title
-                ? project.details!.impact!.title[currentLang()]
-                : content.impactTitle[currentLang()]
-            }}
-          </h3>
-        </div>
-        <ul class="detail-list">
-          <li *ngFor="let point of project.details!.impact!.points">
-            {{ point[currentLang()] }}
-          </li>
-        </ul>
+        }
       </div>
-    </div>
 
-    <!-- Related Projects Section -->
-    <div class="related-projects-section" *ngIf="relatedProjects.length > 0">
-      <h2 class="section-title text-center">{{ content.relatedProjectsTitle[currentLang()] }}</h2>
+      <!-- Related Projects Section -->
+      @if (relatedProjects.length > 0) {
+        <div class="related-projects-section">
+          <h2 class="section-title text-center">
+            {{ content.relatedProjectsTitle[currentLang()] }}
+          </h2>
 
-      <div class="related-projects-carousel">
-        <button class="carousel-btn prev" (click)="previousSlide()" [disabled]="currentSlide === 0">
-          <fa-icon [icon]="faChevronLeft"></fa-icon>
-        </button>
+          <div class="related-projects-carousel">
+            <button
+              class="carousel-btn prev"
+              (click)="previousSlide()"
+              [disabled]="currentSlide === 0"
+            >
+              <fa-icon [icon]="faChevronLeft"></fa-icon>
+            </button>
 
-        <div class="carousel-container">
-          <div
-            class="carousel-track"
-            [style.transform]="'translateX(-' + currentSlide * 100 + '%)'"
-          >
-            <div class="carousel-slide" *ngFor="let relatedProject of relatedProjects">
-              <div class="related-project-card" (click)="navigateToProject(relatedProject.id)">
-                <div class="related-project-logo">
-                  <img
-                    [src]="getRelatedProjectLogo(relatedProject.id)"
-                    [alt]="relatedProject.title[currentLang()]"
-                  />
-                </div>
-                <h3 class="related-project-title">{{ relatedProject.title[currentLang()] }}</h3>
-                <p class="related-project-category">{{ relatedProject.industry[currentLang()] }}</p>
-                <p class="related-project-description">
-                  {{ relatedProject.description[currentLang()] }}
-                </p>
+            <div class="carousel-container">
+              <div
+                class="carousel-track"
+                [style.transform]="'translateX(-' + currentSlide * 100 + '%)'"
+              >
+                @for (relatedProject of relatedProjects; track relatedProject.id) {
+                  <div class="carousel-slide">
+                    <div
+                      class="related-project-card"
+                      (click)="navigateToProject(relatedProject.id)"
+                    >
+                      <div class="related-project-logo">
+                        <img
+                          [src]="getRelatedProjectLogo(relatedProject.id)"
+                          [alt]="relatedProject.title[currentLang()]"
+                        />
+                      </div>
+                      <h3 class="related-project-title">
+                        {{ relatedProject.title[currentLang()] }}
+                      </h3>
+                      <p class="related-project-category">
+                        {{ relatedProject.industry[currentLang()] }}
+                      </p>
+                      <p class="related-project-description">
+                        {{ relatedProject.description[currentLang()] }}
+                      </p>
 
-                <!-- Action Buttons -->
-                <div class="related-project-actions">
-                  <button class="btn-small btn-primary">
-                    {{ content.softwareDevelopment[currentLang()] }}
-                  </button>
-                  <button class="btn-small btn-secondary">
-                    {{ content.aiTraining[currentLang()] }}
-                  </button>
-                </div>
+                      <!-- Action Buttons -->
+                      <div class="related-project-actions">
+                        <button class="btn-small btn-primary">
+                          {{ content.softwareDevelopment[currentLang()] }}
+                        </button>
+                        <button class="btn-small btn-secondary">
+                          {{ content.aiTraining[currentLang()] }}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                }
               </div>
             </div>
+
+            <button
+              class="carousel-btn next"
+              (click)="nextSlide()"
+              [disabled]="currentSlide >= relatedProjects.length - slidesPerView"
+            >
+              <fa-icon [icon]="faChevronRight"></fa-icon>
+            </button>
           </div>
         </div>
-
-        <button
-          class="carousel-btn next"
-          (click)="nextSlide()"
-          [disabled]="currentSlide >= relatedProjects.length - slidesPerView"
-        >
-          <fa-icon [icon]="faChevronRight"></fa-icon>
-        </button>
-      </div>
-    </div>
-  </app-container>
-</app-section>
+      }
+    </app-container>
+  </app-section>
+}
