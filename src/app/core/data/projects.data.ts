@@ -2,6 +2,25 @@ import { Project } from '../models/content.models';
 
 export const PROJECTS_DATA: Project[] = [
   {
+    id: 'advanced-monitoring',
+    title: {
+      en: 'Data Analysis System',
+      ar: 'نظام تحليل بيانات',
+    },
+    description: {
+      en: 'A centralized platform for real-time performance monitoring. Supports rapid decision-making and improves response efficiency and resource management.',
+      ar: 'منصة مركزية لمراقبة الأداء في الوقت الفعلي. تدعم اتخاذ القرار السريع وتحسين كفاءة الاستجابة وإدارة الموارد.',
+    },
+    industry: {
+      en: 'Ministry of Health',
+      ar: 'وزارة الصحة',
+    },
+    year: 2024,
+    tags: ['Healthcare', 'Monitoring', 'Government'],
+    featured: true,
+    image: 'assets/images/projects/TASM.png',
+  },
+  {
     id: 'traffic-monitoring',
     title: {
       en: 'Location Monitoring System',
@@ -77,25 +96,6 @@ export const PROJECTS_DATA: Project[] = [
       },
       relatedProjects: ['construction-management', 'e-next'],
     },
-  },
-  {
-    id: 'advanced-monitoring',
-    title: {
-      en: 'Data Analysis System',
-      ar: 'نظام تحليل بيانات',
-    },
-    description: {
-      en: 'A centralized platform for real-time performance monitoring. Supports rapid decision-making and improves response efficiency and resource management.',
-      ar: 'منصة مركزية لمراقبة الأداء في الوقت الفعلي. تدعم اتخاذ القرار السريع وتحسين كفاءة الاستجابة وإدارة الموارد.',
-    },
-    industry: {
-      en: 'Ministry of Health',
-      ar: 'وزارة الصحة',
-    },
-    year: 2024,
-    tags: ['Healthcare', 'Monitoring', 'Government'],
-    featured: true,
-    image: 'assets/images/projects/TASM.png',
   },
   {
     id: 'construction-management',
