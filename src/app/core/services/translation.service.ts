@@ -6,7 +6,7 @@ export type Language = 'en' | 'ar';
   providedIn: 'root',
 })
 export class TranslationService {
-  private currentLangSignal = signal<Language>('en');
+  private currentLangSignal = signal<Language>('ar');
 
   readonly currentLang = this.currentLangSignal.asReadonly();
   readonly isRtl = computed(() => this.currentLangSignal() === 'ar');
