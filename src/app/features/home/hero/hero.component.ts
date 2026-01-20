@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { ContainerComponent } from '../../../shared/components/container/container.component';
-import { DashboardMockupComponent } from '../../../shared/components/dashboard-mockup/dashboard-mockup.component';
+
 import { PartnersBannerComponent } from '../partners-banner/partners-banner.component';
 import { PARTNERS_DATA } from '../../../core/data/content.data';
 import { Partner } from '../../../core/models/content.models';
@@ -18,7 +18,7 @@ import { TranslationService } from '../../../core/services/translation.service';
     RouterModule,
     ButtonComponent,
     ContainerComponent,
-    DashboardMockupComponent,
+
     PartnersBannerComponent,
   ],
   templateUrl: './hero.component.html',
@@ -33,8 +33,12 @@ export class HeroComponent implements AfterViewInit, OnDestroy {
   private observer: IntersectionObserver | null = null;
 
   heroContent = {
+    badge: {
+      en: 'ADWAT INFORMATION TECHNOLOGY',
+      ar: 'أدوات لتقنية المعلومات',
+    },
     headline: {
-      en: 'Integrated Software for Strategic Transformation',
+      en: 'Integrated Software For Strategic Transformation',
       ar: 'برمجيات متكاملة لتحوّل استراتيجي',
     },
     subheadline: {

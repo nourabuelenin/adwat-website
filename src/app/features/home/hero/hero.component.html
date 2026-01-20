@@ -14,37 +14,39 @@
   </div>
 
   <app-container>
-    <div
-      class="hero-content relative py-12 lg:py-32 flex flex-col lg:flex-row items-center lg:items-start gap-6 lg:gap-8"
-    >
-      <!-- Left Content -->
-      <div class="z-10 lg:w-[50%] w-full overflow-hidden">
-        <!-- Main Headline -->
-        <h1
-          class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 leading-tight animate-fade-in text-slate-900"
-        >
-          {{ heroContent.headline[currentLang()] }}
-        </h1>
+    <div class="hero-content relative py-12 lg:py-24 flex flex-col items-center gap-6">
+      <!-- Company Badge -->
+      <div class="company-badge z-10 flex items-center gap-2 animate-fade-in">
+        <img src="assets/images/logo/adwat-logo.png" alt="Adwat" class="badge-logo" />
+        <span class="badge-text">{{ heroContent.badge[currentLang()] }}</span>
+      </div>
 
-        <!-- Subheadline -->
-        <p
-          class="text-base sm:text-lg md:text-xl text-slate-600 mb-6 md:mb-10 leading-relaxed max-w-2xl"
-        >
-          {{ heroContent.subheadline[currentLang()] }}
-        </p>
+      <!-- Main Headline -->
+      <h1
+        class="z-10 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight animate-fade-in text-slate-900 text-center max-w-5xl"
+      >
+        {{ heroContent.headline[currentLang()] }}
+      </h1>
 
-        <!-- CTA Buttons -->
-        <div class="cta-buttons flex flex-row gap-2 sm:gap-4 mb-8 md:mb-12">
-          <app-button [variant]="'primary'" [size]="'large'" routerLink="/contact">
-            {{ heroContent.primaryCTA[currentLang()] }}
-          </app-button>
-          <app-button [variant]="'secondary'" [size]="'large'" routerLink="/services">
-            {{ heroContent.secondaryCTA[currentLang()] }}
-          </app-button>
-        </div>
+      <!-- Subheadline -->
+      <p
+        class="z-10 text-base sm:text-lg md:text-xl text-slate-600 leading-relaxed max-w-3xl text-center"
+      >
+        {{ heroContent.subheadline[currentLang()] }}
+      </p>
 
-        <!-- Trust Signals -->
-        <div #trustSignalsSection class="trust-signals-container mt-4 md:mt-8 pt-4 md:pt-8 w-full">
+      <!-- CTA Buttons -->
+      <div class="z-10 cta-buttons flex flex-row justify-center gap-3 sm:gap-4">
+        <app-button [variant]="'primary'" routerLink="/contact">
+          {{ heroContent.primaryCTA[currentLang()] }}
+        </app-button>
+        <app-button [variant]="'secondary'" routerLink="/services">
+          {{ heroContent.secondaryCTA[currentLang()] }}
+        </app-button>
+      </div>
+
+      <!-- Trust Signals -->
+      <!-- <div #trustSignalsSection class="trust-signals-container mt-4 md:mt-8 pt-4 md:pt-8 w-full">
           <div class="grid grid-cols-4 gap-1 sm:gap-3 md:gap-6 w-full">
             @for (signal of trustSignals; track signal.label.en) {
               <div class="flex flex-col items-center justify-start text-center">
@@ -60,17 +62,21 @@
               </div>
             }
           </div>
-        </div>
-      </div>
+        </div> 
+      </div>-->
 
       <!-- Dashboard Mockup -->
-      <div class="z-10 w-full lg:w-[50%] dashboard-container mt-8 lg:mt-0">
-        <app-dashboard-mockup></app-dashboard-mockup>
+      <div class="z-10 w-full dashboard-container mt-8 lg:mt-0">
+        <img
+          src="assets/images/hero-dashboard.png"
+          alt="Adwat Dashboard Analytics"
+          class="dashboard-image"
+        />
       </div>
     </div>
   </app-container>
 
-  <!-- Partners Banner at bottom of hero -->
+  <!-- Partners Banner at bottom of hero-->
   <div class="partners-banner-wrapper">
     <app-partners-banner></app-partners-banner>
   </div>

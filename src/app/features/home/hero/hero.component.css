@@ -65,29 +65,37 @@
   animation: float-gentle 6s ease-in-out infinite;
 }
 
-/* Hero content layout - ensure consistent spacing in both LTR and RTL */
+/* Hero content layout - centered */
 .hero-content {
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Dashboard Mockup Container */
+/* Company Badge */
+.company-badge {
+  padding: 8px 16px;
+}
+
+.badge-logo {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.badge-text {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #1f6a53;
+  text-transform: uppercase;
+}
+
+/* Dashboard Mockup Container - Centered */
 .dashboard-container {
-  transform: none; /* No scale on mobile */
+  transform: none;
   transform-origin: center center;
-}
-
-/* Scale up on desktop */
-@media (min-width: 1024px) {
-  .dashboard-container {
-    transform: scale(1.1);
-    transform-origin: left center; /* LTR: anchor left, expand right (away from content) */
-  }
-
-  /* RTL support - dashboard is on left, anchor right, expand left (away from content) */
-  :host-context([dir='rtl']) .dashboard-container,
-  [dir='rtl'] .dashboard-container {
-    transform-origin: right center;
-  }
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 /* Grid Pattern */
@@ -279,5 +287,173 @@
   .cta-buttons :deep(.btn-large) {
     padding: 0.625rem 1rem;
     font-size: 0.8125rem;
+  }
+}
+
+/* Dashboard Frame Styles */
+.dashboard-frame {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Laptop Frame */
+.laptop-frame {
+  position: relative;
+  background: #1a1a1a;
+  border-radius: 16px 16px 0 0;
+  padding: 10px 10px 0 10px;
+  box-shadow:
+    0 25px 50px -12px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.laptop-screen {
+  position: relative;
+  background: #fff;
+  border-radius: 8px 8px 0 0;
+  overflow: hidden;
+}
+
+.dashboard-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.laptop-base {
+  background: linear-gradient(180deg, #2a2a2a 0%, #1a1a1a 100%);
+  height: 16px;
+  border-radius: 0 0 4px 4px;
+  margin: 0 -10px;
+  position: relative;
+}
+
+.laptop-base::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 5px;
+  background: #3a3a3a;
+  border-radius: 3px;
+}
+
+/* Decorative Donut Chart Overlay */
+.donut-overlay {
+  position: absolute;
+  bottom: 15%;
+  left: -100px;
+  width: 220px;
+  height: 220px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.donut-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.15));
+}
+
+/* RTL Support for donut overlay */
+:host-context([dir='rtl']) .donut-overlay,
+[dir='rtl'] .donut-overlay {
+  left: auto;
+  right: -100px;
+}
+
+/* Desktop adjustments for dashboard */
+@media (min-width: 1024px) {
+  .dashboard-frame {
+    max-width: 900px;
+  }
+
+  .donut-overlay {
+    width: 260px;
+    height: 260px;
+    left: -120px;
+    bottom: 10%;
+  }
+
+  :host-context([dir='rtl']) .donut-overlay,
+  [dir='rtl'] .donut-overlay {
+    left: auto;
+    right: -120px;
+  }
+}
+
+/* Large desktop */
+@media (min-width: 1280px) {
+  .dashboard-frame {
+    max-width: 1000px;
+  }
+
+  .donut-overlay {
+    width: 300px;
+    height: 300px;
+    left: -140px;
+  }
+
+  :host-context([dir='rtl']) .donut-overlay,
+  [dir='rtl'] .donut-overlay {
+    left: auto;
+    right: -140px;
+  }
+}
+
+/* Mobile adjustments for dashboard */
+@media (max-width: 768px) {
+  .dashboard-frame {
+    max-width: 100%;
+  }
+
+  .laptop-frame {
+    border-radius: 12px 12px 0 0;
+    padding: 6px 6px 0 6px;
+  }
+
+  .laptop-screen {
+    border-radius: 6px 6px 0 0;
+  }
+
+  .laptop-base {
+    height: 12px;
+    margin: 0 -6px;
+  }
+
+  .laptop-base::before {
+    width: 60px;
+    height: 4px;
+    top: 4px;
+  }
+
+  .donut-overlay {
+    width: 130px;
+    height: 130px;
+    left: -50px;
+    bottom: 25%;
+  }
+
+  :host-context([dir='rtl']) .donut-overlay,
+  [dir='rtl'] .donut-overlay {
+    left: auto;
+    right: -50px;
+  }
+
+  .badge-text {
+    font-size: 0.65rem;
+  }
+
+  .badge-logo {
+    width: 20px;
+    height: 20px;
+  }
+
+  .company-badge {
+    padding: 6px 12px;
   }
 }
