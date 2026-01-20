@@ -115,48 +115,42 @@
   transform: translateX(4px);
 }
 
-/* Mockup - Breaking out of card */
+/* Mockup - Contained inside card */
 .card-mockup {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 10;
+  overflow: hidden;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(6, 182, 212, 0.05));
 }
 
 .mockup-image {
   width: 100%;
-  max-width: 520px;
+  max-width: 100%;
   height: auto;
-  transform: translateX(calc(60px * var(--tx-dir, 1))) translateY(20px);
-  filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.2)) drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
+  object-fit: contain;
+  border-radius: 10px;
+  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.1)) drop-shadow(0 4px 10px rgba(0, 0, 0, 0.08));
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-card:hover .mockup-image {
-  transform: translateX(calc(70px * var(--tx-dir, 1))) translateY(15px) scale(1.02);
-  filter: drop-shadow(0 35px 60px rgba(0, 0, 0, 0.25)) drop-shadow(0 15px 30px rgba(0, 0, 0, 0.2));
+  transform: scale(1.02);
+  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.15)) drop-shadow(0 6px 15px rgba(0, 0, 0, 0.1));
 }
 
 @media (max-width: 1400px) {
   .mockup-image {
-    max-width: 450px;
-    transform: translateX(calc(40px * var(--tx-dir, 1))) translateY(15px);
-  }
-
-  .project-card:hover .mockup-image {
-    transform: translateX(calc(50px * var(--tx-dir, 1))) translateY(10px) scale(1.02);
+    max-width: 100%;
   }
 }
 
 @media (max-width: 1200px) {
   .mockup-image {
-    max-width: 380px;
-    transform: translateX(calc(30px * var(--tx-dir, 1))) translateY(10px);
-  }
-
-  .project-card:hover .mockup-image {
-    transform: translateX(calc(35px * var(--tx-dir, 1))) translateY(5px) scale(1.02);
+    max-width: 100%;
   }
 }
 

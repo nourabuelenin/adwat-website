@@ -1,7 +1,6 @@
 .slider-wrapper {
   width: 100%;
-  overflow: visible;
-  --slide-width: 80%;
+  overflow: hidden;
   --slide-gap: 2rem;
 }
 
@@ -9,32 +8,28 @@
   position: relative;
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  overflow: visible;
+  gap: 1rem;
 }
 
 .slider-viewport {
   flex: 1;
+  min-width: 0;
   overflow: hidden;
-  padding-right: 100px;
-  margin-right: -100px;
 }
 
 .slider-track {
   display: flex;
-  gap: 2rem;
+  gap: var(--slide-gap);
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform;
-  overflow: visible;
 }
 
 .slider-item {
-  flex: 0 0 80%;
+  flex: 0 0 100%;
   min-width: 0;
   opacity: 0.65;
   transform: scale(0.96);
   transition: all 0.45s ease;
-  overflow: visible;
 }
 
 .slider-item.active {
@@ -44,7 +39,6 @@
 
 @media (max-width: 768px) {
   .slider-wrapper {
-    --slide-width: 100%;
     --slide-gap: 1rem;
   }
 
@@ -60,11 +54,6 @@
 
   .slider-container {
     gap: 0.5rem;
-  }
-
-  .slider-viewport {
-    padding-right: 0;
-    margin-right: 0;
   }
 }
 
@@ -82,7 +71,6 @@
   transition: all 0.25s ease;
   color: white;
   box-shadow: 0 8px 20px rgba(2, 6, 23, 0.12);
-  position: relative;
   z-index: 100;
 }
 
@@ -95,7 +83,13 @@
 .slider-button:disabled {
   opacity: 0.35;
   cursor: not-allowed;
-  transform: none;
+}
+
+@media (max-width: 1024px) {
+  .slider-button {
+    width: 48px;
+    height: 48px;
+  }
 }
 
 @media (max-width: 768px) {

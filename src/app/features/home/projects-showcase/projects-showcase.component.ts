@@ -6,11 +6,18 @@ import { ContainerComponent } from '../../../shared/components/container/contain
 import { PROJECTS_DATA } from '../../../core/data/projects.data';
 import { Project } from '../../../core/models/content.models';
 import { TranslationService } from '../../../core/services/translation.service';
+import { ButtonComponent } from '../../../shared/components/button/button.component';
 
 @Component({
   selector: 'app-projects-showcase',
   standalone: true,
-  imports: [RouterModule, ProjectsSliderComponent, SectionComponent, ContainerComponent],
+  imports: [
+    RouterModule,
+    ProjectsSliderComponent,
+    SectionComponent,
+    ContainerComponent,
+    ButtonComponent,
+  ],
   templateUrl: './projects-showcase.component.html',
   styleUrls: ['./projects-showcase.component.css'],
 })

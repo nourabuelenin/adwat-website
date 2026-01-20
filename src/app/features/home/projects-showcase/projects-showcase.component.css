@@ -36,14 +36,12 @@
 }
 
 .slider-wrapper {
-  margin: 0 -1rem;
-  overflow: visible;
+  margin: 0;
 }
 
 @media (min-width: 1024px) {
   .slider-wrapper {
-    margin: 0 -5rem;
-    overflow: visible;
+    margin: 0;
   }
 }
 
