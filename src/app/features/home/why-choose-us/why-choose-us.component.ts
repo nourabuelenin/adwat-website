@@ -38,6 +38,7 @@ export class WhyChooseUsComponent {
         ar: 'أن نصبح من أبرز المؤسسات التجارية في المملكة العربية السعودية ونستثمر قوة رضا العملاء',
       },
       cubeStyle: 'cube-green',
+      image: 'vision_cube.png',
     },
     {
       title: { en: 'Mission', ar: 'المهمة' },
@@ -46,6 +47,7 @@ export class WhyChooseUsComponent {
         ar: 'نطور استراتيجيات رقمية لتعزيز كفاءة ومرونة فريقك، مما يمكّن من تحقيق نتائج استثنائية.',
       },
       cubeStyle: 'cube-cashmere',
+      image: 'mission_cube.png',
     },
     {
       title: { en: 'Values', ar: 'القيم' },
@@ -54,6 +56,7 @@ export class WhyChooseUsComponent {
         ar: 'نقدّر الابتكار والتعاون ورضا العملاء. تركيزنا على إنشاء حلول رقمية فعالة تحقق نتائج حقيقية لعملائنا.',
       },
       cubeStyle: 'cube-lavender',
+      image: 'values_cube.png',
     },
   ];
 }
