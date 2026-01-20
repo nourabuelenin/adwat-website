@@ -1,4 +1,258 @@
-/* About overview - clean minimal styles */
+/* About Overview Section Styles */
 
-/* No extra styles needed - using utility classes for minimal design */
+/* Main Wrapper - Two Column Layout */
+.about-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 4rem 0;
+}
 
+@media (min-width: 1024px) {
+  .about-wrapper {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 4rem;
+  }
+}
+
+/* Left Column - Content */
+.about-content {
+  flex: 1;
+  max-width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .about-content {
+    flex: 0 0 60%;
+    max-width: 60%;
+  }
+}
+
+/* About Label */
+.about-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-primary, #0d7377);
+  margin-bottom: 1rem;
+}
+
+/* Main Title */
+.about-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-dark, #1a2e35);
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .about-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .about-title {
+    font-size: 2.75rem;
+  }
+}
+
+/* Description */
+.about-description {
+  color: #475569;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .about-description {
+    font-size: 1.1rem;
+  }
+}
+
+.about-description p {
+  margin-bottom: 1rem;
+}
+
+.about-description p:last-child {
+  margin-bottom: 0;
+}
+
+/* Quote Section */
+.quote-section {
+  position: relative;
+  margin-bottom: 2rem;
+  padding-left: 0;
+}
+
+.quote-mark {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-primary, #0d7377);
+  line-height: 1;
+}
+
+.quote-mark.opening {
+  position: absolute;
+  left: -0.5rem;
+  top: -0.5rem;
+}
+
+.quote-mark.closing {
+  display: inline;
+  vertical-align: bottom;
+  margin-left: 0.25rem;
+}
+
+.quote-text {
+  font-size: 1rem;
+  font-style: italic;
+  color: #334155;
+  line-height: 1.7;
+  /* padding-left: 1.5rem; */
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .quote-text {
+    font-size: 1.1rem;
+  }
+}
+
+/* Author Section */
+.author-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.author-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f0fdf4, #ecfdf5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 2px solid #e2e8f0;
+}
+
+.author-avatar img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+
+.author-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.author-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a2e35;
+  margin: 0;
+}
+
+.author-title {
+  font-size: 0.875rem;
+  color: var(--color-primary, #0d7377);
+  margin: 0;
+}
+
+/* Right Column - Image */
+.about-image {
+  flex: 1;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .about-image {
+    flex: 0 0 35%;
+    max-width: 35%;
+  }
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  object-fit: cover;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Stats Row */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  padding: 3rem 0;
+  border-top: 1px solid #e2e8f0;
+  margin-top: 1rem;
+}
+
+@media (min-width: 768px) {
+  .stats-row {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary, #0d7377);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .stat-value {
+    font-size: 2.5rem;
+  }
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  color: #64748b;
+  text-transform: capitalize;
+  max-width: 160px;
+}
+
+@media (min-width: 768px) {
+  .stat-label {
+    font-size: 0.875rem;
+  }
+}
+
+/* RTL Support */
+:host-context([dir='rtl']) .quote-section {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+:host-context([dir='rtl']) .quote-mark.opening {
+  left: auto;
+  right: -0.5rem;
+}
+
+:host-context([dir='rtl']) .quote-text {
+  padding-left: 0;
+  /* padding-right: 1.5rem; */
+}

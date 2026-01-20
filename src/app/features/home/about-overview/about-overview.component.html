@@ -1,46 +1,70 @@
 <app-section [variant]="'light'" [withGradients]="true" [gradientVariant]="'left'" id="about">
   <app-container>
-    <div class="hero-content relative py-12 lg:py-32 flex flex-col lg:flex-row items-center gap-12">
-      <!-- About Content -->
-      <div class="mx-auto w-full lg:w-2/3">
-        <p class="text-primary font-semibold text-sm uppercase tracking-wide mb-4 text-center">
-          {{ content.heading[currentLang()] }}
-        </p>
+    <!-- Main Content Area -->
+    <div class="about-wrapper">
+      <!-- Left Column - Text Content -->
+      <div class="about-content">
+        <!-- About Label -->
+        <span class="about-label">{{ content.heading[currentLang()] }}</span>
 
-        <h2 class="text-3xl lg:text-4xl font-bold text-adwat-dark-green mb-4 text-center">
-          {{ content.title[currentLang()] }}
-        </h2>
+        <!-- Main Title -->
+        <h2 class="about-title">{{ content.title[currentLang()] }}</h2>
 
-        <div class="space-y-6 text-slate-700 text-lg leading-relaxed">
+        <!-- Description -->
+        <div class="about-description">
           @for (paragraph of content.paragraphs; track $index) {
-            <p class="text-center">
-              {{ paragraph[currentLang()] }}
-            </p>
+            <p>{{ paragraph[currentLang()] }}</p>
           }
         </div>
 
-        <div class="mt-10 text-center">
-          <div class="relative inline-block px-10 lg:px-16">
-            <!-- Quote Icon Opening -->
-            <span class="absolute -top-1 left-0 text-4xl text-adwat-teal leading-none">"</span>
+        <!-- Quote Section -->
+        <div class="quote-section">
+          <p class="quote-text">"{{ content.quote[currentLang()] }}"</p>
+        </div>
 
-            <p class="text-lg lg:text-xl text-slate-800 leading-snug tracking-tight">
-              {{ content.quote[currentLang()] }}
-              <span class="text-4xl text-adwat-teal align-bottom leading-none ml-1">"</span>
-            </p>
+        <!-- Author Section -->
+        <div class="author-section">
+          <!-- <div class="author-avatar">
+            <img src="assets/images/logo/adwat-logo.png" alt="CEO Avatar" />
+          </div> -->
+          <div class="author-info">
+            <!-- <p class="author-name">{{ content.authorName[currentLang()] }}</p> -->
+            <p class="author-title">- {{ content.speaker[currentLang()] }}</p>
           </div>
-
-          <div class="max-w-4xl mx-auto my-12">
-            <div class="h-px bg-slate-200"></div>
-          </div>
-
-          <p class="text-lg lg:text-xl font-semibold text-slate-900">
-            {{ content.speaker[currentLang()] }}
-          </p>
         </div>
       </div>
-      <div class="w-1/3">
-        <img src="assets/images/web-mobile-dev.jpg" alt="" />
+
+      <!-- Right Column - Image -->
+      <div class="about-image">
+        <img src="assets/images/about/about.png" alt="Professional at work" />
+      </div>
+    </div>
+
+    <!-- Stats Section -->
+    <!-- <div class="stats-row">
+      @for (stat of trustSignals; track $index) {
+        <div class="stat-item">
+          <span class="stat-value">{{ stat.value }}</span>
+          <span class="stat-label">{{ stat.label[currentLang()] }}</span>
+        </div>
+      }
+    </div> -->
+    <div
+      #trustSignalsSection
+      class="trust-signals-container mt-6 md:mt-10 pt-6 md:pt-10 w-full border-t border-slate-200"
+    >
+      <div class="grid grid-cols-4 gap-2 sm:gap-4 md:gap-8 w-full">
+        @for (signal of trustSignals; track signal.label.en) {
+          <div class="flex flex-col items-center justify-start text-center">
+            <div class="text-lg sm:text-2xl md:text-4xl font-bold text-adwat-teal mb-1">
+              {{ getDisplayValue(signal) }}
+            </div>
+
+            <div class="text-[8px] sm:text-xs md:text-sm text-slate-600 font-medium leading-tight">
+              {{ signal.label[currentLang()] }}
+            </div>
+          </div>
+        }
       </div>
     </div>
   </app-container>
