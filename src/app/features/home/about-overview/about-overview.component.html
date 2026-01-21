@@ -17,54 +17,28 @@
           }
         </div>
 
-        <!-- Quote Section -->
-        <div class="quote-section">
-          <p class="quote-text">"{{ content.quote[currentLang()] }}"</p>
-        </div>
-
-        <!-- Author Section -->
-        <div class="author-section">
-          <!-- <div class="author-avatar">
-            <img src="assets/images/logo/adwat-logo.png" alt="CEO Avatar" />
-          </div> -->
-          <div class="author-info">
-            <!-- <p class="author-name">{{ content.authorName[currentLang()] }}</p> -->
-            <p class="author-title">- {{ content.speaker[currentLang()] }}</p>
+        <!-- Quote Card Section -->
+        <div class="quote-card">
+          <div class="quote-content">
+            <p class="quote-text">"{{ content.quote[currentLang()] }}"</p>
+            <br />
+            <p class="author-title">~ {{ content.speaker[currentLang()] }}</p>
           </div>
+          <!-- <div class="quote-author">
+            <div class="author-avatar">
+              <img src="assets/images/logo/adwat-logo.png" alt="Author Avatar" />
+            </div>
+            <div class="author-info">
+              <p class="author-name">{{ content.authorName[currentLang()] }}</p> 
+              <p class="author-title">{{ content.speaker[currentLang()] }}</p>
+            </div>
+          </div> -->
         </div>
       </div>
 
       <!-- Right Column - Image -->
       <div class="about-image">
         <img src="assets/images/about/about.png" alt="Professional at work" />
-      </div>
-    </div>
-
-    <!-- Stats Section -->
-    <!-- <div class="stats-row">
-      @for (stat of trustSignals; track $index) {
-        <div class="stat-item">
-          <span class="stat-value">{{ stat.value }}</span>
-          <span class="stat-label">{{ stat.label[currentLang()] }}</span>
-        </div>
-      }
-    </div> -->
-    <div
-      #trustSignalsSection
-      class="trust-signals-container mt-6 md:mt-10 pt-6 md:pt-10 w-full border-t border-slate-200"
-    >
-      <div class="grid grid-cols-4 gap-2 sm:gap-4 md:gap-8 w-full">
-        @for (signal of trustSignals; track signal.label.en) {
-          <div class="flex flex-col items-center justify-start text-center">
-            <div class="text-lg sm:text-2xl md:text-4xl font-bold text-adwat-teal mb-1">
-              {{ getDisplayValue(signal) }}
-            </div>
-
-            <div class="text-[8px] sm:text-xs md:text-sm text-slate-600 font-medium leading-tight">
-              {{ signal.label[currentLang()] }}
-            </div>
-          </div>
-        }
       </div>
     </div>
   </app-container>
