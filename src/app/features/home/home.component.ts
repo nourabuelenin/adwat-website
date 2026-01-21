@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { HeroComponent } from './hero/hero.component';
+import { BannerComponenet } from './banner/banner.componenet';
+import { PioneersComponent } from './pioneers/pioneers.component';
 import { AboutOverviewComponent } from './about-overview/about-overview.component';
 import { ServicesOverviewComponent } from './services-overview/services-overview.component';
 import { ProjectsShowcaseComponent } from './projects-showcase/projects-showcase.component';
@@ -13,6 +15,8 @@ import { FinalCtaComponent } from './final-cta/final-cta.component';
   standalone: true,
   imports: [
     HeroComponent,
+    BannerComponenet,
+    PioneersComponent,
     AboutOverviewComponent,
     ServicesOverviewComponent,
     ProjectsShowcaseComponent,
