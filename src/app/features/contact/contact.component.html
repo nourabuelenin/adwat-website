@@ -1,72 +1,98 @@
 <app-section>
   <app-container [size]="'content'">
-    <div class="text-center mb-12">
-      <h1 class="text-4xl font-bold text-adwat-dark-green mb-4">Contact Us</h1>
-      <p class="text-lg text-adwat-dark-green/70">
-        Get in touch with our team. We're here to help you transform your digital future.
-      </p>
-    </div>
+    <div class="contact-layout">
+      <!-- Left Column - Info -->
+      <div class="contact-info">
+        <h1 class="contact-title">{{ content.title[currentLang()] }}</h1>
+        <p class="contact-subtitle">
+          {{ content.subtitle[currentLang()] }}
+        </p>
 
-    <div class="card p-8 max-w-2xl mx-auto">
-      <form class="space-y-6">
-        <div>
-          <label class="block text-sm font-semibold text-adwat-dark-green mb-2">Full Name *</label>
-          <input
-            type="text"
-            class="w-full px-4 py-3 border border-adwat-dark-green/20 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-          />
+        <div class="benefits-list">
+          @for (benefit of content.benefits; track $index) {
+            <div class="benefit-item">
+              <span class="benefit-check">✓</span>
+              <span class="benefit-text">{{ benefit[currentLang()] }}</span>
+            </div>
+          }
         </div>
 
-        <div>
-          <label class="block text-sm font-semibold text-adwat-dark-green mb-2">Email *</label>
-          <input
-            type="email"
-            class="w-full px-4 py-3 border border-adwat-dark-green/20 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-          />
+        <div class="book-call-section">
+          <p class="book-call-text">{{ content.bookCall.text[currentLang()] }}</p>
+          <app-button [variant]="'secondary'">{{
+            content.bookCall.button[currentLang()]
+          }}</app-button>
         </div>
-
-        <div>
-          <label class="block text-sm font-semibold text-adwat-dark-green mb-2">Phone</label>
-          <input
-            type="tel"
-            class="w-full px-4 py-3 border border-adwat-dark-green/20 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-          />
-        </div>
-
-        <div>
-          <label class="block text-sm font-semibold text-adwat-dark-green mb-2">Company</label>
-          <input
-            type="text"
-            class="w-full px-4 py-3 border border-adwat-dark-green/20 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-          />
-        </div>
-
-        <div>
-          <label class="block text-sm font-semibold text-adwat-dark-green mb-2">Message *</label>
-          <textarea
-            rows="5"
-            class="w-full px-4 py-3 border border-adwat-dark-green/20 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-          ></textarea>
-        </div>
-
-        <app-button [variant]="'primary'" [fullWidth]="true" type="submit">
-          Send Message
-        </app-button>
-      </form>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-8 mt-12">
-      <div class="text-center p-6">
-        <h3 class="font-semibold text-adwat-dark-green mb-3">Saudi Arabia Office</h3>
-        <p class="text-adwat-dark-green/70">Riyadh, Saudi Arabia</p>
-        <p class="text-adwat-dark-green/70">info@adwat.sa</p>
-        <p class="text-adwat-dark-green/70">+966 XX XXX XXXX</p>
       </div>
-      <div class="text-center p-6">
-        <h3 class="font-semibold text-adwat-dark-green mb-3">Egypt Office</h3>
-        <p class="text-adwat-dark-green/70">Cairo, Egypt</p>
-        <p class="text-adwat-dark-green/70">info@adwat.com.eg</p>
-        <p class="text-adwat-dark-green/70">+20 XX XXX XXXX</p>
+
+      <!-- Right Column - Form -->
+      <div class="contact-form-container">
+        <h2 class="form-title">{{ content.form.title[currentLang()] }}</h2>
+        <form class="contact-form">
+          <div class="form-group">
+            <label class="form-label"
+              >{{ content.form.fields.name.label[currentLang()]
+              }}<span class="required">*</span></label
+            >
+            <input
+              type="text"
+              class="form-input"
+              [placeholder]="content.form.fields.name.placeholder[currentLang()]"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label"
+              >{{ content.form.fields.email.label[currentLang()]
+              }}<span class="required">*</span></label
+            >
+            <input
+              type="email"
+              class="form-input"
+              [placeholder]="content.form.fields.email.placeholder[currentLang()]"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label"
+              >{{ content.form.fields.phone.label[currentLang()]
+              }}<span class="required">*</span></label
+            >
+            <input
+              type="tel"
+              class="form-input"
+              [placeholder]="content.form.fields.phone.placeholder[currentLang()]"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label"
+              >{{ content.form.fields.company.label[currentLang()]
+              }}<span class="required">*</span></label
+            >
+            <input
+              type="text"
+              class="form-input"
+              [placeholder]="content.form.fields.company.placeholder[currentLang()]"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label"
+              >{{ content.form.fields.inquiry.label[currentLang()]
+              }}<span class="required">*</span></label
+            >
+            <input
+              type="text"
+              class="form-input"
+              [placeholder]="content.form.fields.inquiry.placeholder[currentLang()]"
+            />
+          </div>
+
+          <app-button [variant]="'primary'" [fullWidth]="true" type="submit">
+            {{ content.form.submit[currentLang()] }}
+          </app-button>
+        </form>
       </div>
     </div>
   </app-container>

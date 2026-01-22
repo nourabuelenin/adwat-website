@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ContainerComponent } from '../../shared/components/container/container.component';
 import { SectionComponent } from '../../shared/components/section/section.component';
 import { ButtonComponent } from '../../shared/components/button/button.component';
+import { TranslationService } from '../../core/services/translation.service';
 
 @Component({
   selector: 'app-contact',
@@ -12,4 +13,70 @@ import { ButtonComponent } from '../../shared/components/button/button.component
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css'],
 })
-export class ContactComponent {}
+export class ContactComponent {
+  private translationService = inject(TranslationService);
+  currentLang = this.translationService.currentLang;
+
+  content = {
+    title: {
+      en: 'Contact Us',
+      ar: 'تواصل معنا',
+    },
+    subtitle: {
+      en: "Get In Touch With Our Team. We're Here To Help You Transform Your Digital Future.",
+      ar: 'تواصل مع فريقنا. نحن هنا لمساعدتك في تحويل مستقبلك الرقمي.',
+    },
+    benefits: [
+      {
+        en: 'We Will Respond To You Within 12 Hours.',
+        ar: 'سنرد عليك خلال 12 ساعة.',
+      },
+      {
+        en: 'Access To Dedicated Consultant Specialists.',
+        ar: 'الوصول إلى استشاريين متخصصين.',
+      },
+    ],
+    bookCall: {
+      text: {
+        en: 'Want To Book An Exact Time?',
+        ar: 'هل تريد حجز موعد محدد؟',
+      },
+      button: {
+        en: 'Book A Free Call',
+        ar: 'احجز مكالمة مجانية',
+      },
+    },
+    form: {
+      title: {
+        en: 'Contact Adwat',
+        ar: 'تواصل مع أدوات',
+      },
+      fields: {
+        name: {
+          label: { en: 'Your Name', ar: 'اسمك' },
+          placeholder: { en: 'Enter Your Name', ar: 'أدخل اسمك' },
+        },
+        email: {
+          label: { en: 'Your Email', ar: 'بريدك الإلكتروني' },
+          placeholder: { en: 'Enter Your Email', ar: 'أدخل بريدك الإلكتروني' },
+        },
+        phone: {
+          label: { en: 'Phone Number', ar: 'رقم الهاتف' },
+          placeholder: { en: 'Enter Your Phone Number', ar: 'أدخل رقم هاتفك' },
+        },
+        company: {
+          label: { en: 'Company', ar: 'الشركة' },
+          placeholder: { en: 'Enter Your Company', ar: 'أدخل اسم شركتك' },
+        },
+        inquiry: {
+          label: { en: 'Inquiry', ar: 'الاستفسار' },
+          placeholder: { en: 'Enter Your Inquiry', ar: 'أدخل استفسارك' },
+        },
+      },
+      submit: {
+        en: 'Send Inquiry',
+        ar: 'إرسال الاستفسار',
+      },
+    },
+  };
+}
