@@ -10,37 +10,44 @@ import { FaqPageComponent } from './features/faq-page/faq-page.component';
 export const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    loadComponent: () => import('./features/home/home.component').then((m) => m.HomeComponent),
     title: 'Adwat Information Technology - Leading Saudi Software Development Company',
   },
   {
     path: 'about',
-    component: AboutComponent,
+    loadComponent: () => import('./features/about/about.component').then((m) => m.AboutComponent),
     title: 'About Us - Adwat Information Technology',
   },
   {
     path: 'services',
-    component: ServicesComponent,
+    loadComponent: () =>
+      import('./features/services/services.component').then((m) => m.ServicesComponent),
     title: 'Our Services - Adwat Information Technology',
   },
   {
     path: 'projects',
-    component: ProjectsComponent,
+    loadComponent: () =>
+      import('./features/projects/projects.component').then((m) => m.ProjectsComponent),
     title: 'Our Projects - Adwat Information Technology',
   },
   {
     path: 'projects/:id',
-    component: ProjectDetailComponent,
+    loadComponent: () =>
+      import('./features/project-detail/project-detail.component').then(
+        (m) => m.ProjectDetailComponent,
+      ),
     title: 'Project Details - Adwat Information Technology',
   },
   {
     path: 'faq',
-    component: FaqPageComponent,
+    loadComponent: () =>
+      import('./features/faq-page/faq-page.component').then((m) => m.FaqPageComponent),
     title: 'FAQ - Adwat Information Technology',
   },
   {
     path: 'contact',
-    component: ContactComponent,
+    loadComponent: () =>
+      import('./features/contact/contact.component').then((m) => m.ContactComponent),
     title: 'Contact Us - Adwat Information Technology',
   },
   {

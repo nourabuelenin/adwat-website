@@ -1,4 +1,13 @@
-import { Component, ElementRef, ViewChild, AfterViewInit, OnDestroy, Input, OnChanges, HostListener } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  ViewChild,
+  AfterViewInit,
+  OnDestroy,
+  Input,
+  NgZone,
+  HostListener,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
@@ -19,10 +28,12 @@ interface LayerConfig {
   templateUrl: './animated-cube.component.html',
   styleUrls: ['./animated-cube.component.css'],
 })
-export class AnimatedCubeComponent implements AfterViewInit, OnDestroy, OnChanges {
+export class AnimatedCubeComponent implements AfterViewInit, OnDestroy {
   @ViewChild('canvasContainer', { static: false }) canvasContainer!: ElementRef<HTMLDivElement>;
-  @Input() assemblyProgress: number = 0;
   @Input() disassembleOnHover: boolean = true;
+  @Input() startDelay: number = 800; // Delay before assembly starts
+
+  private assemblyProgress: number = 0;
 
   private scene!: THREE.Scene;
   private camera!: THREE.PerspectiveCamera;
@@ -31,63 +42,88 @@ export class AnimatedCubeComponent implements AfterViewInit, OnDestroy, OnChange
   private cubeGroup!: THREE.Group;
   private layers: { mesh: THREE.Mesh; config: LayerConfig }[] = [];
   private animationId: number = 0;
-  
+
   // Hover state management
   private isHovered: boolean = false;
   private currentProgress: number = 0;
   private targetProgress: number = 1;
 
+  constructor(private ngZone: NgZone) {}
+
   // Colors matching the logo exactly
   private readonly colors = {
-    greenDark: "#7ab87a",
-    greenLight: "#b8d4b8",
-    purpleDark: "#5c5c9e",
-    purpleLight: "#8888bb",
-    magentaDark: "#c77eb3",
-    magentaLight: "#dda8cc",
-    pinkLight: "#e8c5dd",
-    pinkLighter: "#f0dde9",
-    whiteGreenHint: "#f8fcf8",
-    whitePurpleHint: "#f8f8fc",
-    whiteMagentaHint: "#fcf8fb",
-    whiteCore: "#fafafa"
+    greenDark: '#7ab87a',
+    greenLight: '#b8d4b8',
+    purpleDark: '#5c5c9e',
+    purpleLight: '#8888bb',
+    magentaDark: '#c77eb3',
+    magentaLight: '#dda8cc',
+    pinkLight: '#e8c5dd',
+    pinkLighter: '#f0dde9',
+    whiteGreenHint: '#f8fcf8',
+    whitePurpleHint: '#f8f8fc',
+    whiteMagentaHint: '#fcf8fb',
+    whiteCore: '#fafafa',
   };
 
   ngAfterViewInit(): void {
     this.initScene();
     this.createCube();
-    this.currentProgress = this.assemblyProgress;
-    this.targetProgress = this.assemblyProgress;
+
+    // Start assembly animation
+    this.startAssemblyAnimation();
+
     this.animate();
-    
+
     // Handle window resize
     window.addEventListener('resize', this.onWindowResize.bind(this));
-    
+
     // Add hover listeners to the canvas container
     this.canvasContainer.nativeElement.addEventListener('mouseenter', this.onMouseEnter.bind(this));
     this.canvasContainer.nativeElement.addEventListener('mouseleave', this.onMouseLeave.bind(this));
   }
 
-  ngOnChanges(): void {
-    if (this.layers.length > 0) {
-      this.updateCubeAssembly();
-    }
-  }
-
   ngOnDestroy(): void {
     window.removeEventListener('resize', this.onWindowResize.bind(this));
     if (this.canvasContainer?.nativeElement) {
-      this.canvasContainer.nativeElement.removeEventListener('mouseenter', this.onMouseEnter.bind(this));
-      this.canvasContainer.nativeElement.removeEventListener('mouseleave', this.onMouseLeave.bind(this));
+      this.canvasContainer.nativeElement.removeEventListener(
+        'mouseenter',
+        this.onMouseEnter.bind(this),
+      );
+      this.canvasContainer.nativeElement.removeEventListener(
+        'mouseleave',
+        this.onMouseLeave.bind(this),
+      );
     }
     if (this.animationId) {
       cancelAnimationFrame(this.animationId);
     }
+
+    // Dispose resources
     if (this.renderer) {
       this.renderer.dispose();
     }
     if (this.controls) {
       this.controls.dispose();
+    }
+
+    // Dispose scene objects
+    this.layers.forEach(({ mesh }) => {
+      mesh.geometry.dispose();
+      (mesh.material as THREE.Material).dispose();
+    });
+    this.layers = [];
+
+    if (this.scene) {
+      this.scene.traverse((object) => {
+        if (object instanceof THREE.Mesh) {
+          object.geometry.dispose();
+          if (object.material instanceof THREE.Material) {
+            object.material.dispose();
+          }
+        }
+      });
+      this.scene.clear();
     }
   }
 
@@ -112,20 +148,21 @@ export class AnimatedCubeComponent implements AfterViewInit, OnDestroy, OnChange
     // Camera
     this.camera = new THREE.PerspectiveCamera(
       45,
-      this.canvasContainer.nativeElement.clientWidth / this.canvasContainer.nativeElement.clientHeight,
+      this.canvasContainer.nativeElement.clientWidth /
+        this.canvasContainer.nativeElement.clientHeight,
       0.1,
-      1000
+      1000,
     );
     this.camera.position.set(0, 0, 9);
 
     // Renderer
-    this.renderer = new THREE.WebGLRenderer({ 
-      antialias: true, 
-      alpha: true 
+    this.renderer = new THREE.WebGLRenderer({
+      antialias: true,
+      alpha: true,
     });
     this.renderer.setSize(
       this.canvasContainer.nativeElement.clientWidth,
-      this.canvasContainer.nativeElement.clientHeight
+      this.canvasContainer.nativeElement.clientHeight,
     );
     this.renderer.setPixelRatio(window.devicePixelRatio);
     this.canvasContainer.nativeElement.appendChild(this.renderer.domElement);
@@ -166,7 +203,7 @@ export class AnimatedCubeComponent implements AfterViewInit, OnDestroy, OnChange
         color: this.colors.greenLight,
         targetColor: this.colors.whiteGreenHint,
         opacity: 0.35,
-        targetOpacity: 0.9
+        targetOpacity: 0.9,
       },
       {
         position: new THREE.Vector3(0.6, 2.0, -0.6),
@@ -175,7 +212,7 @@ export class AnimatedCubeComponent implements AfterViewInit, OnDestroy, OnChange
         color: this.colors.greenDark,
         targetColor: this.colors.whiteGreenHint,
         opacity: 0.55,
-        targetOpacity: 0.95
+        targetOpacity: 0.95,
       },
       // Left side layers (purple)
       {
@@ -185,7 +222,7 @@ export class AnimatedCubeComponent implements AfterViewInit, OnDestroy, OnChange
         color: this.colors.purpleLight,
         targetColor: this.colors.whitePurpleHint,
         opacity: 0.4,
-        targetOpacity: 0.9
+        targetOpacity: 0.9,
       },
       {
         position: new THREE.Vector3(-1.6, 0.2, 0.2),
@@ -194,27 +231,27 @@ export class AnimatedCubeComponent implements AfterViewInit, OnDestroy, OnChange
         color: this.colors.purpleDark,
         targetColor: this.colors.whitePurpleHint,
         opacity: 0.7,
-        targetOpacity: 0.98
+        targetOpacity: 0.98,
       },
       // Core front face
       {
         position: new THREE.Vector3(0, 0, 0.92),
         targetPosition: new THREE.Vector3(0, 0, 0.92),
         rotation: new THREE.Euler(0, 0, 0),
-        color: "#4a4a8a",
+        color: '#4a4a8a',
         targetColor: this.colors.whiteCore,
         opacity: 0.85,
-        targetOpacity: 0.98
+        targetOpacity: 0.98,
       },
       // Core back face
       {
         position: new THREE.Vector3(0, 0, -0.92),
         targetPosition: new THREE.Vector3(0, 0, -0.92),
         rotation: new THREE.Euler(0, 0, 0),
-        color: "#4a4a8a",
+        color: '#4a4a8a',
         targetColor: this.colors.whiteCore,
         opacity: 0.85,
-        targetOpacity: 0.98
+        targetOpacity: 0.98,
       },
       // Right side layers (magenta)
       {
@@ -224,7 +261,7 @@ export class AnimatedCubeComponent implements AfterViewInit, OnDestroy, OnChange
         color: this.colors.magentaDark,
         targetColor: this.colors.whiteMagentaHint,
         opacity: 0.55,
-        targetOpacity: 0.95
+        targetOpacity: 0.95,
       },
       {
         position: new THREE.Vector3(2.4, -0.4, 0.8),
@@ -233,7 +270,7 @@ export class AnimatedCubeComponent implements AfterViewInit, OnDestroy, OnChange
         color: this.colors.magentaLight,
         targetColor: this.colors.whiteMagentaHint,
         opacity: 0.35,
-        targetOpacity: 0.9
+        targetOpacity: 0.9,
       },
       // Bottom layers (pink)
       {
@@ -243,7 +280,7 @@ export class AnimatedCubeComponent implements AfterViewInit, OnDestroy, OnChange
         color: this.colors.pinkLight,
         targetColor: this.colors.whiteMagentaHint,
         opacity: 0.45,
-        targetOpacity: 0.92
+        targetOpacity: 0.92,
       },
       {
         position: new THREE.Vector3(-1.2, -2.8, 1.2),
@@ -252,11 +289,11 @@ export class AnimatedCubeComponent implements AfterViewInit, OnDestroy, OnChange
         color: this.colors.pinkLighter,
         targetColor: this.colors.whiteMagentaHint,
         opacity: 0.28,
-        targetOpacity: 0.88
-      }
+        targetOpacity: 0.88,
+      },
     ];
 
-    layerConfigs.forEach(config => {
+    layerConfigs.forEach((config) => {
       const geometry = new THREE.BoxGeometry(1.8, 1.8, 0.06);
       const material = new THREE.MeshPhysicalMaterial({
         color: config.color,
@@ -264,7 +301,7 @@ export class AnimatedCubeComponent implements AfterViewInit, OnDestroy, OnChange
         opacity: config.opacity,
         roughness: 0.15,
         metalness: 0.1,
-        side: THREE.DoubleSide
+        side: THREE.DoubleSide,
       });
 
       const mesh = new THREE.Mesh(geometry, material);
@@ -277,9 +314,7 @@ export class AnimatedCubeComponent implements AfterViewInit, OnDestroy, OnChange
   }
 
   private easeInOutCubic(t: number): number {
-    return t < 0.5 
-      ? 4 * t * t * t 
-      : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
   }
 
   private lerpColor(color1: string, color2: string, t: number): THREE.Color {
@@ -288,41 +323,62 @@ export class AnimatedCubeComponent implements AfterViewInit, OnDestroy, OnChange
     return c1.lerp(c2, t);
   }
 
-  private updateCubeAssembly(): void {
-    const eased = this.easeInOutCubic(this.assemblyProgress);
+  private animate(): void {
+    this.ngZone.runOutsideAngular(() => {
+      const loop = () => {
+        this.animationId = requestAnimationFrame(loop);
 
-    this.layers.forEach(({ mesh, config }) => {
-      // Interpolate position
-      mesh.position.lerpVectors(config.position, config.targetPosition, eased);
+        // Smoothly interpolate current progress towards target
+        if (this.disassembleOnHover) {
+          const lerpSpeed = 0.04; // Adjust for faster/slower transition
+          this.currentProgress += (this.targetProgress - this.currentProgress) * lerpSpeed;
 
-      // Interpolate color and opacity
-      const material = mesh.material as THREE.MeshPhysicalMaterial;
-      material.color = this.lerpColor(config.color, config.targetColor, eased);
-      material.opacity = config.opacity + (config.targetOpacity - config.opacity) * eased;
+          // Update cube assembly based on current progress
+          if (this.layers.length > 0) {
+            this.updateCubeAssemblyWithProgress(this.currentProgress);
+          }
+        }
+
+        // Slow rotation after assembly
+        const rotationSpeed = this.currentProgress >= 0.9 ? 0.004 : 0.002;
+        this.cubeGroup.rotation.y += rotationSpeed;
+        this.cubeGroup.rotation.x = 0.4 + Math.sin(Date.now() * 0.0003) * 0.05;
+
+        this.controls.update();
+        this.renderer.render(this.scene, this.camera);
+      };
+
+      loop();
     });
   }
 
-  private animate(): void {
-    this.animationId = requestAnimationFrame(() => this.animate());
+  private startAssemblyAnimation(): void {
+    const startTime = Date.now();
+    const duration = 3000;
 
-    // Smoothly interpolate current progress towards target
-    if (this.disassembleOnHover) {
-      const lerpSpeed = 0.04; // Adjust for faster/slower transition
-      this.currentProgress += (this.targetProgress - this.currentProgress) * lerpSpeed;
-      
-      // Update cube assembly based on current progress
-      if (this.layers.length > 0) {
-        this.updateCubeAssemblyWithProgress(this.currentProgress);
-      }
-    }
+    this.ngZone.runOutsideAngular(() => {
+      const animateAssembly = () => {
+        const elapsed = Date.now() - startTime - this.startDelay;
 
-    // Slow rotation after assembly
-    const rotationSpeed = this.currentProgress >= 0.9 ? 0.004 : 0.002;
-    this.cubeGroup.rotation.y += rotationSpeed;
-    this.cubeGroup.rotation.x = 0.4 + Math.sin(Date.now() * 0.0003) * 0.05;
+        if (elapsed < 0) {
+          requestAnimationFrame(animateAssembly);
+          return;
+        }
 
-    this.controls.update();
-    this.renderer.render(this.scene, this.camera);
+        const progress = Math.min(elapsed / duration, 1);
+        this.assemblyProgress = progress;
+
+        // If not being hovered (which overrides progress), update the target
+        if (!this.isHovered) {
+          this.targetProgress = progress;
+        }
+
+        if (progress < 1) {
+          requestAnimationFrame(animateAssembly);
+        }
+      };
+      requestAnimationFrame(animateAssembly);
+    });
   }
 
   private updateCubeAssemblyWithProgress(progress: number): void {
