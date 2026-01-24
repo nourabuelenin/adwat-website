@@ -10,9 +10,20 @@
 
 @media (min-width: 1024px) {
   .about-wrapper {
-    flex-direction: row;
+    flex-direction: row-reverse;
     align-items: flex-start;
     gap: 4rem;
+  }
+}
+
+/* RTL: Image on the right (content first), so use normal row direction */
+:host-context([dir='rtl']) .about-wrapper {
+  flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+  :host-context([dir='rtl']) .about-wrapper {
+    flex-direction: row;
   }
 }
 
@@ -87,12 +98,13 @@
 .quote-card {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
   background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 100%);
-  /* border-left: 4px solid var(--color-primary, #0d7377); */
   border-radius: 0.75rem;
   padding: 1.5rem;
   margin-top: 1rem;
+  position: relative;
+  overflow: hidden;
 }
 
 @media (min-width: 768px) {
@@ -105,8 +117,31 @@
   }
 }
 
+/* Left accent border */
+.quote-accent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  /* background: linear-gradient(180deg, #10b981 0%, #0d7377 100%); */
+  border-radius: 4px 0 0 4px;
+}
+
+:host-context([dir='rtl']) .quote-accent {
+  left: auto;
+  right: 0;
+  border-radius: 0 4px 4px 0;
+}
+
 .quote-content {
   flex: 1;
+  padding-left: 1rem;
+}
+
+:host-context([dir='rtl']) .quote-content {
+  padding-left: 0;
+  padding-right: 1rem;
 }
 
 .quote-text {
@@ -128,6 +163,15 @@
   align-items: center;
   gap: 0.75rem;
   flex-shrink: 0;
+  padding: 0.75rem;
+  /* background: rgba(255, 255, 255, 0.6); */
+  border-radius: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .quote-author {
+    padding: 0.5rem 0.75rem;
+  }
 }
 
 .author-avatar {
@@ -163,7 +207,7 @@
   white-space: nowrap;
 }
 
-.author-title {
+.author-role {
   font-size: 0.8rem;
   color: var(--color-primary, #0d7377);
   margin: 0;

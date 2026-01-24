@@ -7,13 +7,13 @@
 >
   <app-container>
     <div class="text-center mx-auto mb-16">
-      <p class="text-primary font-semibold text-sm uppercase tracking-wide mb-3">
+      <p class="text-primary font-semibold text-base uppercase tracking-wide mb-4">
         {{ content.heading[currentLang()] }}
       </p>
-      <h2 class="text-3xl lg:text-4xl font-bold text-adwat-dark-green mb-4">
+      <h2 class="text-4xl lg:text-5xl font-bold text-adwat-dark-green mb-6">
         {{ content.title[currentLang()] }}
       </h2>
-      <p class="text-lg text-adwat-dark-green/70">
+      <p class="text-xl lg:text-2xl text-adwat-dark-green/70">
         {{ content.description[currentLang()] }}
       </p>
     </div>
@@ -27,10 +27,10 @@
             <img src="assets/images/why/{{ item.image }}" />
           </div>
 
-          <h3 class="text-xl font-bold text-adwat-dark-green mb-4">
+          <h3 class="text-2xl lg:text-3xl font-bold text-adwat-dark-green mb-5">
             {{ item.title[currentLang()] }}
           </h3>
-          <p class="text-adwat-dark-green/60 leading-relaxed text-sm max-w-xs mx-auto">
+          <p class="text-adwat-dark-green/60 leading-relaxed text-base lg:text-lg max-w-sm mx-auto">
             {{ item.description[currentLang()] }}
           </p>
         </div>

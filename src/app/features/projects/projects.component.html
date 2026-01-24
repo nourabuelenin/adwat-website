@@ -1,7 +1,19 @@
-<app-section [variant]="'light'" class="projects-page">
+<section class="page-hero">
+  <!-- Animated Gradient Background -->
+  <div class="hero-bg-gradients">
+    <div class="gradient-orb gradient-orb-1"></div>
+    <div class="gradient-orb gradient-orb-2"></div>
+    <div class="gradient-orb gradient-orb-3"></div>
+  </div>
+
+  <!-- Animated Grid Pattern -->
+  <div class="hero-grid-pattern">
+    <div class="grid-pattern"></div>
+  </div>
+
   <app-container>
     <!-- Header Section -->
-    <div class="text-center mb-16">
+    <div class="page-hero-content text-center">
       <h1 class="text-4xl lg:text-5xl font-bold text-adwat-dark-green mb-4">
         {{ content.heading[currentLang()] }}
       </h1>
@@ -12,7 +24,11 @@
         {{ content.subtitle[currentLang()] }}
       </p>
     </div>
+  </app-container>
+</section>
 
+<app-section [variant]="'light'" class="projects-page">
+  <app-container>
     <!-- Projects List -->
     <div class="projects-list">
       @for (project of projects; track project.id; let i = $index) {

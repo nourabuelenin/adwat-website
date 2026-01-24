@@ -1,6 +1,18 @@
-<app-section [variant]="'light'">
+<section class="page-hero">
+  <!-- Animated Gradient Background -->
+  <div class="hero-bg-gradients">
+    <div class="gradient-orb gradient-orb-1"></div>
+    <div class="gradient-orb gradient-orb-2"></div>
+    <div class="gradient-orb gradient-orb-3"></div>
+  </div>
+
+  <!-- Animated Grid Pattern -->
+  <div class="hero-grid-pattern">
+    <div class="grid-pattern"></div>
+  </div>
+
   <app-container [size]="'content'">
-    <div class="text-center mb-16">
+    <div class="page-hero-content text-center">
       <p class="text-primary font-semibold text-sm uppercase tracking-wide mb-3">
         {{ content.heading[currentLang()] }}
       </p>
@@ -11,7 +23,11 @@
         {{ content.subtitle[currentLang()] }}
       </p>
     </div>
+  </app-container>
+</section>
 
+<app-section [variant]="'light'">
+  <app-container [size]="'content'">
     <div class="space-y-4 max-w-4xl mx-auto">
       @for (faq of faqs; track faq.question.en; let i = $index) {
         <div class="card p-6 hover:shadow-lg transition-shadow duration-300">
