@@ -11,15 +11,12 @@
     <div class="grid-pattern"></div>
   </div>
 
-  <app-container [size]="'content'">
+  <app-container>
     <div class="page-hero-content text-center">
-      <p class="text-primary font-semibold text-sm uppercase tracking-wide mb-3">
-        {{ content.heading[currentLang()] }}
-      </p>
       <h1 class="text-4xl lg:text-5xl font-bold text-adwat-dark-green mb-4">
         {{ content.title[currentLang()] }}
       </h1>
-      <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+      <p class="text-lg text-adwat-dark-green/70 max-w-3xl mx-auto">
         {{ content.subtitle[currentLang()] }}
       </p>
     </div>

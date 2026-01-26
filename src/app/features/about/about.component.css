@@ -3,13 +3,11 @@
   position: relative;
   background: #fff;
   overflow: hidden;
-  min-height: 100vh;
+  padding: 8rem 0 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 80px; /* Account for fixed navbar */
-  clip-path: inset(0); /* Prevent horizontal overflow */
 }
 
 .hero-bg-gradients {
