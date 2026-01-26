@@ -55,41 +55,6 @@
   }
 }
 
-/* Badge */
-.pioneers-badge {
-  display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--color-primary, #0d7377);
-  margin-bottom: 1rem;
-  padding: 0.4rem 0.8rem;
-  /* background: linear-gradient(135deg, rgba(13, 115, 119, 0.08), rgba(20, 184, 166, 0.08)); */
-  border-radius: 4px;
-}
-
-/* Title */
-.pioneers-title {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: var(--color-dark, #1a2e35);
-  line-height: 1.3;
-  margin-bottom: 1.5rem;
-}
-
-@media (min-width: 768px) {
-  .pioneers-title {
-    font-size: 2rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .pioneers-title {
-    font-size: 2.25rem;
-  }
-}
-
 /* Description */
 .pioneers-description {
   color: #475569;

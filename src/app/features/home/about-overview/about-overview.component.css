@@ -40,38 +40,6 @@
   }
 }
 
-/* About Label */
-.about-label {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color-primary, #0d7377);
-  margin-bottom: 1rem;
-}
-
-/* Main Title */
-.about-title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--color-dark, #1a2e35);
-  line-height: 1.2;
-  margin-bottom: 1.5rem;
-}
-
-@media (min-width: 768px) {
-  .about-title {
-    font-size: 2.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .about-title {
-    font-size: 2.75rem;
-  }
-}
-
 /* Description */
 .about-description {
   color: #475569;
