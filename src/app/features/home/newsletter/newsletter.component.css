@@ -29,6 +29,10 @@
   background: #ffffff;
   border-radius: 1rem;
   overflow: hidden;
+  border: 1px solid #e2e8f0;
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
 }
 
 @media (min-width: 640px) {
@@ -36,6 +40,11 @@
     flex-direction: row;
     align-items: stretch;
   }
+}
+
+.newsletter-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 /* Cover Image */
@@ -67,17 +76,13 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.newsletter-card:hover .newsletter-cover img {
-  transform: scale(1.05);
 }
 
 /* Newsletter Content */
 .newsletter-content {
   display: flex;
   flex-direction: column;
+  margin: 1rem;
   padding: 0.75rem 0;
   flex: 1;
 }
