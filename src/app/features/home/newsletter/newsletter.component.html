@@ -1,0 +1,47 @@
+<app-section [variant]="'light'" [withGradients]="true" [gradientVariant]="'left'" id="newsletter">
+  <app-container>
+    <!-- Section Header -->
+    <div class="section-header">
+      <span class="section-heading">{{ content.heading[currentLang()] }}</span>
+      <h2 class="section-title">{{ content.title[currentLang()] }}</h2>
+    </div>
+
+    <!-- Newsletters Grid -->
+    <div class="newsletters-grid">
+      @for (newsletter of newsletters; track newsletter.id) {
+        <article class="newsletter-card">
+          <!-- Cover Image -->
+          <div class="newsletter-cover">
+            <img [src]="newsletter.coverImage" [alt]="newsletter.title[currentLang()]" />
+          </div>
+
+          <!-- Content -->
+          <div class="newsletter-content">
+            <!-- Date Label -->
+            <span class="newsletter-date">{{ newsletter.dateLabel[currentLang()] }}</span>
+
+            <!-- Title -->
+            <h3 class="newsletter-title">{{ newsletter.title[currentLang()] }}</h3>
+
+            <!-- Description -->
+            <p class="newsletter-description">{{ newsletter.description[currentLang()] }}</p>
+
+            <!-- Tags -->
+            <div class="newsletter-tags">
+              @for (tag of newsletter.tags; track tag.en) {
+                <span class="newsletter-tag">{{ tag[currentLang()] }}</span>
+              }
+            </div>
+          </div>
+        </article>
+      }
+    </div>
+
+    <!-- View All Button -->
+    <div class="text-center mt-12">
+      <app-button [variant]="'primary'" [routerLink]="'/news'">
+        {{ content.viewAllButton[currentLang()] }}
+      </app-button>
+    </div>
+  </app-container>
+</app-section>
