@@ -15,21 +15,21 @@
             <p>{{ paragraph[currentLang()] }}</p>
           }
         </div>
+
+        <!-- Stats Section -->
+        <div #statsSection class="stats-row">
+          @for (stat of stats; track stat.label.en) {
+            <div class="stat-item">
+              <span class="stat-value">{{ getDisplayValue(stat) }}</span>
+              <span class="stat-label">{{ stat.label[currentLang()] }}</span>
+            </div>
+          }
+        </div>
       </div>
       <!-- Left Column - Certificate Image -->
       <div class="pioneers-image">
         <img src="assets/images/about/about_adwat.png" alt="شهادة إنجاز" />
       </div>
-    </div>
-
-    <!-- Stats Section -->
-    <div #statsSection class="stats-row">
-      @for (stat of stats; track stat.label.en) {
-        <div class="stat-item">
-          <span class="stat-value">{{ getDisplayValue(stat) }}</span>
-          <span class="stat-label">{{ stat.label[currentLang()] }}</span>
-        </div>
-      }
     </div>
   </app-container>
 </app-section>

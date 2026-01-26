@@ -2,83 +2,6 @@ import { Project } from '../models/content.models';
 
 export const PROJECTS_DATA: Project[] = [
   {
-    id: 'advanced-monitoring',
-    title: {
-      en: 'Advanced Monitoring System',
-      ar: 'نظام المراقبة المتقدم',
-    },
-    description: {
-      en: 'A centralized platform for real-time performance monitoring. Supports rapid decision-making and improves response efficiency and resource management.',
-      ar: 'منصة مركزية لمراقبة الأداء في الوقت الفعلي. تدعم اتخاذ القرار السريع وتحسين كفاءة الاستجابة وإدارة الموارد.',
-    },
-    industry: {
-      en: 'Riyadh Municipality',
-      ar: 'أمانة الرياض',
-    },
-    year: 2024,
-    tags: ['Healthcare', 'Monitoring', 'Government', 'Analytics'],
-    featured: true,
-    image: 'assets/images/projects/TASM.png',
-    details: {
-      about: {
-        en: 'This comprehensive healthcare monitoring platform provides unified oversight of hospital operations, patient care quality, and resource management across the healthcare network.',
-        ar: 'توفر منصة مراقبة الرعاية الصحية الشاملة هذه إشرافاً موحداً على عمليات المستشفيات وجودة رعاية المرضى وإدارة الموارد عبر شبكة الرعاية الصحية.',
-      },
-      challenge: {
-        title: { en: 'The Challenge', ar: 'التحدي' },
-        points: [
-          {
-            en: 'The Ministry of Health required a centralized system to monitor performance across multiple hospitals, ensuring quality care delivery and efficient resource allocation.',
-            ar: 'احتاجت وزارة الصحة إلى نظام مركزي لمراقبة الأداء عبر مستشفيات متعددة، مما يضمن تقديم الرعاية عالية الجودة والتوزيع الفعال للموارد.',
-          },
-        ],
-      },
-      keyFeatures: {
-        title: { en: 'Key Features', ar: 'الميزات الرئيسية' },
-        points: [
-          {
-            en: 'Real-time monitoring of 25+ hospitals with comprehensive performance metrics.',
-            ar: 'مراقبة في الوقت الفعلي لأكثر من 25 مستشفى مع مقاييس أداء شاملة.',
-          },
-          {
-            en: 'Advanced analytics dashboard for healthcare quality assessment and reporting.',
-            ar: 'لوحة تحكم تحليلية متقدمة لتقييم جودة الرعاية الصحية وإعداد التقارير.',
-          },
-          {
-            en: 'Emergency response coordination system with automated alerts and notifications.',
-            ar: 'نظام تنسيق الاستجابة للطوارئ مع التنبيهات والإخطارات الآلية.',
-          },
-          {
-            en: 'Resource optimization tools for efficient hospital management and patient care.',
-            ar: 'أدوات تحسين الموارد لإدارة المستشفيات الفعالة ورعاية المرضى.',
-          },
-        ],
-      },
-      impact: {
-        title: { en: 'Impact', ar: 'التأثير' },
-        points: [
-          {
-            en: "Enhanced healthcare service delivery across the Kingdom's hospital network.",
-            ar: 'تحسين تقديم الخدمات الصحية عبر شبكة المستشفيات في المملكة.',
-          },
-          {
-            en: 'Improved patient outcomes through better quality monitoring and response systems.',
-            ar: 'تحسن نتائج المرضى من خلال أنظمة مراقبة الجودة والاستجابة المحسنة.',
-          },
-          {
-            en: 'Optimized resource allocation and operational efficiency across healthcare facilities.',
-            ar: 'تحسن تخصيص الموارد والكفاءة التشغيلية عبر مرافق الرعاية الصحية.',
-          },
-          {
-            en: 'Strengthened emergency response capabilities with real-time coordination and alerts.',
-            ar: 'تعزيز قدرات الاستجابة للطوارئ مع التنسيق والتنبيهات في الوقت الفعلي.',
-          },
-        ],
-      },
-      relatedProjects: ['go-care-healthcare', 'traffic-monitoring'],
-    },
-  },
-  {
     id: 'traffic-monitoring',
     title: {
       en: 'Location Monitoring System',
@@ -153,6 +76,83 @@ export const PROJECTS_DATA: Project[] = [
         ],
       },
       relatedProjects: ['advanced-monitoring', 'e-next'],
+    },
+  },
+  {
+    id: 'advanced-monitoring',
+    title: {
+      en: 'Advanced Monitoring System',
+      ar: 'نظام المراقبة المتقدم',
+    },
+    description: {
+      en: 'A centralized platform for real-time performance monitoring. Supports rapid decision-making and improves response efficiency and resource management.',
+      ar: 'منصة مركزية لمراقبة الأداء في الوقت الفعلي. تدعم اتخاذ القرار السريع وتحسين كفاءة الاستجابة وإدارة الموارد.',
+    },
+    industry: {
+      en: 'Riyadh Municipality',
+      ar: 'أمانة الرياض',
+    },
+    year: 2024,
+    tags: ['Healthcare', 'Monitoring', 'Government', 'Analytics'],
+    featured: true,
+    image: 'assets/images/projects/TASM.png',
+    details: {
+      about: {
+        en: 'This comprehensive healthcare monitoring platform provides unified oversight of hospital operations, patient care quality, and resource management across the healthcare network.',
+        ar: 'توفر منصة مراقبة الرعاية الصحية الشاملة هذه إشرافاً موحداً على عمليات المستشفيات وجودة رعاية المرضى وإدارة الموارد عبر شبكة الرعاية الصحية.',
+      },
+      challenge: {
+        title: { en: 'The Challenge', ar: 'التحدي' },
+        points: [
+          {
+            en: 'The Ministry of Health required a centralized system to monitor performance across multiple hospitals, ensuring quality care delivery and efficient resource allocation.',
+            ar: 'احتاجت وزارة الصحة إلى نظام مركزي لمراقبة الأداء عبر مستشفيات متعددة، مما يضمن تقديم الرعاية عالية الجودة والتوزيع الفعال للموارد.',
+          },
+        ],
+      },
+      keyFeatures: {
+        title: { en: 'Key Features', ar: 'الميزات الرئيسية' },
+        points: [
+          {
+            en: 'Real-time monitoring of 25+ hospitals with comprehensive performance metrics.',
+            ar: 'مراقبة في الوقت الفعلي لأكثر من 25 مستشفى مع مقاييس أداء شاملة.',
+          },
+          {
+            en: 'Advanced analytics dashboard for healthcare quality assessment and reporting.',
+            ar: 'لوحة تحكم تحليلية متقدمة لتقييم جودة الرعاية الصحية وإعداد التقارير.',
+          },
+          {
+            en: 'Emergency response coordination system with automated alerts and notifications.',
+            ar: 'نظام تنسيق الاستجابة للطوارئ مع التنبيهات والإخطارات الآلية.',
+          },
+          {
+            en: 'Resource optimization tools for efficient hospital management and patient care.',
+            ar: 'أدوات تحسين الموارد لإدارة المستشفيات الفعالة ورعاية المرضى.',
+          },
+        ],
+      },
+      impact: {
+        title: { en: 'Impact', ar: 'التأثير' },
+        points: [
+          {
+            en: "Enhanced healthcare service delivery across the Kingdom's hospital network.",
+            ar: 'تحسين تقديم الخدمات الصحية عبر شبكة المستشفيات في المملكة.',
+          },
+          {
+            en: 'Improved patient outcomes through better quality monitoring and response systems.',
+            ar: 'تحسن نتائج المرضى من خلال أنظمة مراقبة الجودة والاستجابة المحسنة.',
+          },
+          {
+            en: 'Optimized resource allocation and operational efficiency across healthcare facilities.',
+            ar: 'تحسن تخصيص الموارد والكفاءة التشغيلية عبر مرافق الرعاية الصحية.',
+          },
+          {
+            en: 'Strengthened emergency response capabilities with real-time coordination and alerts.',
+            ar: 'تعزيز قدرات الاستجابة للطوارئ مع التنسيق والتنبيهات في الوقت الفعلي.',
+          },
+        ],
+      },
+      relatedProjects: ['go-care-healthcare', 'traffic-monitoring'],
     },
   },
   {
@@ -462,22 +462,22 @@ export const PROJECTS_DATA: Project[] = [
       relatedProjects: ['go-care-beauty', 'advanced-monitoring'],
     },
   },
-  {
-    id: 'education-platform',
-    title: {
-      en: 'National Education Management Platform',
-      ar: 'منصة إدارة التعليم الوطنية',
-    },
-    description: {
-      en: 'Unified education management system serving thousands of schools, educators, and students across the Kingdom.',
-      ar: 'نظام إدارة تعليمي موحد يخدم آلاف المدارس والمعلمين والطلاب في جميع أنحاء المملكة.',
-    },
-    industry: {
-      en: 'Education & Training',
-      ar: 'التعليم والتدريب',
-    },
-    year: 2023,
-    tags: ['Education', 'E-Learning', 'Government'],
-    featured: true,
-  },
+  // {
+  //   id: 'education-platform',
+  //   title: {
+  //     en: 'National Education Management Platform',
+  //     ar: 'منصة إدارة التعليم الوطنية',
+  //   },
+  //   description: {
+  //     en: 'Unified education management system serving thousands of schools, educators, and students across the Kingdom.',
+  //     ar: 'نظام إدارة تعليمي موحد يخدم آلاف المدارس والمعلمين والطلاب في جميع أنحاء المملكة.',
+  //   },
+  //   industry: {
+  //     en: 'Education & Training',
+  //     ar: 'التعليم والتدريب',
+  //   },
+  //   year: 2023,
+  //   tags: ['Education', 'E-Learning', 'Government'],
+  //   featured: true,
+  // },
 ];

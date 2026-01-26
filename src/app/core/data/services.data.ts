@@ -17,6 +17,58 @@ export interface ExtendedService extends Service {
 
 export const SERVICES_DATA: ExtendedService[] = [
   {
+    id: 'data-analytics',
+    title: {
+      en: 'Data Analytics',
+      ar: 'تحليل البيانات',
+    },
+    description: {
+      en: 'We turn numbers into clear stories that drive the right decision at the right time.',
+      ar: 'نحوّل الأرقام إلى رؤى واضحة تدعم آلية اتخاذ القرار في الوقت المناسب.',
+    },
+    icon: 'analytics',
+    link: '/services/data-analytics',
+    featured: true,
+    features: [
+      { en: 'Business intelligence dashboards', ar: 'لوحات ذكاء الأعمال' },
+      { en: 'Data visualization and reporting', ar: 'تصور البيانات والتقارير' },
+      { en: 'Predictive analytics and modeling', ar: 'التحليلات التنبؤية والنمذجة' },
+      { en: 'Data warehousing and ETL processes', ar: 'مستودعات البيانات وعمليات ETL' },
+      { en: 'Real-time data monitoring', ar: 'مراقبة البيانات في الوقت الفعلي' },
+    ],
+    tags: [
+      { label: 'Analytics', icon: 'analytics' },
+      { label: 'Insights', icon: 'insights' },
+    ],
+  },
+  {
+    id: 'ai-solutions',
+    title: {
+      en: 'AI Solutions',
+      ar: 'حلول الذكاء الاصطناعي',
+    },
+    description: {
+      en: 'We design AI solutions that are actually used in operations, not just for show.',
+      ar: 'نصمم حلول تعتمد على الذكاء الاصطناعي في عملية التشغيل الفعلي، حيث نوظف البيانات والمعطيات ونحولها إلى قيم ملموسة، من التنبؤ الأولي حتى الأتمتة الكاملة.',
+    },
+    icon: 'ai',
+    link: '/services/ai-solutions',
+    featured: true,
+    features: [
+      { en: 'Machine learning model development', ar: 'تطوير نماذج التعلم الآلي' },
+      { en: 'Natural language processing (NLP)', ar: 'معالجة اللغة الطبيعية (NLP)' },
+      { en: 'Computer vision and image recognition', ar: 'رؤية الكمبيوتر والتعرف على الصور' },
+      {
+        en: 'Chatbot and virtual assistant development',
+        ar: 'تطوير روبوتات المحادثة والمساعدين الافتراضيين',
+      },
+      {
+        en: 'AI-powered automation and optimization',
+        ar: 'الأتمتة والتحسين المدعوم بالذكاء الاصطناعي',
+      },
+    ],
+  },
+  {
     id: 'web-development',
     title: {
       en: 'Web Design & Development',
@@ -149,58 +201,6 @@ export const SERVICES_DATA: ExtendedService[] = [
     tags: [
       { label: 'Secure', icon: 'secure' },
       { label: 'Compliant', icon: 'compliant' },
-    ],
-  },
-  {
-    id: 'data-analytics',
-    title: {
-      en: 'Data Analytics',
-      ar: 'تحليل البيانات',
-    },
-    description: {
-      en: 'We turn numbers into clear stories that drive the right decision at the right time.',
-      ar: 'نحوّل الأرقام إلى رؤى واضحة تدعم آلية اتخاذ القرار في الوقت المناسب.',
-    },
-    icon: 'analytics',
-    link: '/services/data-analytics',
-    featured: true,
-    features: [
-      { en: 'Business intelligence dashboards', ar: 'لوحات ذكاء الأعمال' },
-      { en: 'Data visualization and reporting', ar: 'تصور البيانات والتقارير' },
-      { en: 'Predictive analytics and modeling', ar: 'التحليلات التنبؤية والنمذجة' },
-      { en: 'Data warehousing and ETL processes', ar: 'مستودعات البيانات وعمليات ETL' },
-      { en: 'Real-time data monitoring', ar: 'مراقبة البيانات في الوقت الفعلي' },
-    ],
-    tags: [
-      { label: 'Analytics', icon: 'analytics' },
-      { label: 'Insights', icon: 'insights' },
-    ],
-  },
-  {
-    id: 'ai-solutions',
-    title: {
-      en: 'AI Solutions',
-      ar: 'حلول الذكاء الاصطناعي',
-    },
-    description: {
-      en: 'We design AI solutions that are actually used in operations, not just for show.',
-      ar: 'نصمم حلول تعتمد على الذكاء الاصطناعي في عملية التشغيل الفعلي، حيث نوظف البيانات والمعطيات ونحولها إلى قيم ملموسة، من التنبؤ الأولي حتى الأتمتة الكاملة.',
-    },
-    icon: 'ai',
-    link: '/services/ai-solutions',
-    featured: true,
-    features: [
-      { en: 'Machine learning model development', ar: 'تطوير نماذج التعلم الآلي' },
-      { en: 'Natural language processing (NLP)', ar: 'معالجة اللغة الطبيعية (NLP)' },
-      { en: 'Computer vision and image recognition', ar: 'رؤية الكمبيوتر والتعرف على الصور' },
-      {
-        en: 'Chatbot and virtual assistant development',
-        ar: 'تطوير روبوتات المحادثة والمساعدين الافتراضيين',
-      },
-      {
-        en: 'AI-powered automation and optimization',
-        ar: 'الأتمتة والتحسين المدعوم بالذكاء الاصطناعي',
-      },
     ],
   },
 ];
