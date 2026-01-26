@@ -31,10 +31,10 @@
 
 .pioneers-image img {
   width: 100%;
-  height: auto;
+  aspect-ratio: 3 / 2; /* Creates rectangular shape - adjust ratio as needed (e.g., 3/2, 16/9, 1/1) */
   border-radius: 1rem;
-  object-fit: cover;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  object-fit: cover; /* Crops image to fill the space without stretching */
+  object-position: center; /* Centers the crop */
 }
 
 @media (min-width: 1024px) {

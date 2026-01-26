@@ -30,6 +30,14 @@ export class AboutOverviewComponent {
         en: 'Adwat is a company specialized in building digital solutions for organizations seeking technical transformation, going beyond mere system development to improving work methods and supporting decision-making.',
         ar: 'أدوات شركة متخصصة في بناء الحلول الرقمية للمؤسسات التي تسعى إلى تحوّل تقني، يتجاوز مجرد تطوير الأنظمة إلى تحسين طريقة العمل ودعم اتخاذ القرار.',
       },
+      {
+        en: 'We also cooperate with our clients as a technical partner, seeking to understand their operational challenges and workflow process, then we design digital systems that are reliable and scalable; to become a support for them in improving the performance of the company and keeping up with development and business growth.',
+        ar: 'كما أننا نتعاون مع عملائنا كشريك تقني، يسعى لفهم تحدياتهم التشغيلية وآلية سير العمل، ثم نُصمم أنظمة رقمية موثوقة وقابلة للتوسع؛ لتكون الداعم لهم في تحسين الأداء المؤسسي ومواكبة التطور ونمو الأعمال.',
+      },
+      {
+        en: 'Our work depends on providing effective solutions built on a true understanding of the needs of organizations and clients, and the value of these solutions is measured by the actual impact reflected on performance, decision quality, and results.',
+        ar: 'ويعتمد عملنا على تقديم الحلول الفعالة والمبنية على الفهم الواقعي لاحتياجات المؤسسات والعملاء، وتُقاس قيمة هذه الحلول وجدواها بمدى الأثر الفعلي المنعكس على الأداء وجودة القرار والنتائج.',
+      },
     ],
     quote: {
       en: "Our vision at Adwat is to be the technical partner of choice for organizations, thinking with you, sharing your decisions, and building a technical foundation that serves your business today and prepares for tomorrow's challenges.",

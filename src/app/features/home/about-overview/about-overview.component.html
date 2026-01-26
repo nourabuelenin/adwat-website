@@ -16,25 +16,24 @@
             <p>{{ paragraph[currentLang()] }}</p>
           }
         </div>
-
-        <!-- Quote Card Section -->
-        <div class="quote-card">
-          <div class="quote-accent"></div>
-          <div class="quote-content">
-            <p class="quote-text">"{{ content.quote[currentLang()] }}"</p>
-          </div>
-          <div class="quote-author">
-            <div class="author-info">
-              <p class="author-name">{{ content.authorName[currentLang()] }}</p>
-              <p class="author-role">{{ content.speaker[currentLang()] }}</p>
-            </div>
-          </div>
-        </div>
       </div>
 
       <!-- Right Column - Image -->
       <div class="about-image">
         <img src="assets/images/about/about.png" alt="Professional at work" />
+      </div>
+    </div>
+    <!-- Quote Card Section -->
+    <div class="quote-card">
+      <div class="quote-accent"></div>
+      <div class="quote-content">
+        <p class="quote-text">"{{ content.quote[currentLang()] }}"</p>
+      </div>
+      <div class="quote-author">
+        <div class="author-info">
+          <p class="author-name">{{ content.authorName[currentLang()] }}</p>
+          <p class="author-role">{{ content.speaker[currentLang()] }}</p>
+        </div>
       </div>
     </div>
   </app-container>

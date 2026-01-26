@@ -24,13 +24,13 @@ export class PioneersComponent implements AfterViewInit, OnDestroy {
       ar: 'إنجازات أدوات',
     },
     title: {
-      en: 'Data Analytics Pioneers In MENA Region',
-      ar: 'رواد تحليل البيانات في منطقة الشرق الأوسط وشمال أفريقيا',
+      en: 'Data Analytics Pioneers In The Region',
+      ar: 'رواد تحليل البيانات في المنطقة',
     },
     paragraphs: [
       {
-        en: 'Since 2000, We Have Been Working As A Technology Partner, Supporting Companies Throughout Their Journey Toward Growth.',
-        ar: 'منذ عام 2000، نعمل كشريك تقني، ندعم الشركات في رحلتها نحو النمو.',
+        en: 'Since 2002, We Have Been Working As A Technology Partner, Supporting Companies Throughout Their Journey Toward Growth.',
+        ar: 'منذ عام 2002، نعمل كشريك تقني، ندعم الشركات في رحلتها نحو النمو.',
       },
       {
         en: 'Our Long-Standing Experience Has Enabled Our Clients To Transform Complex Operations Into Intelligent Systems That Support Fast And Efficient Decision-Making, Ensuring That Technology Truly Serves The Growth Of Your Business, Rather Than Being Merely A Tool.',
