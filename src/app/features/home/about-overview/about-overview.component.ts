@@ -40,8 +40,8 @@ export class AboutOverviewComponent {
       ar: 'رئيس مجلس الإدارة لأدوات',
     },
     authorName: {
-      en: 'John Doe',
-      ar: 'جون دو',
+      en: 'Alsuhaibani, Ibrahim Saleh M ',
+      ar: 'ابراهيم بن صالح بن محمد السحيباني',
     },
   };
 }
