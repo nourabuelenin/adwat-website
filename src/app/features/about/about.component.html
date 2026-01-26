@@ -13,11 +13,11 @@
   </div>
 
   <app-container>
-    <div class="page-hero-content text-center mx-auto max-w-4xl">
-      <h1 class="text-4xl lg:text-5xl font-bold text-adwat-dark-green mb-6">
+    <div class="page-hero-content text-center">
+      <h1 class="text-4xl lg:text-5xl font-bold text-adwat-dark-green mb-4">
         {{ content.hero.title[currentLang()] }}
       </h1>
-      <p class="text-lg lg:text-xl text-adwat-dark-green/70 leading-relaxed">
+      <p class="text-lg text-adwat-dark-green/70 max-w-3xl mx-auto">
         {{ content.hero.subtitle[currentLang()] }}
       </p>
     </div>
@@ -133,7 +133,7 @@
 </app-section>
 
 <!-- Meet Our Team Section -->
-<app-section [variant]="'light'" [withGradients]="true" [gradientVariant]="'right'">
+<!-- <app-section [variant]="'light'" [withGradients]="true" [gradientVariant]="'right'">
   <app-container>
     <div class="text-center mb-16">
       <h2 class="text-3xl lg:text-4xl font-bold text-adwat-dark-green mb-4">
@@ -141,11 +141,9 @@
       </h2>
     </div>
 
-    <!-- Team Grid -->
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
       @for (member of content.team.members; track member.name.en) {
         <div class="text-center">
-          <!-- Avatar -->
           <div class="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200">
             <img
               [src]="member.avatar"
@@ -161,7 +159,6 @@
             {{ member.position[currentLang()] }}
           </p>
 
-          <!-- LinkedIn Icon -->
           <a
             [href]="member.linkedin"
             target="_blank"
@@ -174,4 +171,4 @@
       }
     </div>
   </app-container>
-</app-section>
+</app-section> -->
