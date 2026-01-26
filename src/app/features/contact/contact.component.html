@@ -40,69 +40,108 @@
       <!-- Right Column - Form -->
       <div class="contact-form-container">
         <h2 class="form-title">{{ content.form.title[currentLang()] }}</h2>
-        <form class="contact-form">
+
+        <!-- Success Message -->
+        @if (submitSuccess) {
+          <div class="alert alert-success">
+            {{ content.form.successMessage[currentLang()] }}
+          </div>
+        }
+
+        <!-- Error Message -->
+        @if (submitError) {
+          <div class="alert alert-error">
+            {{ content.form.errorMessage[currentLang()] }}
+          </div>
+        }
+
+        <form class="contact-form" (submit)="onSubmit($event)">
           <div class="form-group">
-            <label class="form-label"
-              >{{ content.form.fields.name.label[currentLang()]
-              }}<span class="required">*</span></label
-            >
+            <label class="form-label">
+              {{ content.form.fields.name.label[currentLang()] }}
+              <span class="required">*</span>
+            </label>
             <input
               type="text"
               class="form-input"
+              [(ngModel)]="formData.name"
+              name="name"
               [placeholder]="content.form.fields.name.placeholder[currentLang()]"
+              required
             />
           </div>
 
           <div class="form-group">
-            <label class="form-label"
-              >{{ content.form.fields.email.label[currentLang()]
-              }}<span class="required">*</span></label
-            >
+            <label class="form-label">
+              {{ content.form.fields.email.label[currentLang()] }}
+              <span class="required">*</span>
+            </label>
             <input
               type="email"
               class="form-input"
+              [(ngModel)]="formData.email"
+              name="email"
               [placeholder]="content.form.fields.email.placeholder[currentLang()]"
+              required
             />
           </div>
 
           <div class="form-group">
-            <label class="form-label"
-              >{{ content.form.fields.phone.label[currentLang()]
-              }}<span class="required">*</span></label
-            >
+            <label class="form-label">
+              {{ content.form.fields.phone.label[currentLang()] }}
+              <span class="required">*</span>
+            </label>
             <input
               type="tel"
               class="form-input"
+              [(ngModel)]="formData.phone"
+              name="phone"
               [placeholder]="content.form.fields.phone.placeholder[currentLang()]"
+              required
             />
           </div>
 
           <div class="form-group">
-            <label class="form-label"
-              >{{ content.form.fields.company.label[currentLang()]
-              }}<span class="required">*</span></label
-            >
+            <label class="form-label">
+              {{ content.form.fields.company.label[currentLang()] }}
+              <span class="required">*</span>
+            </label>
             <input
               type="text"
               class="form-input"
+              [(ngModel)]="formData.company"
+              name="company"
               [placeholder]="content.form.fields.company.placeholder[currentLang()]"
+              required
             />
           </div>
 
           <div class="form-group">
-            <label class="form-label"
-              >{{ content.form.fields.inquiry.label[currentLang()]
-              }}<span class="required">*</span></label
-            >
-            <input
-              type="text"
-              class="form-input"
+            <label class="form-label">
+              {{ content.form.fields.inquiry.label[currentLang()] }}
+              <span class="required">*</span>
+            </label>
+            <textarea
+              class="form-input form-textarea"
+              [(ngModel)]="formData.inquiry"
+              name="inquiry"
               [placeholder]="content.form.fields.inquiry.placeholder[currentLang()]"
-            />
+              rows="4"
+              required
+            ></textarea>
           </div>
 
-          <app-button [variant]="'primary'" [fullWidth]="true" type="submit">
-            {{ content.form.submit[currentLang()] }}
+          <app-button
+            [variant]="'primary'"
+            [fullWidth]="true"
+            type="submit"
+            [disabled]="isSubmitting"
+          >
+            {{
+              isSubmitting
+                ? content.form.submitting[currentLang()]
+                : content.form.submit[currentLang()]
+            }}
           </app-button>
         </form>
       </div>

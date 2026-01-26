@@ -29,8 +29,6 @@
   background: #ffffff;
   border-radius: 1rem;
   overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  will-change: transform, box-shadow;
 }
 
 @media (min-width: 640px) {
@@ -38,13 +36,6 @@
     flex-direction: row;
     align-items: stretch;
   }
-}
-
-.newsletter-card:hover {
-  transform: translateY(-6px) scale(1.01);
-  box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.08),
-    0 8px 16px rgba(0, 0, 0, 0.04);
 }
 
 /* Cover Image */
@@ -76,12 +67,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  will-change: transform;
+  transition: transform 0.4s ease;
 }
 
 .newsletter-card:hover .newsletter-cover img {
-  transform: scale(1.08);
+  transform: scale(1.05);
 }
 
 /* Newsletter Content */
@@ -114,11 +104,6 @@
   color: #1a2e35;
   line-height: 1.35;
   margin: 0 0 1rem 0;
-  transition: color 0.3s ease;
-}
-
-.newsletter-card:hover .newsletter-title {
-  color: var(--color-primary, #0d7377);
 }
 
 @media (min-width: 768px) {

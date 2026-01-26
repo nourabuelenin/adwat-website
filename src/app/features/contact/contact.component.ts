@@ -5,6 +5,7 @@ import { ContainerComponent } from '../../shared/components/container/container.
 import { SectionComponent } from '../../shared/components/section/section.component';
 import { ButtonComponent } from '../../shared/components/button/button.component';
 import { TranslationService } from '../../core/services/translation.service';
+import { EmailService, ContactFormData } from '../../services/email';
 
 @Component({
   selector: 'app-contact',
@@ -15,7 +16,23 @@ import { TranslationService } from '../../core/services/translation.service';
 })
 export class ContactComponent {
   private translationService = inject(TranslationService);
+  private emailService = inject(EmailService);
   currentLang = this.translationService.currentLang;
+
+  // Form state
+  isSubmitting = false;
+  submitSuccess = false;
+  submitError = false;
+  errorMessage = '';
+
+  // Form model
+  formData: ContactFormData = {
+    name: '',
+    email: '',
+    phone: '',
+    company: '',
+    inquiry: '',
+  };
 
   content = {
     title: {
@@ -77,6 +94,68 @@ export class ContactComponent {
         en: 'Send Inquiry',
         ar: 'إرسال الاستفسار',
       },
+      submitting: {
+        en: 'Sending...',
+        ar: 'جاري الإرسال...',
+      },
+      successMessage: {
+        en: 'Thank you! Your inquiry has been sent successfully. We will get back to you soon.',
+        ar: 'شكراً لك! تم إرسال استفسارك بنجاح. سنتواصل معك قريباً.',
+      },
+      errorMessage: {
+        en: 'Something went wrong. Please try again.',
+        ar: 'حدث خطأ. يرجى المحاولة مرة أخرى.',
+      },
     },
   };
+
+  async onSubmit(event: Event): Promise<void> {
+    event.preventDefault();
+
+    // Validate form
+    if (!this.isFormValid()) {
+      return;
+    }
+
+    this.isSubmitting = true;
+    this.submitSuccess = false;
+    this.submitError = false;
+
+    try {
+      const response = await this.emailService.sendContactForm(this.formData);
+
+      if (response.success) {
+        this.submitSuccess = true;
+        this.resetForm();
+      } else {
+        this.submitError = true;
+        this.errorMessage = response.message;
+      }
+    } catch (error) {
+      this.submitError = true;
+      this.errorMessage = this.content.form.errorMessage[this.currentLang()];
+    } finally {
+      this.isSubmitting = false;
+    }
+  }
+
+  private isFormValid(): boolean {
+    return !!(
+      this.formData.name.trim() &&
+      this.formData.email.trim() &&
+      this.formData.phone.trim() &&
+      this.formData.company.trim() &&
+      this.formData.inquiry.trim()
+    );
+  }
+
+  private resetForm(): void {
+    this.formData = {
+      name: '',
+      email: '',
+      phone: '',
+      company: '',
+      inquiry: '',
+    };
+  }
 }
