@@ -43,5 +43,4 @@ __screenshots__/
 Thumbs.db
 
 # Environment files (keep your API keys secret!)
-/src/environments/environment.ts
 /src/environments/environment.prod.ts
