@@ -5,12 +5,12 @@
 
     <!-- Dark CTA Banner -->
     <div class="z-50 cta-banner rounded-2xl overflow-hidden mx-auto w-full">
-      <div class="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-8 lg:p-12">
+      <div class="relative cta-gradient p-8 lg:p-12">
         <!-- Decorative dots pattern -->
         <div class="absolute inset-0 overflow-hidden">
           <div class="globe-pattern"></div>
         </div>
-        
+
         <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
           <!-- Left Content -->
           <div class="text-center lg:text-left">
@@ -20,13 +20,14 @@
             <p class="text-gray-400 mb-6">
               {{ content.ctaSubtitle[currentLang()] }}
             </p>
-            <a 
+            <a
               routerLink="/contact"
-              class="inline-flex items-center px-6 py-3 bg-white text-adwat-dark-green font-semibold rounded-lg hover:bg-gray-100 transition-all">
+              class="inline-flex items-center px-6 py-3 bg-white text-adwat-dark-green font-semibold rounded-lg hover:bg-gray-100 transition-all"
+            >
               {{ content.ctaButton[currentLang()] }}
             </a>
           </div>
-          
+
           <!-- Right Decorative Globe -->
           <div class="hidden lg:block w-48 h-48 lg:w-64 lg:h-64 relative globe-container">
             <div class="globe-decoration"></div>

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ContainerComponent } from '../../../shared/components/container/container.component';
@@ -11,4 +11,12 @@ import { TranslationService } from '../../../core/services/translation.service';
   templateUrl: './banner.componenet.html',
   styleUrl: './banner.componenet.css',
 })
-export class BannerComponenet {}
+export class BannerComponenet {
+  private translationService = inject(TranslationService);
+
+  // Computed property that returns the correct banner based on language
+  bannerImage = computed(() => {
+    const lang = this.translationService.currentLang();
+    return lang === 'ar' ? 'assets/images/banner-ar.png' : 'assets/images/banner-en.png';
+  });
+}

@@ -2,9 +2,14 @@
   display: block;
 }
 
+/* CTA Blue Gradient - matching banner */
+.cta-gradient {
+  background: linear-gradient(135deg, #0a1628 0%, #0d2847 35%, #1a4a73 65%, #0d3d5c 100%);
+}
+
 /* Newsletter card subtle shadow */
 .newsletter-card {
-  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
 }
 
 /* Globe pattern decoration */
@@ -14,7 +19,7 @@
   top: 0;
   bottom: 0;
   width: 60%;
-  background-image: radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.15) 1px, transparent 1px);
   background-size: 16px 16px;
   mask-image: radial-gradient(ellipse 80% 100% at 80% 50%, black 30%, transparent 70%);
   -webkit-mask-image: radial-gradient(ellipse 80% 100% at 80% 50%, black 30%, transparent 70%);
@@ -29,10 +34,10 @@
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  background: 
-    radial-gradient(circle at 30% 30%, rgba(16,185,129,0.3) 0%, transparent 50%),
-    radial-gradient(circle at 70% 60%, rgba(6,182,212,0.2) 0%, transparent 40%);
-  border: 1px solid rgba(255,255,255,0.1);
+  background:
+    radial-gradient(circle at 30% 30%, rgba(16, 185, 129, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(6, 182, 212, 0.2) 0%, transparent 40%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .globe-decoration::before {
@@ -40,7 +45,7 @@
   position: absolute;
   inset: 10%;
   border-radius: 50%;
-  border: 1px dashed rgba(255,255,255,0.2);
+  border: 1px dashed rgba(255, 255, 255, 0.2);
 }
 
 .globe-decoration::after {
@@ -48,6 +53,6 @@
   position: absolute;
   inset: 25%;
   border-radius: 50%;
-  background-image: radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
   background-size: 12px 12px;
 }
