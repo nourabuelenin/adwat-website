@@ -48,8 +48,8 @@ export class AboutOverviewComponent {
       ar: 'رئيس مجلس الإدارة لأدوات',
     },
     authorName: {
-      en: 'Alsuhaibani, Ibrahim Saleh M ',
-      ar: 'ابراهيم بن صالح بن محمد السحيباني',
+      en: 'Hamd Alluhaidan',
+      ar: 'حمد اللحيدان',
     },
   };
 }
