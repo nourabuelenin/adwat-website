@@ -7,6 +7,7 @@ import { TranslationService } from '../../core/services/translation.service';
 
 interface Newsletter {
   id: number;
+  slug: string;
   coverImage: string;
   dateLabel: { en: string; ar: string };
   title: { en: string; ar: string };
@@ -50,6 +51,7 @@ export class NewsComponent {
   newsletters: Newsletter[] = [
     {
       id: 1,
+      slug: 'adwats-magazine-2nd-edition-jan-2026',
       coverImage: 'assets/images/blogs/jan_blogs.png',
       dateLabel: { en: 'January Newsletter • 01 Jan 2026', ar: 'نشرة يناير • 01 يناير 2026' },
       title: { en: "Adwat's Magazine 2nd Edition", ar: 'مجلة أدوات الإصدار الثاني' },
@@ -65,6 +67,7 @@ export class NewsComponent {
     },
     {
       id: 2,
+      slug: 'adwats-magazine-1st-edition-dec-2025',
       coverImage: 'assets/images/blogs/jan_blogs.png',
       dateLabel: { en: 'January Newsletter • 01 Jan 2026', ar: 'نشرة يناير • 01 يناير 2026' },
       title: { en: "Adwat's Magazine 2nd Edition", ar: 'مجلة أدوات الإصدار الثاني' },
@@ -80,6 +83,7 @@ export class NewsComponent {
     },
     {
       id: 3,
+      slug: 'tech-trends-nov-2025',
       coverImage: 'assets/images/blogs/jan_blogs.png',
       dateLabel: { en: 'January Newsletter • 01 Jan 2025', ar: 'نشرة يناير • 01 يناير 2025' },
       title: { en: "Adwat's Magazine 2nd Edition", ar: 'مجلة أدوات الإصدار الثاني' },
@@ -94,6 +98,7 @@ export class NewsComponent {
     },
     {
       id: 4,
+      slug: 'cloud-insights-oct-2025',
       coverImage: 'assets/images/blogs/jan_blogs.png',
       dateLabel: { en: 'January Newsletter • 01 Jan 2025', ar: 'نشرة يناير • 01 يناير 2025' },
       title: { en: "Adwat's Magazine 2nd Edition", ar: 'مجلة أدوات الإصدار الثاني' },
@@ -108,6 +113,7 @@ export class NewsComponent {
     },
     {
       id: 5,
+      slug: 'ai-developments-sep-2025',
       coverImage: 'assets/images/blogs/jan_blogs.png',
       dateLabel: { en: 'January Newsletter • 01 Jan 2025', ar: 'نشرة يناير • 01 يناير 2025' },
       title: { en: "Adwat's Magazine 2nd Edition", ar: 'مجلة أدوات الإصدار الثاني' },
@@ -122,6 +128,7 @@ export class NewsComponent {
     },
     {
       id: 6,
+      slug: 'cybersecurity-report-aug-2025',
       coverImage: 'assets/images/blogs/jan_blogs.png',
       dateLabel: { en: 'January Newsletter • 01 Jan 2025', ar: 'نشرة يناير • 01 يناير 2025' },
       title: { en: "Adwat's Magazine 2nd Edition", ar: 'مجلة أدوات الإصدار الثاني' },
@@ -136,6 +143,7 @@ export class NewsComponent {
     },
     {
       id: 7,
+      slug: 'digital-transformation-jul-2025',
       coverImage: 'assets/images/blogs/jan_blogs.png',
       dateLabel: { en: 'January Newsletter • 01 Jan 2025', ar: 'نشرة يناير • 01 يناير 2025' },
       title: { en: "Adwat's Magazine 2nd Edition", ar: 'مجلة أدوات الإصدار الثاني' },
@@ -150,6 +158,7 @@ export class NewsComponent {
     },
     {
       id: 8,
+      slug: 'enterprise-solutions-jun-2025',
       coverImage: 'assets/images/blogs/jan_blogs.png',
       dateLabel: { en: 'January Newsletter • 01 Jan 2025', ar: 'نشرة يناير • 01 يناير 2025' },
       title: { en: "Adwat's Magazine 2nd Edition", ar: 'مجلة أدوات الإصدار الثاني' },
@@ -164,6 +173,7 @@ export class NewsComponent {
     },
     {
       id: 9,
+      slug: 'innovation-insights-may-2025',
       coverImage: 'assets/images/blogs/jan_blogs.png',
       dateLabel: { en: 'January Newsletter • 01 Jan 2025', ar: 'نشرة يناير • 01 يناير 2025' },
       title: { en: "Adwat's Magazine 2nd Edition", ar: 'مجلة أدوات الإصدار الثاني' },
@@ -178,6 +188,7 @@ export class NewsComponent {
     },
     {
       id: 10,
+      slug: 'tech-spotlight-apr-2025',
       coverImage: 'assets/images/blogs/jan_blogs.png',
       dateLabel: { en: 'January Newsletter • 01 Jan 2025', ar: 'نشرة يناير • 01 يناير 2025' },
       title: { en: "Adwat's Magazine 2nd Edition", ar: 'مجلة أدوات الإصدار الثاني' },
@@ -192,6 +203,7 @@ export class NewsComponent {
     },
     {
       id: 11,
+      slug: 'industry-update-mar-2025',
       coverImage: 'assets/images/blogs/jan_blogs.png',
       dateLabel: { en: 'January Newsletter • 01 Jan 2025', ar: 'نشرة يناير • 01 يناير 2025' },
       title: { en: "Adwat's Magazine 2nd Edition", ar: 'مجلة أدوات الإصدار الثاني' },

@@ -6,7 +6,7 @@ import { AboutOverviewComponent } from './about-overview/about-overview.componen
 import { ServicesOverviewComponent } from './services-overview/services-overview.component';
 import { ProjectsShowcaseComponent } from './projects-showcase/projects-showcase.component';
 import { WhyChooseUsComponent } from './why-choose-us/why-choose-us.component';
-import { TestimonialsComponent } from './testimonials/testimonials.component';
+
 import { NewsletterComponent } from './newsletter/newsletter.component';
 import { FaqComponent } from './faq/faq.component';
 import { FinalCtaComponent } from './final-cta/final-cta.component';
@@ -22,7 +22,7 @@ import { FinalCtaComponent } from './final-cta/final-cta.component';
     ServicesOverviewComponent,
     ProjectsShowcaseComponent,
     WhyChooseUsComponent,
-    TestimonialsComponent,
+
     NewsletterComponent,
     FaqComponent,
     FinalCtaComponent,

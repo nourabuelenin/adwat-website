@@ -42,21 +42,23 @@
 
     <div class="featured-grid">
       @for (newsletter of featuredNewsletters; track newsletter.id) {
-        <article class="newsletter-card featured">
-          <div class="newsletter-cover">
-            <img [src]="newsletter.coverImage" [alt]="newsletter.title[currentLang()]" />
-          </div>
-          <div class="newsletter-content">
-            <span class="newsletter-date">{{ newsletter.dateLabel[currentLang()] }}</span>
-            <h3 class="newsletter-title">{{ newsletter.title[currentLang()] }}</h3>
-            <p class="newsletter-description">{{ newsletter.description[currentLang()] }}</p>
-            <div class="newsletter-tags">
-              @for (tag of newsletter.tags; track tag.en) {
-                <span class="newsletter-tag">{{ tag[currentLang()] }}</span>
-              }
+        <a [routerLink]="['/news', newsletter.slug]" class="newsletter-link">
+          <article class="newsletter-card featured">
+            <div class="newsletter-cover">
+              <img [src]="newsletter.coverImage" [alt]="newsletter.title[currentLang()]" />
             </div>
-          </div>
-        </article>
+            <div class="newsletter-content">
+              <span class="newsletter-date">{{ newsletter.dateLabel[currentLang()] }}</span>
+              <h3 class="newsletter-title">{{ newsletter.title[currentLang()] }}</h3>
+              <p class="newsletter-description">{{ newsletter.description[currentLang()] }}</p>
+              <div class="newsletter-tags">
+                @for (tag of newsletter.tags; track tag.en) {
+                  <span class="newsletter-tag">{{ tag[currentLang()] }}</span>
+                }
+              </div>
+            </div>
+          </article>
+        </a>
       }
     </div>
   </app-container>
@@ -71,21 +73,23 @@
 
     <div class="all-newsletters-grid">
       @for (newsletter of paginatedNewsletters(); track newsletter.id) {
-        <article class="newsletter-card compact">
-          <div class="newsletter-cover">
-            <img [src]="newsletter.coverImage" [alt]="newsletter.title[currentLang()]" />
-          </div>
-          <div class="newsletter-content">
-            <span class="newsletter-date">{{ newsletter.dateLabel[currentLang()] }}</span>
-            <h3 class="newsletter-title">{{ newsletter.title[currentLang()] }}</h3>
-            <p class="newsletter-description">{{ newsletter.description[currentLang()] }}</p>
-            <div class="newsletter-tags">
-              @for (tag of newsletter.tags; track tag.en) {
-                <span class="newsletter-tag">{{ tag[currentLang()] }}</span>
-              }
+        <a [routerLink]="['/news', newsletter.slug]" class="newsletter-link">
+          <article class="newsletter-card compact">
+            <div class="newsletter-cover">
+              <img [src]="newsletter.coverImage" [alt]="newsletter.title[currentLang()]" />
             </div>
-          </div>
-        </article>
+            <div class="newsletter-content">
+              <span class="newsletter-date">{{ newsletter.dateLabel[currentLang()] }}</span>
+              <h3 class="newsletter-title">{{ newsletter.title[currentLang()] }}</h3>
+              <p class="newsletter-description">{{ newsletter.description[currentLang()] }}</p>
+              <div class="newsletter-tags">
+                @for (tag of newsletter.tags; track tag.en) {
+                  <span class="newsletter-tag">{{ tag[currentLang()] }}</span>
+                }
+              </div>
+            </div>
+          </article>
+        </a>
       }
     </div>
 

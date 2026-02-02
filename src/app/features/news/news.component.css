@@ -164,6 +164,13 @@
   }
 }
 
+/* Newsletter Link */
+.newsletter-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
 /* Newsletter Card */
 .newsletter-card {
   display: flex;

@@ -1,0 +1,121 @@
+@if (newsletter(); as news) {
+  <!-- Hero Section -->
+  <section class="page-hero">
+    <!-- Animated Gradient Background -->
+    <div class="hero-bg-gradients">
+      <div class="gradient-orb gradient-orb-1"></div>
+      <div class="gradient-orb gradient-orb-2"></div>
+      <div class="gradient-orb gradient-orb-3"></div>
+    </div>
+
+    <!-- Animated Grid Pattern -->
+    <div class="hero-grid-pattern">
+      <div class="grid-pattern"></div>
+    </div>
+
+    <app-container>
+      <div class="page-hero-content text-center">
+        <p class="text-sm text-adwat-dark-green/60 mb-2">
+          {{ news.dateLabel[currentLang()] }}
+        </p>
+        <h1 class="text-3xl lg:text-4xl font-bold text-adwat-dark-green mb-4">
+          {{ news.title[currentLang()] }}
+        </h1>
+        <p class="text-lg text-adwat-dark-green/70 max-w-3xl mx-auto">
+          {{ news.description[currentLang()] }}
+        </p>
+      </div>
+    </app-container>
+  </section>
+
+  <!-- Main Content -->
+  <app-section [variant]="'light'" [withGradients]="false">
+    <app-container>
+      <!-- Section Header -->
+      <div class="section-intro">
+        <h2 class="intro-title">{{ news.sectionTitle[currentLang()] }}</h2>
+        <p class="intro-description">{{ news.sectionDescription[currentLang()] }}</p>
+      </div>
+
+      <!-- Partners Banner -->
+      @if (news.partners && news.partners.length > 0) {
+        <div class="partners-banner">
+          @for (partner of news.partners; track partner) {
+            <img [src]="partner" alt="Partner" class="partner-logo" />
+          }
+        </div>
+      }
+
+      <!-- Articles -->
+      <div class="articles-list">
+        @for (article of news.articles; track article.id) {
+          <article class="article-card">
+            <h3 class="article-title">{{ article.title[currentLang()] }}</h3>
+            <div class="article-image">
+              <img [src]="article.image" [alt]="article.title[currentLang()]" />
+            </div>
+            <span class="image-credit">{{ article.imageCredit[currentLang()] }}</span>
+            <ul class="article-bullets">
+              @for (point of article.bulletPoints[currentLang()]; track point) {
+                <li class="bullet-point">{{ point }}</li>
+              }
+            </ul>
+          </article>
+        }
+      </div>
+    </app-container>
+  </app-section>
+
+  <!-- View Other Newsletters -->
+  <app-section [variant]="'light'" [withGradients]="true" [gradientVariant]="'left'">
+    <app-container>
+      <div class="other-newsletters">
+        <h2 class="other-title">{{ content.viewOtherTitle[currentLang()] }}</h2>
+
+        <div class="newsletters-carousel">
+          <button
+            class="carousel-btn prev"
+            (click)="previousSlide()"
+            [disabled]="currentSlide() === 0"
+          >
+            <span>‹</span>
+          </button>
+
+          <div class="carousel-track-wrapper">
+            <div
+              class="carousel-track"
+              [style.transform]="'translateX(' + -currentSlide() * 33.33 + '%)'"
+            >
+              @for (item of otherNewsletters; track item.id) {
+                <div class="carousel-item" (click)="navigateToNewsletter(item.slug)">
+                  <div class="carousel-card">
+                    <div class="carousel-cover">
+                      <img [src]="item.coverImage" [alt]="item.title[currentLang()]" />
+                    </div>
+                    <div class="carousel-content">
+                      <span class="carousel-date">{{ item.dateLabel[currentLang()] }}</span>
+                      <h4 class="carousel-title">{{ item.title[currentLang()] }}</h4>
+                      <div class="carousel-tags">
+                        @for (tag of item.tags; track tag.en) {
+                          <span class="carousel-tag">{{ tag[currentLang()] }}</span>
+                        }
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+
+          <button
+            class="carousel-btn next"
+            (click)="nextSlide()"
+            [disabled]="currentSlide() >= otherNewsletters.length - 3"
+          >
+            <span>›</span>
+          </button>
+        </div>
+      </div>
+    </app-container>
+  </app-section>
+}

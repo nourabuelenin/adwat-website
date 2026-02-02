@@ -50,6 +50,12 @@ export const routes: Routes = [
     title: 'News - Adwat Information Technology',
   },
   {
+    path: 'news/:slug',
+    loadComponent: () =>
+      import('./features/news-detail/news-detail.component').then((m) => m.NewsDetailComponent),
+    title: 'Newsletter - Adwat Information Technology',
+  },
+  {
     path: 'contact',
     loadComponent: () =>
       import('./features/contact/contact.component').then((m) => m.ContactComponent),
