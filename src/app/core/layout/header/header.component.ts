@@ -16,13 +16,13 @@ interface NavItem {
   standalone: true,
   imports: [CommonModule, RouterModule, ButtonComponent, FontAwesomeModule],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
   private translationService = inject(TranslationService);
   isScrolled = false;
   isMobileMenuOpen = false;
-  
+
   faGlobe = faGlobe;
   // Use signals from service
   currentLang = this.translationService.currentLang;
@@ -31,8 +31,9 @@ export class HeaderComponent implements OnInit {
     { label: { en: 'Home', ar: 'الرئيسية' }, route: '/' },
     { label: { en: 'Services', ar: 'خدماتنا' }, route: '/services' },
     { label: { en: 'Projects', ar: 'مشاريعنا' }, route: '/projects' },
+    { label: { en: 'News', ar: 'الأخبار' }, route: '/news' },
     { label: { en: 'About', ar: 'من نحن' }, route: '/about' },
-    { label: { en: 'FAQ', ar: 'الأسئلة الشائعة' }, route: '/faq' }
+    { label: { en: 'FAQ', ar: 'الأسئلة الشائعة' }, route: '/faq' },
   ];
 
   ngOnInit(): void {
