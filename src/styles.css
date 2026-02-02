@@ -17,7 +17,6 @@
 
   html {
     @apply scroll-smooth;
-    scroll-snap-type: y mandatory;
   }
 
   body {
