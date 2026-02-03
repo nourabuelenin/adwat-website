@@ -41,7 +41,7 @@ export class AboutComponent {
           en: 'Adwat is a company specialized in building digital solutions for organizations seeking technical transformation, going beyond mere system development to improving work methods and supporting decision-making. We work collaboratively with our clients to deliver strategic, scalable Digital Systems, Data Infrastructure, Software, Business Intelligence, and Machine Learning solutions.',
           ar: 'أدوات شركة متخصصة في بناء الحلول الرقمية للمؤسسات التي تسعى إلى تحوّل تقني، يتجاوز مجرد تطوير الأنظمة إلى تحسين طريقة العمل ودعم اتخاذ القرار. نعمل بشكل تعاوني مع عملائنا لتقديم أنظمة رقمية استراتيجية وقابلة للتطوير وبنية تحتية للبيانات والبرمجيات وذكاء الأعمال وحلول التعلم الآلي.',
         },
-        image: '/assets/images/about/digital-transformation.jpg',
+        image: '/assets/images/about/digital_transformation.png',
       },
       {
         title: {
@@ -52,7 +52,7 @@ export class AboutComponent {
           en: 'We work with our clients as a strategic partner, starting by understanding operational challenges and workflows, then designing and implementing reliable, scalable Digital Systems that support institutional performance and keep pace with business growth. Our work focuses on delivering Cloud-Native Solutions, APIs, and supporting Digital Software, Data Products, Business Intelligence, and Machine Learning.',
           ar: 'نعمل مع عملائنا كشريك استراتيجي، نبدأ بفهم التحديات التشغيلية وسير العمليات، ثم نُصمم وننفذ أنظمة رقمية موثوقة وقابلة للتوسع، تدعم الأداء المؤسسي وتواكب نمو الأعمال. يركز عملنا على تقديم حلول سحابية أصلية وواجهات برمجة التطبيقات ودعم البرمجيات الرقمية ومنتجات البيانات وذكاء الأعمال والتعلم الآلي.',
         },
-        image: '/assets/images/about/sustainable-growth.jpg',
+        image: '/assets/images/about/sustainable_growth.png',
       },
       {
         title: {
@@ -63,7 +63,7 @@ export class AboutComponent {
           en: 'Our work focuses on delivering practical solutions built on a realistic understanding of organizational needs, measured by the impact they achieve on performance, decisions, and outcomes. We specialize in integrating systems with third party APIs, advanced Data Infrastructure, Data Products, Scalable Digital Systems using AI and Machine Learning, and Business Intelligence solutions.',
           ar: 'يركز عملنا على تقديم حلول عملية تُبنى على فهم واقعي لاحتياجات المؤسسات، وتقاس قيمتها بالأثر الذي تحققه على الأداء والقرارات والنتائج. نتخصص في دمج الأنظمة مع واجهات برمجة التطبيقات من طرف ثالث، والبنية التحتية المتقدمة للبيانات، ومنتجات البيانات، والأنظمة الرقمية القابلة للتطوير باستخدام الذكاء الاصطناعي والتعلم الآلي، وحلول ذكاء الأعمال.',
         },
-        image: '/assets/images/about/business-needs.jpg',
+        image: '/assets/images/about/business_needs.png',
       },
     ],
     whyChoose: {
