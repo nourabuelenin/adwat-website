@@ -2,13 +2,10 @@
   display: block;
 }
 
-.slider-wrapper {
-  margin: 0;
-}
-
-.cta-wrapper {
-  text-align: center;
-  margin-top: 3rem;
+.projects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
 }
 
 .cta-link {

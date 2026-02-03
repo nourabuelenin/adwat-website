@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { ProjectsSliderComponent } from './projects-slider/projects-slider.component';
+import { ProjectCardComponent } from './project-card/project-card.component';
 import { SectionComponent } from '../../../shared/components/section/section.component';
 import { ContainerComponent } from '../../../shared/components/container/container.component';
 import { PROJECTS_DATA } from '../../../core/data/projects.data';
@@ -13,7 +13,7 @@ import { ButtonComponent } from '../../../shared/components/button/button.compon
   standalone: true,
   imports: [
     RouterModule,
-    ProjectsSliderComponent,
+    ProjectCardComponent,
     SectionComponent,
     ContainerComponent,
     ButtonComponent,

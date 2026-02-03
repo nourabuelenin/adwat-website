@@ -13,9 +13,5 @@ export class ProjectCardComponent {
   @Input() project!: Project;
   @Input() currentLang: 'en' | 'ar' = 'en';
   @Input() active = false;
-
-  caseStudyText = {
-    en: 'Related case study',
-    ar: 'دراسة الحالة ذات الصلة',
-  };
+  @Input() reversed = false;
 }
