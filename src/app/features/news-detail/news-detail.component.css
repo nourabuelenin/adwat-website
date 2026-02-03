@@ -181,7 +181,7 @@
 .article-title {
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--color-primary, #0d7377);
+  color: var(--color-primary, #000000);
   margin: 0 0 1.25rem 0;
   line-height: 1.4;
   text-align: center;
@@ -232,35 +232,34 @@
   gap: 0.75rem;
 }
 
+/* Default LTR styling */
 .bullet-point {
   position: relative;
-  padding-right: 1.5rem;
+  padding-left: 1.5rem;
   font-size: 0.95rem;
   color: #334155;
   line-height: 1.7;
-  text-align: right;
+  text-align: left;
 }
 
 .bullet-point::before {
   content: '-';
   position: absolute;
-  right: 0;
+  left: 0;
   color: #64748b;
   font-weight: 500;
 }
 
-/* LTR Support for bullet points */
-:host-context([dir='ltr']) .bullet-point,
-:host:not([dir='rtl']) .bullet-point {
-  padding-right: 0;
-  padding-left: 1.5rem;
-  text-align: left;
+/* RTL Support for bullet points */
+:host-context([dir='rtl']) .bullet-point {
+  padding-left: 0;
+  padding-right: 1.5rem;
+  text-align: right;
 }
 
-:host-context([dir='ltr']) .bullet-point::before,
-:host:not([dir='rtl']) .bullet-point::before {
-  right: auto;
-  left: 0;
+:host-context([dir='rtl']) .bullet-point::before {
+  left: auto;
+  right: 0;
 }
 
 @media (min-width: 768px) {
