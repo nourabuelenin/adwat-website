@@ -123,7 +123,7 @@
   transform: translateY(-4px);
 }
 
-/* Tablet */
+/* Tablet and Mobile - Consistent layout for all cards */
 @media (max-width: 1024px) {
   .project-card {
     grid-template-columns: 1fr;
@@ -131,14 +131,26 @@
     padding: 2rem 0;
   }
 
-  .project-card.reversed .card-mockup,
-  .project-card .card-mockup {
-    order: 1;
+  /* Force consistent order on mobile: image first, content second */
+  .project-card .card-mockup,
+  .project-card.reversed .card-mockup {
+    order: 1 !important;
   }
 
-  .project-card.reversed .card-content,
-  .project-card .card-content {
-    order: 2;
+  .project-card .card-content,
+  .project-card.reversed .card-content {
+    order: 2 !important;
+  }
+
+  /* RTL mobile: same consistent order */
+  :host-context([dir='rtl']) .project-card .card-mockup,
+  :host-context([dir='rtl']) .project-card.reversed .card-mockup {
+    order: 1 !important;
+  }
+
+  :host-context([dir='rtl']) .project-card .card-content,
+  :host-context([dir='rtl']) .project-card.reversed .card-content {
+    order: 2 !important;
   }
 
   .project-title {
