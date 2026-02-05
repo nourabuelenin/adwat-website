@@ -1,25 +1,69 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Adwat Information Technology - Leading Saudi Software Development Company</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Adwat IT is a leading Saudi software development company established in 2000. Enterprise-grade solutions for government and private sectors aligned with Vision 2030.">
-  <meta name="keywords" content="Saudi software development, enterprise solutions, digital transformation, Vision 2030, government software, IT consulting">
-  <link rel="icon" type="image/png" href="/assets/images/logo/adwat-logo.png">
-  
-  <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="Adwat Information Technology - Leading Saudi Software Development Company">
-  <meta property="og:description" content="Enterprise-grade software solutions empowering government and business transformation since 2000.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="/assets/images/og-image.jpg">
-  
-  <!-- Preconnect for Performance -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-</head>
-<body>
-  <app-root></app-root>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Adwat Information Technology - Leading Saudi Software Development Company</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Adwat IT is a leading Saudi software development company established in 2000. Enterprise-grade solutions for government and private sectors aligned with Vision 2030."
+    />
+    <meta
+      name="keywords"
+      content="Saudi software development, enterprise solutions, digital transformation, Vision 2030, government software, IT consulting"
+    />
+    <link rel="icon" type="image/png" href="/assets/images/logo/adwat-logo.png" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta
+      property="og:title"
+      content="Adwat Information Technology - Leading Saudi Software Development Company"
+    />
+    <meta
+      property="og:description"
+      content="Enterprise-grade software solutions empowering government and business transformation since 2000."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/assets/images/og-image.jpg" />
+
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Preload critical fonts for better LCP -->
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+      media="print"
+      onload="this.media = 'all'"
+    />
+    <!-- Arabic font - load async to not block initial render -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;600;700&display=swap"
+      media="print"
+      onload="this.media = 'all'"
+    />
+
+    <!-- Preload hero dashboard image for faster LCP (optimized WebP) -->
+    <link
+      rel="preload"
+      as="image"
+      href="/assets/images/hero-dashboard.webp"
+      type="image/webp"
+      fetchpriority="high"
+    />
+
+    <!-- Preload logo -->
+    <link rel="preload" as="image" href="/assets/images/logo/adwat-logo.png" />
+  </head>
+  <body>
+    <app-root></app-root>
+  </body>
 </html>

@@ -1,8 +1,5 @@
-/* Google Fonts - Montserrat (English) */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
-
-/* Arabic Font - GE SS Two (fallback to Noto Sans Arabic temporarily) */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&display=swap');
+/* Fonts are preloaded in index.html for better performance */
+/* Using font-display: swap is handled in the preloaded stylesheet */
 
 /* Tailwind CSS Directives */
 @tailwind base;

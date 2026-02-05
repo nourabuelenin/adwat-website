@@ -9,7 +9,7 @@ import { TranslationService } from '../../../core/services/translation.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './partners-banner.component.html',
-  styleUrls: ['./partners-banner.component.css']
+  styleUrls: ['./partners-banner.component.css'],
 })
 export class PartnersBannerComponent implements AfterViewInit, OnDestroy {
   private translationService = inject(TranslationService);
@@ -31,8 +31,8 @@ export class PartnersBannerComponent implements AfterViewInit, OnDestroy {
   content = {
     trustedBy: {
       en: 'Trusted by leading organizations',
-      ar: 'موثوق به من قبل المؤسسات الرائدة'
-    }
+      ar: 'موثوق به من قبل المؤسسات الرائدة',
+    },
   };
 
   ngAfterViewInit() {
@@ -61,8 +61,8 @@ export class PartnersBannerComponent implements AfterViewInit, OnDestroy {
     track.addEventListener('touchend', this.onTouchEnd.bind(this));
 
     // Hover events
-    track.addEventListener('mouseenter', () => this.isHovering = true);
-    track.addEventListener('mouseleave', () => this.isHovering = false);
+    track.addEventListener('mouseenter', () => (this.isHovering = true));
+    track.addEventListener('mouseleave', () => (this.isHovering = false));
   }
 
   private onMouseDown(e: MouseEvent) {
@@ -106,29 +106,35 @@ export class PartnersBannerComponent implements AfterViewInit, OnDestroy {
   }
 
   private startAutoScroll() {
-    const scroll = () => {
-      if (!this.isDragging && !this.isHovering) {
-        const track = this.scrollTrack.nativeElement;
-        track.scrollLeft += this.autoScrollSpeed;
-
-        // Reset to start when reaching the middle (seamless loop)
-        const maxScroll = track.scrollWidth / 3;
-        if (track.scrollLeft >= maxScroll * 2) {
-          track.scrollLeft = maxScroll;
-        }
-        if (track.scrollLeft <= 0) {
-          track.scrollLeft = maxScroll;
-        }
-      }
-      this.animationId = requestAnimationFrame(scroll);
-    };
-
-    this.animationId = requestAnimationFrame(scroll);
-
-    // Initialize scroll position to middle set
+    // Delay auto-scroll start to reduce initial load strain
     setTimeout(() => {
+      // Initialize scroll position to middle set first
       const track = this.scrollTrack.nativeElement;
       track.scrollLeft = track.scrollWidth / 3;
-    }, 100);
+
+      // Start the animation loop
+      let lastTime = performance.now();
+      const scroll = (currentTime: number) => {
+        // Throttle updates to ~30fps for performance
+        if (currentTime - lastTime >= 33) {
+          if (!this.isDragging && !this.isHovering) {
+            track.scrollLeft += this.autoScrollSpeed;
+
+            // Reset to start when reaching the middle (seamless loop)
+            const maxScroll = track.scrollWidth / 3;
+            if (track.scrollLeft >= maxScroll * 2) {
+              track.scrollLeft = maxScroll;
+            }
+            if (track.scrollLeft <= 0) {
+              track.scrollLeft = maxScroll;
+            }
+          }
+          lastTime = currentTime;
+        }
+        this.animationId = requestAnimationFrame(scroll);
+      };
+
+      this.animationId = requestAnimationFrame(scroll);
+    }, 500); // Wait 500ms before starting auto-scroll
   }
 }

@@ -1,52 +1,63 @@
 /* Hero-specific animations and styles */
 
-/* Animated Gradient Orbs */
+/* Animated Gradient Orbs - Performance Optimized */
 .gradient-orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.5;
-  animation: float 8s ease-in-out infinite;
+  /* Reduced blur for better performance */
+  filter: blur(40px);
+  opacity: 0.4;
+  /* GPU acceleration */
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  /* Delay animation start to reduce initial load strain */
+  animation: float 12s ease-in-out infinite;
+  animation-play-state: paused;
+}
+
+/* Start animations after page load */
+.hero-section.loaded .gradient-orb {
+  animation-play-state: running;
 }
 
 .gradient-orb-1 {
-  width: 500px;
-  height: 500px;
-  background: rgba(122, 184, 122, 0.4);
+  width: 400px;
+  height: 400px;
+  background: rgba(122, 184, 122, 0.35);
   top: -10%;
   left: -10%;
-  animation-delay: 0s;
+  animation-delay: 0.5s;
 }
 
 .gradient-orb-2 {
-  width: 400px;
-  height: 400px;
-  background: rgba(74, 174, 255, 0.35);
+  width: 350px;
+  height: 350px;
+  background: rgba(74, 174, 255, 0.3);
   bottom: -10%;
   right: -5%;
-  animation-delay: 2s;
+  animation-delay: 1s;
 }
 
 .gradient-orb-3 {
-  width: 450px;
-  height: 450px;
-  background: rgba(199, 126, 179, 0.35);
+  width: 380px;
+  height: 380px;
+  background: rgba(199, 126, 179, 0.3);
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  animation-delay: 4s;
+  transform: translate3d(-50%, -50%, 0);
+  animation-delay: 1.5s;
 }
 
 @keyframes float {
   0%,
   100% {
-    transform: translate(0, 0) scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
   }
   33% {
-    transform: translate(30px, -30px) scale(1.1);
+    transform: translate3d(20px, -20px, 0) scale(1.05);
   }
   66% {
-    transform: translate(-20px, 20px) scale(0.9);
+    transform: translate3d(-15px, 15px, 0) scale(0.95);
   }
 }
 
@@ -94,27 +105,36 @@
 .dashboard-container {
   transform: none;
   transform-origin: center center;
-  max-width: 1000px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
-/* Grid Pattern */
+/* Grid Pattern - Performance Optimized */
 .grid-pattern {
   width: 100%;
   height: 100%;
   background-image:
-    linear-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+    linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
   background-size: 60px 60px;
-  animation: gridMove 20s linear infinite;
+  /* Static grid - animation removed for performance */
+  /* Animation was causing continuous repaints */
+  will-change: auto;
+}
+
+/* Only animate grid on loaded state if desired */
+.hero-section.loaded .grid-pattern {
+  animation: gridMove 30s linear infinite;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
 }
 
 @keyframes gridMove {
   0% {
-    transform: translate(0, 0);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translate(50px, 50px);
+    transform: translate3d(50px, 50px, 0);
   }
 }
 
