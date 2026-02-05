@@ -4,12 +4,12 @@ export const PROJECTS_DATA: Project[] = [
   {
     id: 'traffic-monitoring',
     title: {
-      en: 'Location Monitoring System',
-      ar: 'نظام تحديد مواقع',
+      en: 'Traffic Monitoring System',
+      ar: 'نظام ذكي لمراقبة حوادث المرور',
     },
     description: {
-      en: 'An intelligent solution for monitoring and analyzing locations using data and AI to support real-time traffic safety decisions. Helps authorities predict high-risk areas and proactive intervention to reduce accidents.',
-      ar: 'حل ذكي لمراقبة وتحليل حوادث الطرق يعتمد على البيانات والذكاء الاصطناعي لدعم قرارات السلامة المرورية في الوقت الفعلي. يساعد الجهات المعنية على التنبؤ بالمناطق عالية الخطورة والتدخل الاستباقي للحد من الحوادث.',
+      en: 'A Smart And Integrated System Developed In Collaboration With Riyadh Municipality To Improve Road Safety And Reduce Accident Rates Through Predictive Analytics And Real-Time Monitoring.',
+      ar: 'وظّفنا الذكاء الاصطناعي وتحليلات البيانات الضخمة مع المراقبة في الوقت الفعلي لتطوير نظام يتنبأ بنقاط التكدس المروري ويساعد في الحد من الحوادث قبل وقوعها.يشمل النظام لوحة تحكم مركزية لتنسيق الاستجابة بسرعة وكفاءة، مع تكامل كامل مع الأنظمة القائمة.وقد كانت النتيجة انخفاض ملموس في معدلات الحوادث، وتحسّن أوقات الاستجابة للطوارئ، ودعم مستمر لقرارات السلامة المرورية المبنية على البيانات.',
     },
     industry: {
       en: 'RSD',
@@ -81,12 +81,12 @@ export const PROJECTS_DATA: Project[] = [
   {
     id: 'advanced-monitoring',
     title: {
-      en: 'Advanced Monitoring System',
-      ar: 'نظام المراقبة المتقدم',
+      en: 'Advanced Health Monitoring System',
+      ar: 'نظام المراقبة الصحية المتقدم',
     },
     description: {
       en: 'A centralized platform for real-time performance monitoring. Supports rapid decision-making and improves response efficiency and resource management.',
-      ar: 'منصة مركزية لمراقبة الأداء في الوقت الفعلي. تدعم اتخاذ القرار السريع وتحسين كفاءة الاستجابة وإدارة الموارد.',
+      ar: 'طوّرنا منصة تتيح مراقبة أكثر من 25 مستشفى في الوقت الفعلي عبر لوحة تحكم شاملة تضمن جودة الرعاية وكفاءة توزيع الموارد. حيث توفر المنصة إشرافًا موحدًا على العمليات، وتنبيهات فورية للطوارئ وأدوات تحليلية لقياس جودة الخدمات وتحسين النتائج الصحية.وقد كانت النتيجة ارتفاع واضح في كفاءة تقديم الرعاية، وتحسين إدارة الموارد، وتعزيز الجاهزية للتعامل مع الحالات الطارئة.',
     },
     industry: {
       en: 'Riyadh Municipality',
@@ -158,12 +158,12 @@ export const PROJECTS_DATA: Project[] = [
   {
     id: 'construction-management',
     title: {
-      en: 'Project Management Platform',
-      ar: 'منصة إدارة مشاريع ',
+      en: 'Smart Construction Management Platform',
+      ar: 'إدارة مشاريع البناء الذكية',
     },
     description: {
       en: 'A unified digital platform for managing projects, bringing all stakeholders together in one environment with clear workflows and real-time performance analytics. Helps control coordination, improve resource utilization, and reduce delays and costs throughout the project lifecycle.',
-      ar: 'منصة رقمية موحدة لإدارة المشاريع, تجمع جميع أطراف المشروع في بيئة واحدة بسير عمل واضح وتحليلات أداء لحظية. تساعد على ضبط التنسيق، تحسين استخدام الموارد، وتقليل التأخير والتكاليف عبر دورة المشروع كاملة.',
+      ar: 'طوّرنا منصة موحدة تعتمد على أتمتة سير العمل وتحليلات الأداء المتقدمة، وتربط جميع أصحاب المصلحة لحظيًا؛ من شركات هندسية ومقاولين إلى موردين وملاك مشاريع.حيث تُبسّط المنصة سُبل التواصل، وتحسّن تخصيص الموارد، وتدعم اتخاذ القرار بناءً على بيانات دقيقة.وقد كانت النتيجة تسريع تسليم المشاريع، تقليل التكاليف والهدر، وتعزيز الشفافية والمساءلة في جميع مراحل البناء.',
     },
     industry: {
       en: 'Czone',
@@ -311,12 +311,12 @@ export const PROJECTS_DATA: Project[] = [
   {
     id: 'go-care-beauty',
     title: {
-      en: 'Booking System',
-      ar: 'نظام حجوزات',
+      en: 'Go Care Beauty',
+      ar: 'منصة شاملة لمراكز التجميل',
     },
     description: {
       en: 'A smart platform connecting customers with beauty salons and clinics through instant booking, location-based search, and a trusted rating system. Simplifies appointment management for service providers and delivers a seamless, transparent booking experience for customers.',
-      ar: 'منصة ذكية تربط العملاء بصالونات وعيادات التجميل عبر حجز فوري، بحث حسب الموقع، ونظام تقييم موثوق. تسهل إدارة المواعيد لمقدمي الخدمات وتقدم تجربة حجز سلسة وشفافة للعملاء.',
+      ar: 'أنشأنا منصة موحدة أنهت فوضى المواعيد اليدوية، وربطت آلاف العملاء بمراكز التجميل والصالونات لحظيًا.حيث تعتمد على محرك حجز جغرافي ذكي يمنع تعارض الجداول، ويحوّل عملية الحجز إلى تجربة رقمية لا تتجاوز 30 ثانية.مدعومة بلوحة تحكم لإدارة الموظفين والعملاء وتحليل الإيرادات.وقد كانت النتيجة تجربة أسهل للعملاء، وكفاءة تشغيلية عالية لأصحاب الأعمال، وزيادة في ولاء العملاء وجودة الخدمة.',
     },
     industry: {
       en: 'Go Care',
@@ -388,25 +388,25 @@ export const PROJECTS_DATA: Project[] = [
   {
     id: 'go-care-healthcare',
     title: {
-      en: 'Admin Management System',
-      ar: 'نظام إدارة',
+      en: 'Integrated e-commerce solutions',
+      ar: 'حلول تجارة إلكترونية متكاملة',
     },
     description: {
-      en: 'A centralized administrative system for managing the entire healthcare ecosystem, from service providers and patients to appointments and operational quality. Gives healthcare managers clear visibility and greater control over performance, compliance, and service improvement.',
-      ar: 'نظام إداري مركزي لإدارة منظومة الرعاية الصحية بالكامل، من مقدمي الخدمات والمرضى إلى المواعيد وجودة التشغيل. يمنح مديري الرعاية الصحية رؤية واضحة وتحكمًا أعلى في الأداء والامتثال وتحسين الخدمات.',
+      en: 'A unified platform for managing sales, inventory, and analytics in one place, boosting operational efficiency, accelerating sales growth, and enhancing customer loyalty. The platform relies on intelligent recommendation engines and a tailored user experience, supported by advanced security systems to protect data and prevent fraud, with a responsive interface across all devices. The result was faster decisions, highly efficient processes, and greater opportunities for successful digital stores.',
+      ar: 'جمعنا إدارة المبيعات والمخزون والتحليلات في منصة واحدة ترفع كفاءة التشغيل وتسرّع نمو المبيعات وتعزز ولاء العملاء.حيث تعتمد المنصة على محركات توصية ذكية وتجربة مستخدم مخصصة، مدعومة بأنظمة أمان متقدمة تحمي البيانات وتمنع الاحتيال، مع واجهة متجاوبة على جميع الأجهزة.وقد كانت النتيجة قرارات أسرع، وعمليات ذات كفاءة عالية، وفرص أعلى لنجاح المتاجر الرقمية.',
     },
     industry: {
       en: 'Healthcare Management',
       ar: 'إدارة الرعاية الصحية',
     },
     year: 2024,
-    tags: ['Healthcare', 'Management', 'Admin Portal'],
+    tags: ['E-commerce', 'Management', 'Admin Portal'],
     featured: true,
     image: 'assets/images/projects/admin-dashboard.png',
     details: {
       about: {
-        en: 'The admin platform provides healthcare administrators with powerful tools to manage the entire healthcare ecosystem efficiently.',
-        ar: 'توفر منصة الإدارة لمديري الرعاية الصحية أدوات قوية لإدارة النظام البيئي للرعاية الصحية بالكامل بكفاءة.',
+        en: 'The admin platform provides powerful tools to manage the entire e-commerce ecosystem efficiently.',
+        ar: 'توفر منصة الإدارة أدوات قوية لإدارة النظام البيئي للإلكترونيات بالكامل بكفاءة.',
       },
       challenge: {
         title: { en: 'The Challenge', ar: 'التحدي' },
