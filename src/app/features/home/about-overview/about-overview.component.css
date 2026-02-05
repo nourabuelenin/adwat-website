@@ -216,7 +216,7 @@
 .about-image {
   flex: 1;
   width: 100%;
-  aspect-ratio: 3 / 2; /* Mobile: fixed aspect ratio */
+  aspect-ratio: 1 / 1; /* Mobile: square aspect ratio */
   position: relative;
   border-radius: 1rem;
   overflow: hidden;
