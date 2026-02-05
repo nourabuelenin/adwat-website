@@ -6,10 +6,16 @@
   padding: 3rem 0;
 }
 
-.project-card.reversed {
-  direction: ltr;
+/* LTR (English): Default order - content first (order 1), mockup second (order 2) */
+.project-card .card-content {
+  order: 1;
 }
 
+.project-card .card-mockup {
+  order: 2;
+}
+
+/* LTR (English): Reversed - mockup first (order 1), content second (order 2) */
 .project-card.reversed .card-mockup {
   order: 1;
 }
@@ -18,14 +24,20 @@
   order: 2;
 }
 
+/* RTL (Arabic): Default order - mockup first (order 1), content second (order 2) */
 :host-context([dir='rtl']) .project-card {
   direction: rtl;
 }
 
-:host-context([dir='rtl']) .project-card.reversed {
-  direction: rtl;
+:host-context([dir='rtl']) .project-card .card-content {
+  order: 2;
 }
 
+:host-context([dir='rtl']) .project-card .card-mockup {
+  order: 1;
+}
+
+/* RTL (Arabic): Reversed - content first (order 1), mockup second (order 2) */
 :host-context([dir='rtl']) .project-card.reversed .card-mockup {
   order: 2;
 }
