@@ -24,46 +24,58 @@
   </app-container>
 </section>
 
-<app-section [variant]="'light'">
+<app-section [variant]="'light'" [withGradients]="true" [gradientVariant]="'right'">
+  <!-- Gradient Definition for Icons -->
+  <svg width="0" height="0" class="absolute">
+    <defs>
+      <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#025B44" />
+        <stop offset="100%" stop-color="#176DB5" />
+      </linearGradient>
+    </defs>
+  </svg>
   <app-container>
-    <!-- Services Grid - 2 columns -->
+    <!-- Services Grid - Glass Cards -->
     <div class="services-grid">
       @for (service of services; track service.id) {
-        <div class="service-card-new">
-          <!-- Icon -->
-          <div class="service-icon-container">
-            <fa-icon [icon]="getIcon(service.icon)" class="service-icon"></fa-icon>
-          </div>
-
-          <!-- Title -->
-          <h3 class="service-title">{{ getServiceTitle(service) }}</h3>
-
-          <!-- Description -->
-          <p class="service-description">{{ getServiceDescription(service) }}</p>
-
-          <!-- Features List -->
-          <ul class="features-list">
-            @for (feature of service.features; track $index) {
-              <li class="feature-item">
-                <fa-icon [icon]="faCheck" class="feature-check"></fa-icon>
-                <span>{{ getFeatureText(feature) }}</span>
-              </li>
-            }
-          </ul>
-
-          <!-- Tags -->
-          @if (service.tags && service.tags.length > 0) {
-            <div class="tags-container">
-              @for (tag of service.tags; track tag.label) {
-                <span class="tag">
-                  @if (getTagIcon(tag)) {
-                    <fa-icon [icon]="getTagIcon(tag)!" class="tag-icon"></fa-icon>
-                  }
-                  {{ tag.label }}
-                </span>
-              }
+        <div class="service-card group">
+          <!-- Glass Card Container -->
+          <div class="card-inner">
+            <!-- Icon -->
+            <div class="service-icon-container">
+              <fa-icon [icon]="getIcon(service.icon)" class="service-icon"></fa-icon>
             </div>
-          }
+
+            <!-- Title -->
+            <h3 class="service-title">{{ getServiceTitle(service) }}</h3>
+
+            <!-- Description -->
+            <p class="service-description">{{ getServiceDescription(service) }}</p>
+
+            <!-- Features List -->
+            <ul class="features-list">
+              @for (feature of service.features; track $index) {
+                <li class="feature-item">
+                  <fa-icon [icon]="faCheck" class="feature-check"></fa-icon>
+                  <span>{{ getFeatureText(feature) }}</span>
+                </li>
+              }
+            </ul>
+
+            <!-- Tags -->
+            @if (service.tags && service.tags.length > 0) {
+              <div class="tags-container">
+                @for (tag of service.tags; track tag.label) {
+                  <span class="tag">
+                    @if (getTagIcon(tag)) {
+                      <fa-icon [icon]="getTagIcon(tag)!" class="tag-icon"></fa-icon>
+                    }
+                    {{ tag.label }}
+                  </span>
+                }
+              </div>
+            }
+          </div>
         </div>
       }
     </div>
@@ -73,12 +85,12 @@
 <!-- How We Deliver Excellence Section -->
 <app-section [variant]="'light'" class="process-section">
   <app-container>
-    <!-- Header -->
-    <div class="text-center mb-12">
-      <h2 class="text-3xl lg:text-4xl font-bold text-adwat-dark-green mb-4">
+    <!-- Section Header -->
+    <div class="section-header">
+      <h2 class="section-title">
         {{ content.processHeading[currentLang()] }}
       </h2>
-      <p class="text-lg text-adwat-dark-green/70 max-w-3xl mx-auto">
+      <p class="section-description mx-auto">
         {{ content.processSubtitle[currentLang()] }}
       </p>
     </div>
@@ -99,27 +111,30 @@
     <!-- Process Cards Grid -->
     <div class="process-grid">
       @for (phase of processPhases; track phase.number) {
-        <div class="process-card-new">
-          <!-- Icon -->
-          <div class="process-icon-new">
-            <fa-icon [icon]="getIcon(phase.icon)" class="process-icon-fa"></fa-icon>
+        <div class="process-card">
+          <!-- Glass Card Container -->
+          <div class="process-card-inner">
+            <!-- Icon -->
+            <div class="process-icon-container">
+              <fa-icon [icon]="getIcon(phase.icon)" class="process-icon"></fa-icon>
+            </div>
+
+            <!-- Title -->
+            <h3 class="process-title">{{ phase.title[currentLang()] }}</h3>
+
+            <!-- Description -->
+            <p class="process-description">{{ phase.description[currentLang()] }}</p>
+
+            <!-- Features List -->
+            <ul class="process-features">
+              @for (feature of phase.features; track $index) {
+                <li class="process-feature-item">
+                  <fa-icon [icon]="faCheck" class="process-feature-check"></fa-icon>
+                  <span>{{ getProcessFeatureText(feature) }}</span>
+                </li>
+              }
+            </ul>
           </div>
-
-          <!-- Title -->
-          <h3 class="process-title">{{ phase.title[currentLang()] }}</h3>
-
-          <!-- Description -->
-          <p class="process-description">{{ phase.description[currentLang()] }}</p>
-
-          <!-- Features List -->
-          <ul class="process-features">
-            @for (feature of phase.features; track $index) {
-              <li class="process-feature-item">
-                <fa-icon [icon]="faCheck" class="process-feature-check"></fa-icon>
-                <span>{{ getProcessFeatureText(feature) }}</span>
-              </li>
-            }
-          </ul>
         </div>
       }
     </div>
@@ -127,12 +142,15 @@
 </app-section>
 
 <!-- Final CTA Section -->
-<app-section [variant]="'dark'" class="cta-section">
+<app-section [variant]="'dark'" class="cta-section cta-gradient">
   <app-container>
-    <div class="text-center">
+    <div class="cta-content text-center py-8">
       <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">
         {{ content.ctaHeading[currentLang()] }}
       </h2>
+      <p class="text-white/80 text-lg max-w-2xl mx-auto mb-8">
+        {{ content.subtitle[currentLang()] }}
+      </p>
       <app-button [variant]="'primary'" [routerLink]="'/contact'">
         {{ content.ctaButton[currentLang()] }}
       </app-button>
