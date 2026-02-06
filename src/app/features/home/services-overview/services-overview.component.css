@@ -12,8 +12,8 @@
   height: 260px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  justify-content: flex-end;
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
   border: 1px solid rgba(255, 255, 255, 0.5);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
   position: relative;
@@ -32,37 +32,71 @@
     rgba(26, 74, 115, 0.12) 100%
   );
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.5s ease;
   z-index: 0;
   border-radius: 20px;
 }
 
-.service-card:hover .card-inner::before {
+.service-card:hover .card-inner::before,
+.service-description-visible-card .card-inner::before {
   opacity: 1;
 }
 
-.service-card:hover .card-inner {
+.service-card:hover .card-inner,
+.service-description-visible-card .card-inner {
   border-color: rgba(26, 74, 115, 0.4);
   box-shadow: 0 8px 32px rgba(10, 22, 40, 0.15);
 }
 
-/* Icon - Top Left */
+/* Icon - Initially large and centered above title */
 .card-icon {
-  font-size: 1.5rem; /* Adjust base size if needed, though text-3xl controls it */
-  display: inline-block;
-  color: #0d7377; /* Site blue color */
-  transition:
-    transform 0.3s ease,
-    color 0.3s ease;
-  position: relative;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0d7377;
   z-index: 1;
-  align-self: flex-start;
-  margin-bottom: 1rem; /* Add some spacing since padding is gone */
+  will-change: top, right, transform, font-size, color;
+
+  /* Smooth spring-like transition */
+  transition:
+    top 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+    right 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+    transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+    font-size 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.4s ease;
+
+  /* Initial state: centered above content - use right positioning for consistent animation */
+  top: 35%;
+  right: 50%;
+  transform: translateX(50%);
+  font-size: 3rem;
 }
 
-.service-card:hover .card-icon {
-  transform: scale(1.1);
+.card-icon fa-icon {
+  font-size: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: inherit;
+}
+
+/* On hover: move to top-right corner and shrink */
+.service-card:hover .card-icon,
+.service-description-visible-card .card-icon {
+  top: 1.5rem;
+  right: 1.5rem;
+  transform: translateX(0);
+  font-size: 1.5rem;
   color: #1a4a73;
+}
+
+/* RTL support for hover position */
+[dir='rtl'] .service-card:hover .card-icon,
+[dir='rtl'] .service-description-visible-card .card-icon {
+  right: auto;
+  left: 1.5rem;
+  transform: translateX(0);
 }
 
 /* Icon gradient fill on hover - applied via global styles or encapsulation none */
@@ -74,6 +108,13 @@
   z-index: 1;
   display: flex;
   flex-direction: column;
+  text-align: center;
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.service-card:hover .card-content,
+.service-description-visible-card .card-content {
+  text-align: start;
 }
 
 /* Title */
@@ -82,10 +123,11 @@
   font-weight: 600;
   color: #1e293b;
   line-height: 1.3;
-  transition: color 0.3s ease;
+  transition: color 0.4s ease;
 }
 
-.service-card:hover .card-title {
+.service-card:hover .card-title,
+.service-description-visible-card .card-title {
   color: #0a1628;
 }
 
@@ -94,7 +136,10 @@
   max-height: 0;
   opacity: 0;
   overflow: hidden;
-  transition: all 0.4s ease;
+  transition:
+    max-height 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.4s ease,
+    margin-top 0.5s ease;
   margin-top: 0;
 }
 
@@ -103,21 +148,13 @@
   color: #64748b;
   line-height: 1.5;
   margin-top: 0.5rem;
+  text-align: start;
 }
 
-.service-card:hover .card-description {
+.service-card:hover .card-description,
+.service-description-visible-card .card-description {
   max-height: 80px;
   opacity: 1;
-}
-
-/* Mobile: Show description on scroll */
-.service-description-visible-card .card-description {
-  max-height: 80px !important;
-  opacity: 1 !important;
-}
-
-.service-description-visible-card .card-inner::before {
-  opacity: 1 !important;
 }
 
 /* Responsive */
@@ -128,8 +165,21 @@
   }
 
   .card-icon {
-    font-size: 1.25rem; /* Slightly smaller on mobile */
-    margin-bottom: 0.75rem;
+    font-size: 2.5rem;
+    top: 30%;
+  }
+
+  .service-card:hover .card-icon,
+  .service-description-visible-card .card-icon {
+    font-size: 1.25rem;
+    top: 1.25rem;
+    right: 1.25rem;
+  }
+
+  [dir='rtl'] .service-card:hover .card-icon,
+  [dir='rtl'] .service-description-visible-card .card-icon {
+    right: auto;
+    left: 1.25rem;
   }
 
   .card-title {
