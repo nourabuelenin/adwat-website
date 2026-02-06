@@ -88,7 +88,7 @@ export class ServicesOverviewComponent implements AfterViewInit, OnDestroy {
     const options = {
       root: null,
       rootMargin: '0px',
-      threshold: 0.3, // Trigger when 60% of the card is visible
+      threshold: 0.7, // Trigger when 60% of the card is visible
     };
 
     this.observer = new IntersectionObserver((entries) => {
