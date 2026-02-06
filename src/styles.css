@@ -1,5 +1,5 @@
-/* Fonts are preloaded in index.html for better performance */
-/* Using font-display: swap is handled in the preloaded stylesheet */
+/* Self-hosted Arabic Fonts (Bahij TheSansArabic) */
+@import './fonts.css';
 
 /* Tailwind CSS Directives */
 @tailwind base;

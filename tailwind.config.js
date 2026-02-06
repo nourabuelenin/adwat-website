@@ -33,8 +33,11 @@ module.exports = {
         // English - Montserrat (Professional, Modern)
         'montserrat': ['Montserrat', 'sans-serif'],
         
-        // Arabic - GE SS Two (Clear, Modern, Elegant)
-        'ge-ss-two': ['GE SS Two', 'Noto Sans Arabic', 'sans-serif'],
+        // Arabic - Bahij TheSansArabic (Self-hosted, Premium Arabic Font)
+        'arabic': ['Bahij TheSansArabic', 'Noto Sans Arabic', 'sans-serif'],
+        
+        // Legacy alias (for backward compatibility)
+        'ge-ss-two': ['Bahij TheSansArabic', 'Noto Sans Arabic', 'sans-serif'],
         
         // Fallback fonts
         'sans': ['Montserrat', 'system-ui', 'sans-serif'],

@@ -43,12 +43,14 @@
       media="print"
       onload="this.media = 'all'"
     />
-    <!-- Arabic font - load async to not block initial render -->
+
+    <!-- Preload self-hosted Arabic font for better performance -->
     <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;600;700&display=swap"
-      media="print"
-      onload="this.media = 'all'"
+      rel="preload"
+      href="/assets/fonts/Bahij_TheSansArabic-Plain.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
     />
 
     <!-- Preload hero dashboard image for faster LCP (optimized WebP) -->
