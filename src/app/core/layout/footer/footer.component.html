@@ -5,7 +5,7 @@
       <!-- Company Info & Logo -->
       <div class="lg:col-span-2">
         <img
-          src="/assets/images/logo/adwat-logo.png"
+          src="/assets/images/logo/adwat-logo.webp"
           alt="Adwat Information Technology"
           class="h-12 w-auto mb-6"
         />
@@ -29,7 +29,7 @@
             >
               <span class="sr-only">{{ social.name }}</span>
               <!-- Icon placeholder - can be replaced with actual SVG icons -->
-              <span class="text-sm font-bold">{{ social.icon.charAt(0).toUpperCase() }}</span>
+              <fa-icon [icon]="social.icon" class="text-lg"></fa-icon>
             </a>
           }
         </div>

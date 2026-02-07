@@ -53,7 +53,7 @@ export class NewsDetailComponent implements OnInit {
     {
       id: 1,
       slug: 'adwats-magazine-2nd-edition-jan-2026',
-      coverImage: 'assets/images/blogs/jan_blogs.png',
+      coverImage: 'assets/images/blogs/jan_blogs.webp',
       dateLabel: { en: 'January Newsletter • 01 Jan 2026', ar: 'نشرة يناير • 01 يناير 2026' },
       title: { en: "Adwat's Magazine 2nd Edition", ar: 'مجلة أدوات الإصدار الثاني' },
       description: {
@@ -67,10 +67,10 @@ export class NewsDetailComponent implements OnInit {
         ar: 'تغطية تقنية أسبوعية ترصد أهم مستجدات عالم التقنية وتأثيراتها على الأعمال وبيئة الشركات.',
       },
       partners: [
-        'assets/images/blogs/jan news/logos/1.2 3.png',
-        'assets/images/blogs/jan news/logos/1.2 4.png',
-        'assets/images/blogs/jan news/logos/1.2 5.png',
-        'assets/images/blogs/jan news/logos/1.2 6.png',
+        'assets/images/blogs/jan news/logos/1.2 3.webp',
+        'assets/images/blogs/jan news/logos/1.2 4.webp',
+        'assets/images/blogs/jan news/logos/1.2 5.webp',
+        'assets/images/blogs/jan news/logos/1.2 6.webp',
       ],
       articles: [
         {
@@ -93,7 +93,7 @@ export class NewsDetailComponent implements OnInit {
               'يتطلب من الشركات بناء أنظمة قابلة للدمج مع تقنيات الذكاء الاصطناعي منذ البداية.',
             ],
           },
-          image: 'assets/images/blogs/jan news/ai.png',
+          image: 'assets/images/blogs/jan news/ai.webp',
           imageCredit: {
             en: 'Image courtesy of Laura Davidson via Unsplash',
             ar: 'الصورة من Laura Davidson عبر Unsplash',
@@ -119,7 +119,7 @@ export class NewsDetailComponent implements OnInit {
               'هذا يجعل تطوير التطبيقات متاحاً للفرق الصغيرة.',
             ],
           },
-          image: 'assets/images/blogs/jan news/xcode.png',
+          image: 'assets/images/blogs/jan news/xcode.webp',
           imageCredit: {
             en: 'Image courtesy of Unsplash',
             ar: 'الصورة من Unsplash',
@@ -145,7 +145,7 @@ export class NewsDetailComponent implements OnInit {
               'يمكن للمؤسسات الآن نشر الذكاء الاصطناعي بثقة في أمان البيانات.',
             ],
           },
-          image: 'assets/images/blogs/jan news/ibm.png',
+          image: 'assets/images/blogs/jan news/ibm.webp',
           imageCredit: {
             en: 'Image courtesy of IBM',
             ar: 'الصورة من IBM',
@@ -171,7 +171,7 @@ export class NewsDetailComponent implements OnInit {
               'هذا يعالج المخاوف المتزايدة بشأن سيادة البيانات في المنطقة.',
             ],
           },
-          image: 'assets/images/blogs/jan news/amazon.png',
+          image: 'assets/images/blogs/jan news/amazon.webp',
           imageCredit: {
             en: 'Image courtesy of Amazon Web Services',
             ar: 'الصورة من Amazon Web Services',
@@ -186,7 +186,7 @@ export class NewsDetailComponent implements OnInit {
     {
       id: 2,
       slug: 'adwats-magazine-1st-edition-dec-2025',
-      coverImage: 'assets/images/blogs/jan_blogs.png',
+      coverImage: 'assets/images/blogs/jan_blogs.webp',
       dateLabel: { en: 'December Newsletter • 01 Dec 2025', ar: 'نشرة ديسمبر • 01 ديسمبر 2025' },
       title: { en: "Adwat's Magazine 1st Edition", ar: 'مجلة أدوات الإصدار الأول' },
       description: {
@@ -200,9 +200,9 @@ export class NewsDetailComponent implements OnInit {
         ar: 'تغطية تقنية أسبوعية ترصد أهم مستجدات عالم التقنية.',
       },
       partners: [
-        'assets/images/partners/ibm.png',
-        'assets/images/partners/darktrace.png',
-        'assets/images/partners/servicenow.png',
+        'assets/images/partners/ibm.webp',
+        'assets/images/partners/darktrace.webp',
+        'assets/images/partners/servicenow.webp',
       ],
       articles: [
         {

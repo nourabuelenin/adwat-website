@@ -4,6 +4,13 @@ import { RouterModule } from '@angular/router';
 import { TranslationService } from '../../../core/services/translation.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faMapMarkerAlt, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import {
+  faFacebook,
+  faXTwitter,
+  faLinkedin,
+  faInstagram,
+  faYoutube,
+} from '@fortawesome/free-brands-svg-icons';
 
 interface FooterLink {
   label: { en: string; ar: string };
@@ -96,9 +103,19 @@ export class FooterComponent {
   };
 
   socialLinks = [
-    { name: 'LinkedIn', url: 'https://linkedin.com/company/adwat', icon: 'linkedin' },
-    { name: 'Twitter', url: 'https://twitter.com/adwat', icon: 'twitter' },
-    { name: 'Facebook', url: 'https://facebook.com/adwat', icon: 'facebook' },
+    {
+      name: 'LinkedIn',
+      url: 'https://www.linkedin.com/company/adwat/posts/?feedView=all',
+      icon: faLinkedin,
+    },
+    { name: 'X', url: 'https://x.com/TechnologyAdwat', icon: faXTwitter },
+    { name: 'Facebook', url: 'https://www.facebook.com/AdwatIT', icon: faFacebook },
+    { name: 'Instagram', url: 'https://www.instagram.com/adwat.info.tech/', icon: faInstagram },
+    {
+      name: 'Youtube',
+      url: 'https://www.youtube.com/channel/UCgmTL_KXb9n8UgpQDMfFBlA',
+      icon: faYoutube,
+    },
   ];
 
   getSectionTitle(section: FooterSection): string {

@@ -23,13 +23,12 @@ export class ProjectsComponent {
 
   // Map project IDs to logo file names
   private logoMap: { [key: string]: string } = {
-    'traffic-monitoring': 'traffic-monitoring-logo.png',
-    'advanced-monitoring': 'moh-logo.png',
-    'construction-management': 'construction-mgmt-logo.png',
-    'e-next': 'e-next-logo.png',
-    'go-care-beauty': 'go-care-logo.png',
-    'go-care-healthcare': 'go-care-admin-logo.png',
-    'education-platform': 'education-platform-logo.png',
+    'traffic-monitoring': 'traffic-monitoring-logo.webp',
+    'advanced-monitoring': 'moh-logo.webp',
+    'construction-management': 'construction-mgmt-logo.webp',
+    'e-next': 'e-next-logo.webp',
+    'go-care-beauty': 'go-care-logo.webp',
+    'go-care-healthcare': 'go-care-admin-logo.webp',
   };
 
   content = {
@@ -71,7 +70,7 @@ export class ProjectsComponent {
     const logoFileName = this.logoMap[projectId];
     return logoFileName
       ? `/assets/images/projects/${logoFileName}`
-      : '/assets/images/projects/default-logo.png';
+      : '/assets/images/projects/default-logo.webp';
   }
 
   onLearnMore(projectId: string): void {

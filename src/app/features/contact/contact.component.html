@@ -35,6 +35,25 @@
             content.bookCall.button[currentLang()]
           }}</app-button>
         </div>
+
+        <!-- Social Links -->
+        <div class="social-links-section mt-8">
+          <h3 class="social-title text-xl font-bold mb-4 text-adwat-dark-green">
+            {{ currentLang() === 'en' ? 'Follow Us' : 'تابعنا' }}
+          </h3>
+          <div class="flex gap-4">
+            @for (social of socialLinks; track social.name) {
+              <a
+                [href]="social.url"
+                target="_blank"
+                class="w-10 h-10 rounded-full bg-adwat-dark-green/10 hover:bg-primary hover:text-white text-adwat-dark-green transition-all duration-300 flex items-center justify-center"
+                [attr.aria-label]="social.name"
+              >
+                <fa-icon [icon]="social.icon" class="text-xl"></fa-icon>
+              </a>
+            }
+          </div>
+        </div>
       </div>
 
       <!-- Right Column - Form -->

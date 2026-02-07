@@ -17,6 +17,6 @@ export class BannerComponenet {
   // Computed property that returns the correct banner based on language
   bannerImage = computed(() => {
     const lang = this.translationService.currentLang();
-    return lang === 'ar' ? 'assets/images/banner-ar.png' : 'assets/images/banner-en.png';
+    return lang === 'ar' ? 'assets/images/banner-ar.webp' : 'assets/images/banner-en.webp';
   });
 }

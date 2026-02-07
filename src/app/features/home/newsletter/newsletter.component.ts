@@ -34,7 +34,7 @@ export class NewsletterComponent {
   newsletters: Newsletter[] = [
     {
       id: 1,
-      coverImage: 'assets/images/blogs/jan_blogs.png',
+      coverImage: 'assets/images/blogs/jan_blogs.webp',
       dateLabel: { en: 'January Newsletter • 01 Jan 2026', ar: 'نشرة يناير • 01 يناير 2026' },
       title: { en: "Adwat's Magazine 2nd Edition", ar: 'مجلة أدوات الإصدار الثاني' },
       description: {
@@ -48,7 +48,7 @@ export class NewsletterComponent {
     },
     {
       id: 2,
-      coverImage: 'assets/images/blogs/jan_blogs.png',
+      coverImage: 'assets/images/blogs/jan_blogs.webp',
       dateLabel: { en: 'January Newsletter • 01 Jan 2026', ar: 'نشرة يناير • 01 يناير 2026' },
       title: { en: "Adwat's Magazine 2nd Edition", ar: 'مجلة أدوات الإصدار الثاني' },
       description: {

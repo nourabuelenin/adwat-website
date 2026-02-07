@@ -6,11 +6,26 @@ import { SectionComponent } from '../../shared/components/section/section.compon
 import { ButtonComponent } from '../../shared/components/button/button.component';
 import { TranslationService } from '../../core/services/translation.service';
 import { EmailService, ContactFormData } from '../../services/email';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {
+  faFacebook,
+  faXTwitter,
+  faLinkedin,
+  faInstagram,
+  faYoutube,
+} from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, FormsModule, ContainerComponent, SectionComponent, ButtonComponent],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ContainerComponent,
+    SectionComponent,
+    ButtonComponent,
+    FontAwesomeModule,
+  ],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css'],
 })
@@ -18,6 +33,22 @@ export class ContactComponent {
   private translationService = inject(TranslationService);
   private emailService = inject(EmailService);
   currentLang = this.translationService.currentLang;
+
+  socialLinks = [
+    {
+      name: 'LinkedIn',
+      url: 'https://www.linkedin.com/company/adwat/posts/?feedView=all',
+      icon: faLinkedin,
+    },
+    { name: 'X', url: 'https://x.com/TechnologyAdwat', icon: faXTwitter },
+    { name: 'Facebook', url: 'https://www.facebook.com/AdwatIT', icon: faFacebook },
+    { name: 'Instagram', url: 'https://www.instagram.com/adwat.info.tech/', icon: faInstagram },
+    {
+      name: 'Youtube',
+      url: 'https://www.youtube.com/channel/UCgmTL_KXb9n8UgpQDMfFBlA',
+      icon: faYoutube,
+    },
+  ];
 
   // Form state
   isSubmitting = false;

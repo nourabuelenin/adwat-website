@@ -18,7 +18,7 @@ export const PROJECTS_DATA: Project[] = [
     year: 2024,
     tags: ['Software Development', 'AI Training', 'Navigation'],
     featured: true,
-    image: 'assets/images/projects/RSD.png',
+    image: 'assets/images/projects/RSD.webp',
     details: {
       about: {
         en: 'A Smart And Integrated System Developed In Collaboration With Riyadh Municipality To Improve Road Safety And Reduce Accident Rates Through Predictive Analytics And Real-Time Monitoring.\n\nThis Advanced System Leverages Artificial Intelligence And Big Data Analytics To Provide Comprehensive Traffic Safety Management For Urban Environments.',
@@ -95,7 +95,7 @@ export const PROJECTS_DATA: Project[] = [
     year: 2024,
     tags: ['Healthcare', 'Monitoring', 'Government', 'Analytics'],
     featured: true,
-    image: 'assets/images/projects/TASM.png',
+    image: 'assets/images/projects/TASM.webp',
     details: {
       about: {
         en: 'This comprehensive healthcare monitoring platform provides unified oversight of hospital operations, patient care quality, and resource management across the healthcare network.',
@@ -172,7 +172,7 @@ export const PROJECTS_DATA: Project[] = [
     year: 2024,
     tags: ['Construction', 'Project Management', 'Enterprise', 'ERP'],
     featured: true,
-    image: 'assets/images/projects/czone.png',
+    image: 'assets/images/projects/czone.webp',
     details: {
       about: {
         en: 'This comprehensive ERP solution revolutionizes construction project management by streamlining communication, enhancing collaboration, and optimizing resource allocation across all project stakeholders.',
@@ -325,7 +325,7 @@ export const PROJECTS_DATA: Project[] = [
     year: 2024,
     tags: ['Service', 'Booking', 'Mobile App'],
     featured: true,
-    image: 'assets/images/projects/gocare.png',
+    image: 'assets/images/projects/gocare.webp',
     details: {
       about: {
         en: 'This innovative beauty service platform connects customers with qualified beauty professionals, transforming how beauty and personal care services are discovered and booked.',
@@ -402,7 +402,7 @@ export const PROJECTS_DATA: Project[] = [
     year: 2024,
     tags: ['E-commerce', 'Management', 'Admin Portal'],
     featured: true,
-    image: 'assets/images/projects/admin-dashboard.png',
+    image: 'assets/images/projects/admin-dashboard.webp',
     details: {
       about: {
         en: 'The admin platform provides powerful tools to manage the entire e-commerce ecosystem efficiently.',
