@@ -108,7 +108,7 @@ export class FooterComponent {
       url: 'https://www.linkedin.com/company/adwat/posts/?feedView=all',
       icon: faLinkedin,
     },
-    { name: 'X', url: 'https://x.com/TechnologyAdwat', icon: faXTwitter },
+    { name: 'X', url: 'https://x.com/AdwatIT', icon: faXTwitter },
     { name: 'Facebook', url: 'https://www.facebook.com/AdwatIT', icon: faFacebook },
     { name: 'Instagram', url: 'https://www.instagram.com/adwat.info.tech/', icon: faInstagram },
     {
