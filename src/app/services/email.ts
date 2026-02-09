@@ -45,7 +45,12 @@ export class EmailService {
         reply_to: formData.email,
       };
 
-      const response = await emailjs.send(this.serviceId, this.templateId, templateParams);
+      const response = await emailjs.send(
+        this.serviceId,
+        this.templateId,
+        templateParams,
+        this.publicKey,
+      );
 
       if (response.status === 200) {
         return {
