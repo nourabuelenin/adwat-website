@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ContainerComponent } from '../../shared/components/container/container.component';
@@ -32,6 +32,7 @@ import {
 export class ContactComponent {
   private translationService = inject(TranslationService);
   private emailService = inject(EmailService);
+  private cdr = inject(ChangeDetectorRef);
   currentLang = this.translationService.currentLang;
 
   socialLinks = [
@@ -167,6 +168,7 @@ export class ContactComponent {
       this.errorMessage = this.content.form.errorMessage[this.currentLang()];
     } finally {
       this.isSubmitting = false;
+      this.cdr.detectChanges();
     }
   }
 
