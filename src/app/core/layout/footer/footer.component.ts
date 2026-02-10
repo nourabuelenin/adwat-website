@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { ButtonComponent } from '../../../shared/components/button/button.component';
 import { TranslationService } from '../../../core/services/translation.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faMapMarkerAlt, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
@@ -25,7 +26,7 @@ interface FooterSection {
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [CommonModule, RouterModule, FontAwesomeModule],
+  imports: [CommonModule, RouterModule, FontAwesomeModule, ButtonComponent],
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css'],
 })

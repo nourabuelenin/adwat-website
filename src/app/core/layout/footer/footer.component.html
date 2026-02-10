@@ -82,12 +82,23 @@
               {{ contactInfo.ksa.email }}
             </a>
           </p>
+          <!-- Book a Call Section -->
+          <div class="book-call-section">
+            <p class="book-call-text">
+              {{
+                currentLang() === 'en' ? 'Want To Book An Exact Time?' : 'هل تريد حجز موعد محدد؟'
+              }}
+            </p>
+            <app-button [variant]="'secondary'" [routerLink]="'/contact'">
+              {{ currentLang() === 'en' ? 'Book A Free Call' : 'احجز مكالمة مجانية' }}
+            </app-button>
+          </div>
         </div>
       </div>
 
       <!-- Map -->
-      <div class="map-container">
-        <div class="rounded-lg overflow-hidden h-40 lg:h-48">
+      <div class="map-container lg:col-span-2">
+        <div class="rounded-lg overflow-hidden h-full min-h-[12rem]">
           <iframe
             src="https://www.openstreetmap.org/export/embed.html?bbox=46.5%2C24.6%2C46.9%2C24.8&layer=mapnik&marker=24.7136%2C46.6753"
             class="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-300"
@@ -113,8 +124,7 @@
         </p>
         <div class="flex items-center gap-6 text-sm">
           <span class="text-white/60">
-            {{ currentLang() === 'en' ? 'Made with' : 'صنع بـ' }}
-            <span class="text-red-400">♥</span>
+            {{ currentLang() === 'en' ? 'Made ' : 'صنع ' }}
             {{ currentLang() === 'en' ? 'in Saudi Arabia' : 'في المملكة العربية السعودية' }}
           </span>
         </div>
