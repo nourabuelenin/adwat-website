@@ -1,0 +1,236 @@
+/* Page Hero Section - matches contact page */
+.page-hero {
+  position: relative;
+  background: #fff;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 80px;
+  clip-path: inset(0);
+}
+
+.hero-bg-gradients {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+  animation: float 8s ease-in-out infinite;
+}
+
+.gradient-orb-1 {
+  width: 400px;
+  height: 400px;
+  background: rgba(122, 184, 122, 0.4);
+  top: -20%;
+  left: -10%;
+  animation-delay: 0s;
+}
+
+.gradient-orb-2 {
+  width: 350px;
+  height: 350px;
+  background: rgba(74, 174, 255, 0.35);
+  bottom: -20%;
+  right: -5%;
+  animation-delay: 2s;
+}
+
+.gradient-orb-3 {
+  width: 380px;
+  height: 380px;
+  background: rgba(199, 126, 179, 0.35);
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: 4s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -30px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+}
+
+.hero-grid-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.3;
+}
+
+.grid-pattern {
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}
+
+/* Thank You Content */
+.thank-you-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Success Icon */
+.success-icon-wrapper {
+  margin-bottom: 2rem;
+}
+
+.success-icon {
+  width: 100px;
+  height: 100px;
+  color: var(--adwat-dark-green, #0d3d2e);
+}
+
+.circle-fill {
+  stroke-dasharray: 240;
+  stroke-dashoffset: 240;
+  animation: drawCircle 0.8s ease-out 0.2s forwards;
+}
+
+.checkmark {
+  stroke-dasharray: 60;
+  stroke-dashoffset: 60;
+  animation: drawCheck 0.4s ease-out 0.8s forwards;
+}
+
+@keyframes drawCircle {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes drawCheck {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Title */
+.thank-you-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--adwat-dark-green, #0d3d2e);
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
+}
+
+/* Message */
+.thank-you-message {
+  font-size: 1.15rem;
+  color: var(--adwat-dark-green, #0d3d2e);
+  opacity: 0.8;
+  line-height: 1.7;
+  margin: 0 0 2.5rem 0;
+  max-width: 480px;
+}
+
+/* Action Buttons */
+.thank-you-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.action-btn {
+  padding: 0.875rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.primary-btn {
+  background: var(--adwat-dark-green, #0d3d2e);
+  color: #fff;
+}
+
+.primary-btn:hover {
+  background: #0a3025;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(13, 61, 46, 0.3);
+}
+
+.secondary-btn {
+  background: transparent;
+  color: var(--adwat-dark-green, #0d3d2e);
+  border: 2px solid var(--adwat-dark-green, #0d3d2e);
+}
+
+.secondary-btn:hover {
+  background: rgba(13, 61, 46, 0.05);
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .thank-you-title {
+    font-size: 2.25rem;
+  }
+
+  .thank-you-message {
+    font-size: 1rem;
+  }
+
+  .thank-you-content {
+    padding: 3rem 1rem;
+  }
+
+  .thank-you-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .action-btn {
+    text-align: center;
+  }
+}

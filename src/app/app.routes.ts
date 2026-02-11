@@ -62,6 +62,12 @@ export const routes: Routes = [
     title: 'Contact Us - Adwat Information Technology',
   },
   {
+    path: 'thank-you',
+    loadComponent: () =>
+      import('./features/thank-you/thank-you.component').then((m) => m.ThankYouComponent),
+    title: 'Thank You - Adwat Information Technology',
+  },
+  {
     path: '**',
     redirectTo: '',
     pathMatch: 'full',

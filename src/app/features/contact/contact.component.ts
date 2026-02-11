@@ -1,4 +1,5 @@
 import { Component, inject, ChangeDetectorRef } from '@angular/core';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ContainerComponent } from '../../shared/components/container/container.component';
@@ -7,6 +8,7 @@ import { ButtonComponent } from '../../shared/components/button/button.component
 import { TranslationService } from '../../core/services/translation.service';
 import { EmailService, ContactFormData } from '../../services/email';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 import {
   faFacebook,
   faXTwitter,
@@ -18,14 +20,7 @@ import {
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule,
-    ContainerComponent,
-    SectionComponent,
-    ButtonComponent,
-    FontAwesomeModule,
-  ],
+  imports: [CommonModule, FormsModule, ContainerComponent, ButtonComponent, FontAwesomeModule],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css'],
 })
@@ -33,6 +28,7 @@ export class ContactComponent {
   private translationService = inject(TranslationService);
   private emailService = inject(EmailService);
   private cdr = inject(ChangeDetectorRef);
+  private router = inject(Router);
   currentLang = this.translationService.currentLang;
 
   socialLinks = [
@@ -41,7 +37,7 @@ export class ContactComponent {
       url: 'https://www.linkedin.com/company/adwat/posts/?feedView=all',
       icon: faLinkedin,
     },
-    { name: 'X', url: 'https://x.com/TechnologyAdwat', icon: faXTwitter },
+    { name: 'X', url: 'https://x.com/AdwatIT', icon: faXTwitter },
     { name: 'Facebook', url: 'https://www.facebook.com/AdwatIT', icon: faFacebook },
     { name: 'Instagram', url: 'https://www.instagram.com/adwat.info.tech/', icon: faInstagram },
     {
@@ -157,8 +153,10 @@ export class ContactComponent {
       const response = await this.emailService.sendContactForm(this.formData);
 
       if (response.success) {
-        this.submitSuccess = true;
         this.resetForm();
+
+        // Redirect to thank-you page (tracking fires there)
+        this.router.navigate(['/thank-you']);
       } else {
         this.submitError = true;
         this.errorMessage = response.message;

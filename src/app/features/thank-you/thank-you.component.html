@@ -1,0 +1,59 @@
+<section class="page-hero">
+  <!-- Background Effects -->
+  <div class="hero-bg-gradients">
+    <div class="gradient-orb gradient-orb-1"></div>
+    <div class="gradient-orb gradient-orb-2"></div>
+    <div class="gradient-orb gradient-orb-3"></div>
+  </div>
+  <div class="hero-grid-pattern">
+    <div class="grid-pattern"></div>
+  </div>
+
+  <app-container>
+    <div class="thank-you-content">
+      <!-- Success Icon -->
+      <div class="success-icon-wrapper">
+        <svg
+          class="success-icon"
+          viewBox="0 0 80 80"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="40" cy="40" r="38" stroke="currentColor" stroke-width="3" opacity="0.2" />
+          <circle
+            class="circle-fill"
+            cx="40"
+            cy="40"
+            r="38"
+            stroke="currentColor"
+            stroke-width="3"
+          />
+          <path
+            class="checkmark"
+            d="M24 42L34 52L56 30"
+            stroke="currentColor"
+            stroke-width="4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+
+      <!-- Title -->
+      <h1 class="thank-you-title">{{ content.title[currentLang()] }}</h1>
+
+      <!-- Message -->
+      <p class="thank-you-message">{{ content.message[currentLang()] }}</p>
+
+      <!-- Action Buttons -->
+      <div class="thank-you-actions">
+        <a routerLink="/" class="action-btn primary-btn">
+          {{ content.backHome[currentLang()] }}
+        </a>
+        <a routerLink="/contact" class="action-btn secondary-btn">
+          {{ content.contactAgain[currentLang()] }}
+        </a>
+      </div>
+    </div>
+  </app-container>
+</section>
