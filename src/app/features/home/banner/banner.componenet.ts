@@ -7,7 +7,7 @@ import { TranslationService } from '../../../core/services/translation.service';
 
 @Component({
   selector: 'app-banner',
-  imports: [CommonModule, RouterModule, ContainerComponent, SectionComponent],
+  imports: [CommonModule, RouterModule, SectionComponent],
   templateUrl: './banner.componenet.html',
   styleUrl: './banner.componenet.css',
 })
